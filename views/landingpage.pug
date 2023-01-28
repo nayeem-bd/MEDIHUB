@@ -5,6 +5,7 @@ html(lang="en")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title MediHub | #{title}
+        link(rel="icon" type="image/x-icon" href="img/icons/favicon.png")
         link(rel="stylesheet", href="css/style.css")
         link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css")
     body 
@@ -35,28 +36,28 @@ html(lang="en")
             .search-section
                 /// <i id="filtersubmit" class="fa fa-search"></i>
                 .first-box
-                    input(type="text" placeholder="&nbsp &nbsp &nbsp &nbsp Search by Specialty, Hospital name or Doctor’s name...")
+                    input(type="text" placeholder="Search by Specialty, Hospital name or Doctor’s name...")
                 .second-box
-                    input(type="text" placeholder="&nbsp &nbsp &nbsp &nbsp Search location...")
+                    input(type="text" placeholder="Search location...")
                 button
-                    i#searchIcon2.fa.fa-search
+                    img#searchIcon2(src="img/icons/search2.png" alt="")
             p.para You may be looking for
             .type-section
                 .combo
                     p Family Medicine
-                    i.far.fa-times
+                    img(src="img/icons/Cross.png" alt="")
                 .combo
                     p Pediatrics
-                    i.far.fa-times
+                    img(src="img/icons/Cross.png" alt="")
                 .combo
                     p Dhaka Medical
-                    i.far.fa-times
+                    img(src="img/icons/Cross.png" alt="")
                 .combo
                     p Dentist
-                    i.far.fa-times
+                    img(src="img/icons/Cross.png" alt="")
                 .combo
                     p COVID-19
-                    i.far.fa-times
+                    img(src="img/icons/Cross.png" alt="")
         section#mid-container
             p.top-p How it works
             p.mid-p Three steps to complete your health checkup
@@ -162,3 +163,117 @@ html(lang="en")
                     .line4
                         button.view View Profile
                         button.book Book Now
+        section#mid-container
+            p.top-p Hospitals
+            p.mid-p Explore your nearest hospitals
+            p.bottom-p Book your nearest available doctors
+            .checkup-combo
+                .hospital
+                    img(src="img/hospital/hospital1.jpg" alt="")
+                    p.head Shishu Hospital
+                    p.desc Agrabad
+                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
+                .hospital
+                    img(src="img/hospital/hospital2.jpg" alt="")
+                    p.head Bandar Hospital
+                    p.desc Bandar
+                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
+                .hospital
+                    img(src="img/hospital/hospital3.jpg" alt="")
+                    p.head halishahor hospital
+                    p.desc Halishahor
+                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
+                .hospital
+                    img(src="img/hospital/hospital4.jpg" alt="")
+                    p.head Agrbad Medical
+                    p.desc Agrabad
+                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
+        
+        section#mid-container
+            p.top-p Hospital Registration
+            p.mid-p Register now to get a fully functional #[br] ecosystem for your hospital
+            p.bottom-p Register for free and manage your hospital functionality with a smooth and meaningful experience
+            .checkup-combo
+                .subscription
+                    img(src="img/icons/set.png" alt="")
+                    p.desc Set up your hospital details and pay monthly subscription fee.
+                .subscription
+                    img(src="img/icons/tell.png" alt="")
+                    p.desc Tell the doctors to register themselves under your hospital.
+                .subscription
+                    img(src="img/icons/manage.png" alt="")
+                    p.desc Manage your patients details individually by a patient profile.
+
+        section#mid-container
+            p.top-p Blogs
+            p.mid-p Our Recent Blogs
+            p.bottom-p Get more knowledge about your health from our blogs.
+            .checkup-combo
+                .blog-left
+                    .left-top
+                        img(src="img/food.jpg" alt="")
+                        div
+                            time November 16, 2022
+                            h4 Choose Your Diet Correctly
+                            p Eating a wide variety of nutritious foods, including fruit, vegetables, nuts, seeds, and lean protein can help support your overall health.
+                            button.btn1 Diet
+                    .left-top
+                        img(src="img/teeth.jpg" alt="")
+                        div
+                            time September 24, 2022
+                            h4 See The Dentist
+                            p The best practices for healthy teeth and gums include regular brushing, flossing, and avoiding certain types of food and beverage.
+                            button.btn1 Teeth
+                            button.btn2 Health
+                .blog-right
+                    img(src="img/body.jpg" alt="")
+                    br
+                    time March 13, 2022
+                    h2 Three Ways To Keep Your Body Healthy
+                    p A healthy body is maintained by good nutrition, regular exercise, avoiding harmful habits, making informed and responsible decisions about health, and seeking medical assistance when necessary.
+                    button.btn2 Health
+                    button.btn1 Fitness
+        footer#footer
+            section.footer-top
+                .left-top
+                    img(src="img/icons/logo.png" alt="")
+                    p Top healthcare experience to gather from #[br]the top hospitals and doctors near you.
+                    br
+                    .storeIcon
+                        img(src="img/footer/App Store Button.png" alt="")
+                        img(src="img/footer/App Store Button_2.png" alt="")
+                div
+                    h5 Product
+                    p Overview
+                    p Features
+                    p Solutions
+                    p Tutorials
+                    p Pricing
+                div
+                    h5 Company
+                    p About us
+                    p Careers
+                div
+                    h5 Legal
+                    p Privacy
+                    p Cookies
+                    p Contact
+                div
+                    h5 Contact Us
+                    p Phone: 01725028366
+                    p Phone: 01912986866
+                    p medihub@gmail.com
+                    p mhsupport@gmail.com
+            hr
+            section.footer-bottom
+                h5 &copy; 2023 MediHUB. All rights reserved.
+                div
+                    img(src="img/footer/GooglePay.png" alt="")
+                    img(src="img/footer/Visa.png" alt="")
+                    img(src="img/footer/Mastercard.png" alt="")
+                    img(src="img/footer/PayPal.png" alt="")
+                div
+                    img(src="img/footer/Social icon_1.png" alt="")
+                    img(src="img/footer/Social icon_2.png" alt="")
+                    img(src="img/footer/Social icon_3.png" alt="")
+                </div>
