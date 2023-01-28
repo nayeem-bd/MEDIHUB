@@ -18,7 +18,26 @@
         </div>
         <div class="right-content">
             <h1>Sign In</h1>
-            <h4><span>New Here? </span><a href="signUp.html">Create an Account</a> </h4>
+            <h4><span>Already have an account? </span><a href="signIn.html">Sign In</a> </h4>
+            <div id="select-content">
+                <label for="email">Who are you?</label><br>
+                <select name="list" class="select">
+                    <option value="">Doctor</option>
+                    <option value="">Patient</option>
+                    <option value="">Receptionist</option>
+                    <option value="">Administration</option>
+                </select>
+            </div>
+            <div class="name">
+                <div class="input">
+                    <label for="email">First Name</label><br>
+                    <input style="width: 198px;" type="email" name="" id="">
+                </div>
+                <div class="input">
+                    <label for="email">Last Name</label><br>
+                    <input  style="width: 198px; margin-right: 200px;" type="email" name="" id="">
+                </div>
+            </div>
             <div class="input">
                 <label for="email">Email</label><br>
                 <input type="email" name="" id="">
@@ -27,7 +46,10 @@
                 <label for="password">Password</label><br>
                 <input type="password" name="" id="">
             </div>
-            <p class="forget">Forget Password</p>
+            <div class="input">
+                <label for="password">Confirm Password</label><br>
+                <input type="password" name="" id="">
+            </div>
             <div class="button">
                 <button class="signbtn">Sign In</button>
                 <button class="google-sign"><img src="images/icons/google-icon 1.png" alt="">
