@@ -13,9 +13,13 @@ const compression = require('compression');
 const userRouter = require('./routes/userRouter');
 const globalErrorHandler = require('./controller/errorController');
 const AppError = require('./utils/appError');
+const viewRouter =  require('./routes/viewRouter');
 
 const app = express();
 app.enable('trust proxy');
+
+app.set('view engine','pug');
+app.set('views',path.join(__dirname,'views'));
 
 
 //global middleware
@@ -70,7 +74,7 @@ app.use((req,res,next)=>{
 });
 
 //Routes
-
+app.use('/',viewRouter);
 app.use('/api/v1/users',userRouter);
 
 app.use('*',(req,res,next)=>{
