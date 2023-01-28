@@ -191,7 +191,7 @@ input {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    background-color: #EDFAFF;
+    background-color: #F3F6FD;
     background-image: url('images/icons/search1.png');
     background-position: 13px 13px; 
     background-repeat: no-repeat;
@@ -210,7 +210,7 @@ input {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    background-color: #EDFAFF;
+    background-color: #F3F6FD ;
     background-image: url('images/icons/location.png');
     background-position: 13px 12px; 
     background-repeat: no-repeat;
@@ -259,7 +259,7 @@ input {
     height: 40px;
     left: 52px;
     margin-top: 60px;
-    background: #F3F6FD;
+    background: #EAF9FF;
     border-radius: 8px;
 }
 
@@ -271,7 +271,7 @@ input {
 
 .type-section .combo p {
     padding-left: 3px;
-    padding-right: 10px;
+    padding-right: 8px;
     color: #22385E;
 }
 
