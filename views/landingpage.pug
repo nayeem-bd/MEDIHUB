@@ -1,0 +1,164 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title MediHub | #{title}
+        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css")
+    body 
+        section#header  
+            a(href="/") 
+                img(src="img/icons/logo.png", alt="logo")
+            nav
+                ul#navbar
+                    /// <li><a class="active" href="landing.html">Home</a></li>
+                    li: a(href="hospitalReg.html") Hospital Registration
+                    li: a(href="doctors.html") Doctors
+                    li: a(href="hospitals.html") Hospitals
+                    li: a(href="blogs.html") Blogs
+                    li: a(href="about.html") About Us
+                    /// <a href="#" id="close"><i class="far fa-times"></i></a> 
+            .sign-in
+                a(href="signIn.html") Sign In
+                button.create-button Create Free Account
+            /// <i id="mobile" class="fas fa-outdent"></i>
+
+        section#hero
+            img(src="img/left1.png" alt="")
+            div
+                p Book Your #[span(style="color: #7F56D9;") Next Doctors] Appointment                   
+            img(src="img/right1.png" alt="")
+        
+        section#search-container
+            .search-section
+                /// <i id="filtersubmit" class="fa fa-search"></i>
+                .first-box
+                    input(type="text" placeholder="&nbsp &nbsp &nbsp &nbsp Search by Specialty, Hospital name or Doctor’s name...")
+                .second-box
+                    input(type="text" placeholder="&nbsp &nbsp &nbsp &nbsp Search location...")
+                button
+                    i#searchIcon2.fa.fa-search
+            p.para You may be looking for
+            .type-section
+                .combo
+                    p Family Medicine
+                    i.far.fa-times
+                .combo
+                    p Pediatrics
+                    i.far.fa-times
+                .combo
+                    p Dhaka Medical
+                    i.far.fa-times
+                .combo
+                    p Dentist
+                    i.far.fa-times
+                .combo
+                    p COVID-19
+                    i.far.fa-times
+        section#mid-container
+            p.top-p How it works
+            p.mid-p Three steps to complete your health checkup
+            p.bottom-p Follow these steps and complete your health checkup with the best doctors
+            .checkup-combo
+                .checkup
+                    img(src="img/icons/search.png" alt="")
+                    p.head Search Doctors
+                    p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
+                .checkup
+                    img(src="img/icons/book.png" alt="")
+                    p.head Book Appointment
+                    p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
+                .checkup
+                    img(src="img/icons/consult.png" alt="")
+                    p.head Consult With Doctors
+                    p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
+        
+        section#mid-container
+            p.top-p Specialty
+            p.mid-p Book your nearest available doctors by specialty
+            p.bottom-p Book your nearest available doctors
+            .checkup-combo
+                .checkup
+                    img(src="img/speciality/dentist.jpg" alt="")
+                    p.head Dentist
+                    p.desc MEDIHUB provides the most accurate, comprehensive information.
+                .checkup
+                    img(src="img/speciality/internalmedicine.jpg" alt="")
+                    p.head Internal Medicine
+                    p.desc MEDIHUB provides the most accurate, comprehensive information.
+                .checkup
+                    img(src="img/speciality/cardiology.jpg" alt="")
+                    p.head Cardiology
+                    p.desc MEDIHUB provides the most accurate, comprehensive information.
+                .checkup
+                    img(src="img/speciality/orthopedic.jpg" alt="")
+                    p.head Orthopedic
+                    p.desc MEDIHUB provides the most accurate, comprehensive information.
+        
+        section#mid-container
+            p.top-p Doctors
+            p.mid-p Best doctor’s from the best hospitals
+            p.bottom-p Have a look at our best doctors from the registered Hospitals
+            .checkup-combo
+                .checkup
+                    img.img(src="img/doctor/image1.jpg" alt="")
+                    .line1
+                        p.rate Rahiq Ahmed
+                        p 4.9
+                        img(src="img/icons/Star 1.png" alt="")
+                    .line2
+                        p Medicine
+                        p (32)
+                    .line3
+                        img(src="img/icons/hospital.png" alt="")
+                        p Dhaka Medical
+                    .line4
+                        button.view View Profile
+                        button.book Book Now
+                .checkup
+                    img.img(src="img/doctor/image2.jpg" alt="")
+                    .line1
+                        p.rate Nayeem Ahmed
+                        p 4.8
+                        img(src="img/icons/Star 1.png" alt="")
+                    .line2
+                        p Dentist
+                        p (32)
+                    .line3
+                        img(src="img/icons/hospital.png" alt="")
+                        p Rajshahi Medical
+                    .line4
+                        button.view View Profile
+                        button.book Book Now
+                .checkup
+                    img.img(src="img/doctor/image3.jpg" alt="")
+                    .line1
+                        p.rate Jannatul Ritu
+                        p 5.0
+                        img(src="img/icons/Star 1.png" alt="")
+                    .line2
+                        p Orthopedic
+                        p (32)
+                    .line3
+                        img(src="img/icons/hospital.png" alt="")
+                        p Faridpur Medical
+                    .line4
+                        button.view View Profile
+                        button.book Book Now
+                .checkup
+                    img.img(src="img/doctor/image4.jpg" alt="")
+                    .line1
+                        p.rate Prio ATM
+                        p 4.9
+                        img(src="img/icons/Star 1.png" alt="")
+                    .line2
+                        p Cardiologist
+                        p (32)
+                    .line3
+                        img(src="img/icons/hospital.png" alt="")
+                        p Bogura Medical
+                    .line4
+                        button.view View Profile
+                        button.book Book Now

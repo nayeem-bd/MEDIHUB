@@ -1,7 +1,7 @@
 
 
 exports.landingpage=async(req,res,next)=>{
-    res.status(200).json({
-        status:'success'
-    })
+    res.status(200).render('landingpage',{
+        title:'Medihub'
+    });
 }
