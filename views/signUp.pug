@@ -1,0 +1,57 @@
+doctype html
+html(lang="en")
+
+head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title MEDIHUB | #{title}
+    link(rel="icon" type="image/x-icon" href="img/icons/favicon.png")
+    link(rel="stylesheet" href="css/style.css")
+
+body
+    section#sign-in-container
+        .left-content
+            img.medihub(src="img/icons/groupicon.png" alt="")
+            img(src="img/icons/Group.png" alt="")
+        .right-content
+            h1 Sign Up
+            h4 #[span Already have an account? ]#[a(href="/signin") Sign In]
+            #select-content
+                label(for="email">Who are you?)
+                br
+                select(name="list" class="select")
+                    option(value="") Patient
+                    option(value="") Doctor
+                    option(value="") Receptionist
+                    option(value="") Administration
+            .name
+                .input
+                    label(for="name") First Name
+                    br
+                    input(style="width: 198px;" type="text" name="firstName" id="")
+                .input
+                    label(for="name") Last Name
+                    br
+                    input(style="width: 198px; margin-right: 200px;" type="text" name="lastName" id="")
+            .input
+                label(for="phone") Phone Number
+                br
+                input(type="number" name="phone" id="")
+            .input
+                label(for="password">Password)
+                br
+                input(type="password" name="password" id="")
+            .input
+                label(for="password") Confirm Password 
+                br
+                input(type="password" name="confirmPassword" id="")
+            .button
+                button.signbtn Sign Up
+                button.google-sign 
+                    img(src="img/icons/google-icon 1.png" alt="")
+                    p &nbsp; Sign Up with Google
+            .sign-in-bottom
+                a(href="#") Terms
+                a(href="#") Plans
+                a(href="#") Contact Us
