@@ -201,7 +201,7 @@ input {
     left: 52px;
     margin-top: 30px;
     padding-right: 20px;
-    border: 1px solid #F0F0F0;
+    border: 1px solid #E0E0E2;
     border-radius: 8px;
 }
 
@@ -218,7 +218,7 @@ input {
     width: 247px;
     height: 45px;
     margin-top: 30px;
-    border: 1px solid #F0F0F0;
+    border: 1px solid #E0E0E2;
     border-radius: 8px;
     margin-left: 20px;
 }
@@ -607,7 +607,7 @@ a {
     width: 422px;
     height: 46px;
     background: #F3F6FD;
-    border: 1px solid #E1F0FF;
+    border: 1px solid #E0E0E2;
     border-radius: 8px;
 }
 
