@@ -130,7 +130,7 @@ body{
     position: absolute;
     width: 1500px;
     height: 328px;
-    background: url("images/hero.png");
+    background: url("../img/hero.png");
     background-color: #EDFAFF;
 }
 
