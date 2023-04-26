@@ -1,17 +1,47 @@
+mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName)
+    .checkup
+        img.img(src=`img/doctor/${img_src}` alt="")
+        .line1
+            p.rate= name
+            p= rating
+            img(src="img/icons/Star 1.png" alt="")
+        .line2
+            p= speciality
+            p (32)
+        .line3
+            img(src=`img/icons/${hospitalImg}` alt="")
+            p= hospitalName
+        .line4
+            button.view View Profile
+            button.book Book Now
+
+mixin hospitalCard(hospitalImg,hospitalName,district)
+    .hospital
+        img(src=`img/hospital/${hospitalImg}` alt="hospital")
+        p.head= hospitalName
+        p.desc= district
+        button #[img(src="img/icons/locate.png" alt="")] Get Direction
+
+mixin specialityCard(img_src,speciality,description)
+    .checkup
+        img(src=`img/speciality/${img_src}` alt="")
+        p.head= speciality
+        p.desc= description
+
 doctype html
 html(lang="en")
     head
         meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible", content="IE=edge")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title MediHub | #{title}
         link(rel="icon" type="image/x-icon" href="img/icons/favicon.png")
-        link(rel="stylesheet", href="css/style.css")
+        link(rel="stylesheet" href="css/style.css")
         link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css")
     body 
         section#header  
             a(href="/") 
-                img(src="img/icons/logo.png", alt="logo")
+                img(src="img/icons/logo.png" alt="logo")
             nav
                 ul#navbar
                     /// <li><a class="active" href="landing.html">Home</a></li>
@@ -32,7 +62,7 @@ html(lang="en")
             div
                 p Book Your #[span(style="color: #7F56D9;") Next Doctors] Appointment                   
             img(src="img/right1.png" alt="")
-        
+
         section#search-container
             .search-section
                 /// <i id="filtersubmit" class="fa fa-search"></i>
@@ -76,120 +106,36 @@ html(lang="en")
                     img(src="img/icons/consult.png" alt="")
                     p.head Consult With Doctors
                     p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
-        
+
         section#mid-container
             p.top-p Specialty
             p.mid-p Book your nearest available doctors by specialty
             p.bottom-p Book your nearest available doctors
             .checkup-combo
-                .checkup
-                    img(src="img/speciality/dentist.jpg" alt="")
-                    p.head Dentist
-                    p.desc MEDIHUB provides the most accurate, comprehensive information.
-                .checkup
-                    img(src="img/speciality/internalmedicine.jpg" alt="")
-                    p.head Internal Medicine
-                    p.desc MEDIHUB provides the most accurate, comprehensive information.
-                .checkup
-                    img(src="img/speciality/cardiology.jpg" alt="")
-                    p.head Cardiology
-                    p.desc MEDIHUB provides the most accurate, comprehensive information.
-                .checkup
-                    img(src="img/speciality/orthopedic.jpg" alt="")
-                    p.head Orthopedic
-                    p.desc MEDIHUB provides the most accurate, comprehensive information.
-        
+                +specialityCard('dentist.jpg','Dentist','MEDIHUB provides the most accurate, comprehensive information.')
+                +specialityCard('internalmedicine.jpg','Internal Medicine','MEDIHUB provides the most accurate, comprehensive information.')
+                +specialityCard('cardiology.jpg','Cardiology','MEDIHUB provides the most accurate, comprehensive information.')
+                +specialityCard('orthopedic.jpg','Orthopedic','MEDIHUB provides the most accurate, comprehensive information.')
+
         section#mid-container
             p.top-p Doctors
             p.mid-p Best doctor’s from the best hospitals
             p.bottom-p Have a look at our best doctors from the registered Hospitals
             .checkup-combo
-                .checkup
-                    img.img(src="img/doctor/image1.jpg" alt="")
-                    .line1
-                        p.rate Rahiq Ahmed
-                        p 4.9
-                        img(src="img/icons/Star 1.png" alt="")
-                    .line2
-                        p Medicine
-                        p (32)
-                    .line3
-                        img(src="img/icons/hospital.png" alt="")
-                        p Dhaka Medical
-                    .line4
-                        button.view View Profile
-                        button.book Book Now
-                .checkup
-                    img.img(src="img/doctor/image2.jpg" alt="")
-                    .line1
-                        p.rate Nayeem Ahmed
-                        p 4.8
-                        img(src="img/icons/Star 1.png" alt="")
-                    .line2
-                        p Dentist
-                        p (32)
-                    .line3
-                        img(src="img/icons/hospital.png" alt="")
-                        p Rajshahi Medical
-                    .line4
-                        button.view View Profile
-                        button.book Book Now
-                .checkup
-                    img.img(src="img/doctor/image3.jpg" alt="")
-                    .line1
-                        p.rate Jannatul Ritu
-                        p 5.0
-                        img(src="img/icons/Star 1.png" alt="")
-                    .line2
-                        p Orthopedic
-                        p (32)
-                    .line3
-                        img(src="img/icons/hospital.png" alt="")
-                        p Faridpur Medical
-                    .line4
-                        button.view View Profile
-                        button.book Book Now
-                .checkup
-                    img.img(src="img/doctor/image4.jpg" alt="")
-                    .line1
-                        p.rate Prio ATM
-                        p 4.9
-                        img(src="img/icons/Star 1.png" alt="")
-                    .line2
-                        p Cardiologist
-                        p (32)
-                    .line3
-                        img(src="img/icons/hospital.png" alt="")
-                        p Bogura Medical
-                    .line4
-                        button.view View Profile
-                        button.book Book Now
+                +doctorCard('image1.jpg','Rahiq Ahmed',4.9,'Medicine',32,'hospital.png','Dhaka Medical')
+                +doctorCard('image2.jpg','Nayeem Ahmed',4.8,'Dentist',32,'hospital.png','Rajshahi Medical')
+                +doctorCard('image3.jpg','Jannatul Ritu',5.0,'Orthopedic',32,'hospital.png','Faridpur Medical')
+                +doctorCard('image4.jpg','Prio ATM',4.9,'Cardiologist',32,'hospital.png','Bogura Medical')
         section#mid-container
             p.top-p Hospitals
             p.mid-p Explore your nearest hospitals
             p.bottom-p Book your nearest available doctors
             .checkup-combo
-                .hospital
-                    img(src="img/hospital/hospital1.jpg" alt="")
-                    p.head Shishu Hospital
-                    p.desc Agrabad
-                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
-                .hospital
-                    img(src="img/hospital/hospital2.jpg" alt="")
-                    p.head Bandar Hospital
-                    p.desc Bandar
-                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
-                .hospital
-                    img(src="img/hospital/hospital3.jpg" alt="")
-                    p.head halishahor hospital
-                    p.desc Halishahor
-                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
-                .hospital
-                    img(src="img/hospital/hospital4.jpg" alt="")
-                    p.head Agrbad Medical
-                    p.desc Agrabad
-                    button #[img(src="img/icons/locate.png" alt="")] Get Direction
-        
+                +hospitalCard('hospital1.jpg','Shishu Hospital','Agrabad')
+                +hospitalCard('hospital2.jpg','Bandar Hospital','Bandar')
+                +hospitalCard('hospital3.jpg','Halishahor hospital','Halishahor')
+                +hospitalCard('hospital4.jpg','Agrbad Medical','Agrabad')
+
         section#mid-container
             p.top-p Hospital Registration
             p.mid-p Register now to get a fully functional #[br] ecosystem for your hospital
