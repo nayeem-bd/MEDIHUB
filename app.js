@@ -11,6 +11,7 @@ const hpp = require('hpp');
 const compression = require('compression');
 
 const userRouter = require('./routes/userRouter');
+const hospitalRouter = require('./routes/hospitalRouter');
 const globalErrorHandler = require('./controller/errorController');
 const AppError = require('./utils/appError');
 const viewRouter =  require('./routes/viewRouter');
@@ -76,6 +77,7 @@ app.use((req,res,next)=>{
 //Routes
 app.use('/',viewRouter);
 app.use('/api/v1/users',userRouter);
+app.use('/api/v1/hospitals',hospitalRouter);
 
 app.use('*',(req,res,next)=>{
     next(new AppError(`Can't find ${req.originalUrl} on this server`,404));
