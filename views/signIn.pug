@@ -19,14 +19,14 @@ html(lang="en")
                 .input
                     label(for="phone") Phone Number 
                     br
-                    input(type="number" name="phone" id="")
+                    input(type="number" name="phone" id="phoneId")
                 .input
                     label(for="password") Password
                     br
-                    input(type="password" name="password" id="")
+                    input(type="password" name="password" id="passwordId")
                 a.forget(href="#") Forget Password
                 .button
-                    button.signbtn Sign In
+                    button.signbtn.logInBtn Sign In
                     button.google-sign
                         img(src="img/icons/google-icon 1.png" alt="")
                         p &nbsp; Sign In with Google
@@ -34,3 +34,5 @@ html(lang="en")
                     a(href="#") Terms
                     a(href="#") Plans
                     a(href="#") Contact Us
+
+        script(src='/dist/index.js') 
