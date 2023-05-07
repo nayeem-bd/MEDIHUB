@@ -52,9 +52,14 @@ html(lang="en")
                     li: a(href="about.html") About Us
                     /// <a href="#" id="close"><i class="far fa-times"></i></a> 
             .sign-in
-                a(href="/signin") Sign In
-                button.create-button
-                    a(href='/signup' style="color:white;") Create Free Account
+                if user 
+                    button.logOutBtn Log Out
+                    a(href="/me")
+                        img(src='/img/doctor/image.jpg' alt=`${user.name}`)
+                else
+                    a(href="/signin") Sign In
+                    button.create-button
+                        a(href='/signup' style="color:white;") Create Free Account
             /// <i id="mobile" class="fas fa-outdent"></i>
 
         section#hero
@@ -224,3 +229,4 @@ html(lang="en")
                     img(src="img/footer/Social icon_2.png" alt="")
                     img(src="img/footer/Social icon_3.png" alt="")
                 </div>
+        script(src='/dist/index.js') 
