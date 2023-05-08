@@ -28,7 +28,9 @@ input {
 img:hover{
     cursor: pointer;
     box-shadow: 20px 20px 30px #f1f1f2;
-
+}
+button:hover{
+    cursor: pointer;
 }
 
 .top-p {
@@ -715,7 +717,7 @@ a {
 /* hospitalDetails */
 
 .hospitalDetails{
-    padding: 20px 60px 20px 60px;
+    margin: 20px 60px 0px 60px;
 }
 
 .hospitalDetails .hero{
@@ -815,6 +817,69 @@ a {
     font-weight: 400;
     font-size: 30px;
     padding: 20px;
+}
+
+/* doctor-details */
+
+.doctorDetails{
+    margin: 20px 60px 0px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.doctor{
+    width: 35%;
+}
+.doctor .img{
+    width: 350px;
+    height: 400px;
+}
+.doctor .nameLine{
+    font-size: 25px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.doctor .nameLine2{
+    font-size: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.doctor .name{
+    margin-right: 50px;
+}
+
+.doctorInfo{
+    width: 60%;
+}
+.doctorInfo span{
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+}
+.doctorInfo i{
+    color: #908594;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.space1{
+    margin-right: 15px;
+}
+.appointment{
+    cursor: pointer;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    gap: 8px;
+    color: white;
+    background: #7F56D9;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+    width: 350px;
 }
 
 
