@@ -2,12 +2,23 @@ const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
 const APIFeatures = require('../utils/apiFeatures');
 
-exports.getAll = Model => catchAsync(async(req,res,next)=>{
+exports.getAll = (Model,popOptions) => catchAsync(async(req,res,next)=>{
     //filer review by doctor
     let filter = {};
     if(req.params.doctorId) filter = {doctor:req.params.doctorId};
+    let query;
+    if(Object.keys(filter).length>0){
+        query = Model.find(filter);
+        //console.log('hello');
+    }
+    else{
+        query = Model.find();
+    }
+    if(popOptions){
+        query.populate(popOptions);
+    }
     //execute query
-    const feature = new APIFeatures(Model.find(filter),req.query).filter().sort().limitFields().paginate();
+    const feature = new APIFeatures(query,req.query).filter().sort().limitFields().paginate();
     const doc = await feature.query;
     res.status(200).json({
         status:'success',

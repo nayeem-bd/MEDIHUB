@@ -83,6 +83,12 @@ const userSchema = mongoose.Schema({
   hospital:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Hospital'
+  },
+  rating:{
+    type:Number,
+    min:[0,'Must be greater than zero'],
+    max:[5,'Must be less than five'],
+    default:4.5
   }
 },{
   toJSON:{virtuals:true},
