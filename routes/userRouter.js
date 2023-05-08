@@ -11,6 +11,7 @@ router.get('/logout',authController.logout);
 
 // router.patch('/resetPassword/:token',authController.resetPassword);
 // router.post('/forgotPassword',authController.forgotPassword);
+router.get('/topdoctors',userController.getAllUser);
 
 
 //logged in area

@@ -8,9 +8,9 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
         .line2
             p= speciality
             p (32)
-        .line3
+        .line3(style={'justify-content':'normal'})
             img(src=`img/icons/${hospitalImg}` alt="")
-            p= hospitalName
+            p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
         .line4
             button.view View Profile
             button.book Book Now
@@ -127,10 +127,8 @@ html(lang="en")
             p.mid-p Best doctor’s from the best hospitals
             p.bottom-p Have a look at our best doctors from the registered Hospitals
             .checkup-combo
-                +doctorCard('image1.jpg','Rahiq Ahmed',4.9,'Medicine',32,'hospital.png','Dhaka Medical')
-                +doctorCard('image2.jpg','Nayeem Ahmed',4.8,'Dentist',32,'hospital.png','Rajshahi Medical')
-                +doctorCard('image3.jpg','Jannatul Ritu',5.0,'Orthopedic',32,'hospital.png','Faridpur Medical')
-                +doctorCard('image4.jpg','Prio ATM',4.9,'Cardiologist',32,'hospital.png','Bogura Medical')
+                each doc in doctors 
+                    +doctorCard('image1.jpg',doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name)
         section#mid-container
             p.top-p Hospitals
             p.mid-p Explore your nearest hospitals
