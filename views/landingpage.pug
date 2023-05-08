@@ -53,9 +53,9 @@ html(lang="en")
                     /// <a href="#" id="close"><i class="far fa-times"></i></a> 
             .sign-in
                 if user 
-                    button.logOutBtn Log Out
+                    button.logOutBtn.create-button Log Out
                     a(href="/me")
-                        img(src='/img/doctor/image.jpg' alt=`${user.name}`)
+                        img.signProfile(src='/img/doctor/image.jpg' alt=`${user.name}`)
                 else
                     a(href="/signin") Sign In
                     button.create-button
