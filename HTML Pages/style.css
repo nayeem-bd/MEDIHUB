@@ -25,6 +25,12 @@ input {
     padding-left: 14px;
 }
 
+img:hover{
+    cursor: pointer;
+    box-shadow: 20px 20px 30px #f1f1f2;
+
+}
+
 .top-p {
     font-weight: 800;
     font-size: 16px;
@@ -708,31 +714,107 @@ a {
 
 /* hospitalDetails */
 
+.hospitalDetails{
+    padding: 20px 60px 20px 60px;
+}
+
 .hospitalDetails .hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hospitalDetailsLeft img{
+    width: 550px;
+    height: 300px;
+}
+.hospitalDetailsRight{
+    width: 56%;   
+}
+
+.contact{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contactAddress{
+    margin-left: 20px;
+}
+
+.ambulance{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
-.hospitalDetails .hero img{
-    width: 1200px;
-    height: 300px;
+.ambulance img{
+    margin-right: 20px;
+    width: 250px;
+    height: 130px;
+}
+.emergency{
+    color: red;
 }
 
-.hospitalDetails .hero-consult,.hero-appoint{
-    width: 200px;
-    height: 90px;
-    cursor: pointer;
-    font-weight: 500;
-    box-sizing: border-box;
-    padding: 10px 20px;
-    gap: 8px;
-    color: white;
-    background: #7F56D9;
-    border: 1px solid #7F56D9;
-    border-radius: 8px;
+.history{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px;
+    background-color: #EAF9FF;
+    height: 120px;
+    border-radius: 10px;
 }
-.hero-appoint{
-    margin-top: 7px;
+.history i{
+    margin: 40px;
+    font-size: 20px;
+}
+
+.services h3{
+    margin-top: 80px;
+}
+.serviceNameCombo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.serviceName{
+    text-align: center;
+    width: 220px;
+    height: 190px;
+    margin-right: 30px;
+    border-radius: 5px;
+    border: 1px solid #c4d2d4;
+}
+.serviceName img{
+    margin-top: 10px;
+    width: 100px;
+    height: 90px;
+    border-radius: 50%;
+}
+.serviceName p{
+     font-size: 20px;
+     font-weight: 500;
+}
+
+.history2{
+    text-align: center;
+    margin: 100px 30px 0px 30px;
+    padding: 2px;
+    background-color: #EAF9FF;
+    height: 240px;
+    border-radius: 10px;
+}
+.history2 h2{
+    color: #7F56D9;
+    margin-top: 50px;
+}
+.history2 i{
+    font-weight: 400;
+    font-size: 30px;
+    padding: 20px;
 }
 
 
