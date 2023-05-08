@@ -782,6 +782,9 @@ a {
     margin-top: 40px;
 }
 
+.serviceName:hover{
+    box-shadow: 20px 20px 30px #f1f1f2;
+}
 .serviceName{
     text-align: center;
     width: 220px;
@@ -880,6 +883,40 @@ a {
     border: 1px solid #7F56D9;
     border-radius: 8px;
     width: 350px;
+}
+
+/* Dashboard */
+
+.dashboard{
+    margin: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.left-main{
+    padding: 20px;
+    width: 260px;
+    height: 700px;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+}
+.left-main span{
+    margin-left: 20px;
+    font-weight: 500;
+}
+.left-main i{
+    padding: 30px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.left-main i:hover{
+    cursor: pointer;
+}
+.right-info{
+    width: 1180px;
+    height: 700px;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
 }
 
 
