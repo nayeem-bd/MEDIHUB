@@ -521,6 +521,9 @@ button:hover {
 }
 
 .blog-left img {
+    width: 320px;
+    height: 200px;
+    border-radius: 8px;
     margin-right: 24px;
 }
 
@@ -568,7 +571,10 @@ button:hover {
 }
 
 .blog-right img {
-    margin-bottom: 32px;
+    width: 590px;
+    height: 250px;
+    margin-bottom: 30px;
+    border-radius: 8px;
 }
 
 /*footer*/
@@ -603,6 +609,11 @@ button:hover {
     font-size: 16px;
     line-height: 24px;
     color: #EAECF0;
+}
+
+#footer p:hover{
+    cursor: pointer;
+    color: #98A2B3;
 }
 
 .footer-top .left-top {
