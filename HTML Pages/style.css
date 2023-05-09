@@ -17,7 +17,8 @@ a {
     text-decoration: none;
 }
 
-input {
+input,
+select {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -25,11 +26,17 @@ input {
     padding-left: 14px;
 }
 
-img:hover{
-    cursor: pointer;
-    box-shadow: 20px 20px 30px #f1f1f2;
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 1px solid rgb(205, 199, 208);
 }
-button:hover{
+
+img:hover {
+    cursor: pointer;
+}
+
+button:hover {
     cursor: pointer;
 }
 
@@ -133,14 +140,15 @@ button:hover{
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
+
 /* new profile image added */
-.sign-in{
+.sign-in {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.sign-in .signProfile{
+.sign-in .signProfile {
     margin-top: 3px;
     margin-left: 10px;
     height: 40px;
@@ -216,7 +224,7 @@ button:hover{
     line-height: 24px;
     background-color: #F3F6FD;
     background-image: url('images/icons/search1.png');
-    background-position: 13px 13px; 
+    background-position: 13px 13px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     width: 560px;
@@ -229,13 +237,13 @@ button:hover{
 }
 
 .search-section .second-box input {
-    
+
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    background-color: #F3F6FD ;
+    background-color: #F3F6FD;
     background-image: url('images/icons/location.png');
-    background-position: 13px 12px; 
+    background-position: 13px 12px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
     width: 247px;
@@ -255,7 +263,8 @@ button:hover{
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
-.search-section button img{
+
+.search-section button img {
     margin-top: 2px;
 }
 
@@ -305,13 +314,13 @@ button:hover{
     margin-top: 80px;
 }
 
-#mid-container .top-p,
+.top-p,
 .mid-p,
 .bottom-p {
     text-align: center;
 }
 
-#mid-container .checkup-combo {
+.checkup-combo {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -319,18 +328,27 @@ button:hover{
     margin-right: 80px;
 }
 
-#mid-container .checkup {
+.content-combo {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 25px;
+    row-gap: 25px;
+    margin-left: 50px;
+    margin-right: 80px;
+}
+
+.checkup {
     padding: 16px 30px;
 }
 
-#mid-container .checkup .head {
+.checkup .head {
     font-weight: 600;
     font-size: 24px;
     line-height: 5px;
     color: #040612;
 }
 
-#mid-container .checkup .desc {
+.checkup .desc {
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
@@ -338,12 +356,17 @@ button:hover{
     color: #5F5858;
 }
 
-#mid-container .checkup .img {
-    width: 256px;
-    height: 270px;
+.checkup .img {
+    box-shadow: 20px 20px 30px #f1f1f2;
+    width: 276px;
+    height: 288px;
 }
 
-#mid-container .line1,
+#mid-container img:hover {
+    box-shadow: 20px 20px 30px #f1f1f2;
+}
+
+.line1,
 .line2,
 .line3,
 .line4 {
@@ -352,7 +375,20 @@ button:hover{
     align-items: center;
 }
 
+.line1 {
+    display: grid;
+    grid-template-columns: 15fr 1fr 1fr;
+    column-gap: 5px;
+}
+
+.line3 {
+    display: grid;
+    grid-template-columns: 1fr 12fr;
+    column-gap: 5px;
+}
+
 .line1 p {
+    align-items: center;
     font-weight: 600;
     font-size: 20px;
     line-height: 1px;
@@ -386,7 +422,7 @@ button:hover{
 .line4 .view {
     padding: 8px 20px;
     gap: 10px;
-    width: 121px;
+    width: 125px;
     height: 36px;
     left: 0px;
     top: 0px;
@@ -400,7 +436,7 @@ button:hover{
 .line4 .book {
     padding: 8px 20px;
     gap: 10px;
-    width: 111px;
+    width: 120px;
     height: 36px;
     /* left: 131px; */
     background: #7F56D9;
@@ -442,6 +478,24 @@ button:hover{
     color: #5F5858;
 }
 
+/* more button */
+#morebtn {
+    text-align: center;
+}
+
+.morebtn {
+    cursor: pointer;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 5px 20px;
+    color: #7F56D9;
+    background: #ffffff;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+    width: 100px;
+    margin-top: 20px;
+}
+
 /*subscription*/
 .subscription {
     display: flex;
@@ -467,6 +521,9 @@ button:hover{
 }
 
 .blog-left img {
+    width: 320px;
+    height: 200px;
+    border-radius: 8px;
     margin-right: 24px;
 }
 
@@ -514,7 +571,10 @@ button:hover{
 }
 
 .blog-right img {
-    margin-bottom: 32px;
+    width: 590px;
+    height: 250px;
+    margin-bottom: 30px;
+    border-radius: 8px;
 }
 
 /*footer*/
@@ -549,6 +609,11 @@ button:hover{
     font-size: 16px;
     line-height: 24px;
     color: #EAECF0;
+}
+
+#footer p:hover{
+    cursor: pointer;
+    color: #98A2B3;
 }
 
 .footer-top .left-top {
@@ -680,11 +745,6 @@ a {
 }
 
 /*sign -up*/
-#sign-in-container .name {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 #select-content {
     height: 95px;
@@ -716,49 +776,53 @@ a {
 
 /* hospitalDetails */
 
-.hospitalDetails{
+.hospitalDetails {
     margin: 20px 60px 0px 60px;
 }
 
-.hospitalDetails .hero{
+.hospitalDetails .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.hospitalDetailsLeft img{
+.hospitalDetailsLeft img {
     width: 550px;
     height: 300px;
 }
-.hospitalDetailsRight{
-    width: 56%;   
+
+.hospitalDetailsRight {
+    width: 56%;
 }
 
-.contact{
+.contact {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.contactAddress{
+
+.contactAddress {
     margin-left: 20px;
 }
 
-.ambulance{
+.ambulance {
     display: flex;
     justify-content: center;
     align-items: center;
 
 }
-.ambulance img{
+
+.ambulance img {
     margin-right: 20px;
     width: 250px;
     height: 130px;
 }
-.emergency{
+
+.emergency {
     color: red;
 }
 
-.history{
+.history {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -767,25 +831,21 @@ a {
     height: 120px;
     border-radius: 10px;
 }
-.history i{
+
+.history i {
     margin: 40px;
     font-size: 20px;
 }
 
-.services h3{
+.services h3 {
     margin-top: 80px;
 }
-.serviceNameCombo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-}
 
-.serviceName:hover{
+.serviceName:hover {
     box-shadow: 20px 20px 30px #f1f1f2;
 }
-.serviceName{
+
+.serviceName {
     text-align: center;
     width: 220px;
     height: 190px;
@@ -793,18 +853,24 @@ a {
     border-radius: 5px;
     border: 1px solid #c4d2d4;
 }
-.serviceName img{
+
+.serviceName img {
     margin-top: 10px;
     width: 100px;
     height: 90px;
     border-radius: 50%;
 }
-.serviceName p{
-     font-size: 20px;
-     font-weight: 500;
+
+.serviceName img:hover {
+    box-shadow: 20px 20px 30px #f1f1f2;
 }
 
-.history2{
+.serviceName p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.history2 {
     text-align: center;
     margin: 100px 30px 0px 30px;
     padding: 2px;
@@ -812,11 +878,13 @@ a {
     height: 240px;
     border-radius: 10px;
 }
-.history2 h2{
+
+.history2 h2 {
     color: #7F56D9;
     margin-top: 50px;
 }
-.history2 i{
+
+.history2 i {
     font-weight: 400;
     font-size: 30px;
     padding: 20px;
@@ -824,55 +892,82 @@ a {
 
 /* doctor-details */
 
-.doctorDetails{
+.doctorDetails {
     margin: 20px 60px 0px 60px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.doctor{
+.doctor {
     width: 35%;
 }
-.doctor .img{
+
+.doctor .img {
     width: 350px;
     height: 400px;
 }
-.doctor .nameLine{
-    font-size: 25px;
+
+.doctor .nameLine {
+    font-size: 22px;
+    margin-bottom: -20px;
     display: flex;
     justify-content: start;
     align-items: center;
 }
-.doctor .nameLine2{
-    font-size: 20px;
+
+.doctor .nameLine2 {
+    margin-top: -20px;
+    font-size: 18px;
     display: flex;
     justify-content: start;
     align-items: center;
 }
-.doctor .name{
+
+.doctor .name {
     margin-right: 50px;
 }
 
-.doctorInfo{
+.doctorInfo {
     width: 60%;
 }
-.doctorInfo span{
-    font-size: 20px;
+
+.doctorInfo span {
+    font-size: 16px;
     font-weight: 400;
     color: #000;
 }
-.doctorInfo i{
+
+.doctorInfo i {
     color: #908594;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 600;
     margin-top: 10px;
 }
 
-.space1{
+.doctorInfo hr {
+    color: #7F56D9;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.doctorInfo .book-details {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 200px;
+}
+
+.doctorInfo .stories {
+    cursor: pointer;
+    color: chocolate;
+    text-decoration: underline;
+}
+
+.space1 {
     margin-right: 15px;
 }
-.appointment{
+
+.appointment {
     cursor: pointer;
     font-weight: 500;
     box-sizing: border-box;
@@ -885,39 +980,201 @@ a {
     width: 350px;
 }
 
+/* appointment */
+
+.history3 {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px 30px 0px 30px;
+    padding: 20px 80px 20px 80px;
+    background-color: #EAF9FF;
+    height: 220px;
+    border-radius: 10px;
+}
+
+.history3 img {
+    width: 200px;
+    height: 200px;
+}
+
+.history3 i {
+    color: #7F56D9;
+}
+
+.appoint-form .input {
+    display: flex;
+    align-items: center;
+}
+
+.appoint-form label {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #22385E;
+    margin-right: 80px;
+}
+
+.appoint-form input,
+textarea,
+select {
+    margin-top: 5px;
+    width: 250px;
+    height: 40px;
+    color: #22385E;
+    background: #F3F6FD;
+    border: 1px solid #e0e0e2;
+    border-radius: 8px;
+}
+
+.appoint-form .symptom {
+    margin-left: -40px;
+    height: 60px;
+    color: #22385E;
+}
+
+
+.bookbtn {
+    cursor: pointer;
+    font-weight: 500;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    gap: 8px;
+    color: white;
+    background: #7F56D9;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+    width: 170px;
+    margin-top: 20px;
+}
+
+
+/* hospitals */
+#search-box {
+    position: relative;
+    top: 0px;
+    left: 250px;
+    width: 990px;
+    height: 100px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 16px;
+}
+
+/* #mid-update{
+    position: relative;
+    top: 0px;
+    margin-top: 0px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Dashboard */
 
-.dashboard{
+.dashboard {
     margin: 30px;
     display: flex;
     align-items: center;
 }
 
-.left-main{
+.left-main {
     padding: 20px;
     width: 260px;
-    height: 700px;
+    height: 600px;
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
-.left-main span{
+
+.left-main span {
     margin-left: 20px;
     font-weight: 500;
 }
-.left-main i{
+
+.left-main i {
     padding: 30px;
     font-size: 20px;
     font-weight: 500;
 }
-.left-main i:hover{
+
+.left-main i:hover {
+    border: 1px solid #ffffff;
+    border-radius: 8px;
     cursor: pointer;
+    background-color: #7F56D9;
 }
-.right-info{
+
+.left-main img {
+    margin: 30px 0px 0px 20px;
+}
+
+.right-info {
     width: 1180px;
-    height: 700px;
+    height: 600px;
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* responsive */
+
+@media (max-width:477px) {
+
+    body {
+        width: 1380px;
+        zoom: 26%;
+    }
+}
+
+@media (max-width:1390px) {
+
+    body {
+        width: 1380px;
+    }
+}
+
+@media (max-width:1600px) {
+
+    body {
+        width: 1519px;
+    }
+}
+
+@media (min-width:1700px) {
+
+    body {
+        width: 1380px;
+        zoom: 105%;
+    }
+}
+
+@media (min-width:1930px) {
+
+    body {
+        width: 1380px;
+        zoom: 120%;
+    }
+}
