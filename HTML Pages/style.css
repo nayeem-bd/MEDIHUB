@@ -577,7 +577,7 @@ button:hover {
     border-radius: 8px;
 }
 
-.footerSpace{
+.footerSpace {
     margin-bottom: 250px;
 }
 
@@ -588,7 +588,7 @@ button:hover {
     background: #101828;
 }
 
-.footerLand{
+.footerLand {
     top: 200px;
 }
 
@@ -1093,27 +1093,29 @@ select {
     color: #7F56D9;
 }
 
-.offerings{
+.offerings {
     display: grid;
     grid-template-columns: 5fr 5fr;
     column-gap: 5px;
 }
 
-.offerings-left{
+.offerings-left {
     margin-left: 200px;
 }
-.offerings-right img{
+
+.offerings-right img {
     width: 100px;
     height: 100px;
 }
-.offerings-right{
+
+.offerings-right {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-right: 150px;
 }
 
-.history5{
+.history5 {
     display: flex;
     justify-content: space-between;
     text-align: center;
@@ -1123,36 +1125,43 @@ select {
     height: 290px;
     border-radius: 10px;
 }
+
 .history5 img {
     width: 500px;
     height: 380px;
 }
-.security img{
+
+.security img {
     width: 450px;
     height: 220px;
 }
-.security i{
+
+.security i {
     color: #7F56D9;
 }
-.approach-main{
+
+.approach-main {
     text-align: center;
 }
-.approach{
+
+.approach {
     display: flex;
     justify-content: center;
     text-align: center;
     padding: 40px;
 }
-.appImg{
+
+.appImg {
     font-size: 18px;
     width: 300px;
 }
-.appImg img{
+
+.appImg img {
     width: 80px;
     height: 70px;
 }
 
-.about-bottom{
+.about-bottom {
     margin: 10px 30px 0px 30px;
     padding: 20px 80px 20px 80px;
     background-color: #EAF9FF;
@@ -1161,107 +1170,111 @@ select {
     text-align: center;
     margin-top: 150px;
 }
-.about-bottom p{
+
+.about-bottom p {
     margin-left: 40px;
     margin-right: 40px;
     font-size: 16px;
     line-height: 30px;
 }
-.about-bottom .review{
+
+.about-bottom .review {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
 }
 
 
 /** blogs ***/
-main{
+main {
     display: flex;
 }
 
-main a{
+main a {
     padding: 15px 0;
     display: block;
     transition: all 0.5s;
 }
 
-main span{
+main span {
     transition: padding-left 0.5s;
 }
 
-main a:hover span{
+main a:hover span {
     padding-left: 5px;
 }
 
-main a:hover{
+main a:hover {
     color: #7ac64d;
 }
 
 
-.main-left-content{
+.main-left-content {
     padding: 30px 10px;
 }
-.main-left-content img{
+
+.main-left-content img {
     width: 250px;
     height: 150px;
 }
 
-.main-left-content > h2{
+.main-left-content>h2 {
     color: #000120;
     padding: 10px 0 0 40px;
 }
 
-.main-left-content h3{
+.main-left-content h3 {
     padding: 10px 0;
     font-size: 18px;
 }
 
-.main-left-content p{
+.main-left-content p {
     font-size: 18px;
     font-weight: 300;
 }
 
-.main-left-content article{
+.main-left-content article {
     padding: 10px;
 }
 
-.main-left-content .left-top{
+.main-left-content .left-top {
     padding: 15px 30px;
 }
-.main-left-content .left-top img{
+
+.main-left-content .left-top img {
     width: 600px;
     height: 350px;
 }
 
-.main-left-content .left-bottom{
+.main-left-content .left-bottom {
     display: flex;
     background: #f3f3f3;
     margin: 15px 30px;
 }
 
 
-.main-right-content{
+.main-right-content {
     padding: 30px 10px;
 }
 
-.main-right-content article{
+.main-right-content article {
     display: grid;
-    grid-template-columns: 1fr 2fr ;
+    grid-template-columns: 1fr 2fr;
     padding: 15px 0;
     border-bottom: 1px solid #7ac64d;
 }
 
-.main-right-content article:last-child{
+.main-right-content article:last-child {
     border-bottom: none;
 }
 
-.main-right-content img{
+.main-right-content img {
     width: 220px;
     height: 150px;
     align-self: center;
 }
 
-.main-right-content h4{
+.main-right-content h4 {
     text-align: center;
     text-transform: uppercase;
     font-weight: 300;
@@ -1269,20 +1282,21 @@ main a:hover{
     align-self: center;
 }
 
-.main-right-content article h2{
+.main-right-content article h2 {
     font-size: 18px;
 }
 
-.main-right-content article p{
+.main-right-content article p {
     font-size: 16px;
     font-weight: 300;
 }
 
-.main-right-content article div{
+.main-right-content article div {
     margin-right: 10px;
 }
-.main-right-content article .time{
-    font-size: 13px; 
+
+.main-right-content article .time {
+    font-size: 13px;
     color: rgb(52, 49, 49);
 }
 
