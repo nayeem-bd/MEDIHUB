@@ -4,7 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 
 exports.landingpage = catchAsync(async (req, res, next) => {
     let doctors = [];
-    const response = await axios.get('http://localhost:4000/api/v1/users/topdoctors?role=doctor');
+    const response = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
     const tempDoc = response.data.data.data;
 
     tempDoc.sort((a, b) => b.rating - a.rating);
@@ -29,7 +29,7 @@ exports.signIn = async (req, res, next) => {
 }
 
 exports.showDoctors = catchAsync(async (req, res, next) => {
-    const response = await axios.get('http://localhost:4000/api/v1/users/topdoctors?role=doctor');
+    const response = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
     const doctors = response.data.data.data;
 
     res.status(200).render('doctors', {
@@ -38,8 +38,11 @@ exports.showDoctors = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.showHospitals = catchAsync(async (req,res,next)=>{
+exports.showHospitals = catchAsync(async (req, res, next) => {
+    const response = await axios.get('http://localhost:4000/api/v1/hospitals/')
+    const hospitals = response.data.data.data;
     res.status(200).render('hospitals', {
-        title: 'Hospitals'
+        title: 'Hospitals',
+        hospitals
     });
 });

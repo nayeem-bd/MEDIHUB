@@ -1,3 +1,19 @@
 extends base 
 
+mixin hospitalCard(hospitalImg,hospitalName,district)
+    .hospital
+        img(src=`img/hospital/${hospitalImg}` alt="hospital")
+        p.head= hospitalName
+        p.desc= district
+        button #[img(src="img/icons/locate.png" alt="")] Get Direction
+
 block content
+    section.allHospital
+        include searchBar
+
+        section#mid-upContent
+            p.mid-p Explore your nearest hospitals
+            p.bottom-p Book your nearest available doctors
+            .content-combo
+                each hos in hospitals
+                    +hospitalCard('hospital1.jpg',hos.name,hos.address.city)
