@@ -577,11 +577,19 @@ button:hover {
     border-radius: 8px;
 }
 
+.footerSpace {
+    margin-bottom: 250px;
+}
+
 /*footer*/
 #footer {
     position: relative;
-    top: 280px;
+    top: 30px;
     background: #101828;
+}
+
+.footerLand {
+    top: 200px;
 }
 
 .footer-top {
@@ -611,7 +619,7 @@ button:hover {
     color: #EAECF0;
 }
 
-#footer p:hover{
+#footer p:hover {
     cursor: pointer;
     color: #98A2B3;
 }
@@ -1061,13 +1069,238 @@ select {
     border-radius: 16px;
 }
 
-/* #mid-update{
-    position: relative;
-    top: 0px;
-    margin-top: 0px;
-} */
+
+/* aboutUs */
 
 
+.history4 {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px 30px 0px 30px;
+    padding: 20px 80px 20px 80px;
+    background-color: #EAF9FF;
+    height: 290px;
+    border-radius: 10px;
+}
+
+.history4 img {
+    width: 350px;
+    height: 250px;
+}
+
+.history4 i {
+    color: #7F56D9;
+}
+
+.offerings {
+    display: grid;
+    grid-template-columns: 5fr 5fr;
+    column-gap: 5px;
+}
+
+.offerings-left {
+    margin-left: 200px;
+}
+
+.offerings-right img {
+    width: 100px;
+    height: 100px;
+}
+
+.offerings-right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 150px;
+}
+
+.history5 {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin: 10px 30px 0px 30px;
+    padding: 20px 80px 20px 80px;
+    background-color: #ffffff;
+    height: 290px;
+    border-radius: 10px;
+}
+
+.history5 img {
+    width: 500px;
+    height: 380px;
+}
+
+.security img {
+    width: 450px;
+    height: 220px;
+}
+
+.security i {
+    color: #7F56D9;
+}
+
+.approach-main {
+    text-align: center;
+}
+
+.approach {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.appImg {
+    font-size: 18px;
+    width: 300px;
+}
+
+.appImg img {
+    width: 80px;
+    height: 70px;
+}
+
+.about-bottom {
+    margin: 10px 30px 0px 30px;
+    padding: 20px 80px 20px 80px;
+    background-color: #EAF9FF;
+    height: 290px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 150px;
+}
+
+.about-bottom p {
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.about-bottom .review {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/** blogs ***/
+main {
+    display: flex;
+}
+
+main a {
+    padding: 15px 0;
+    display: block;
+    transition: all 0.5s;
+}
+
+main span {
+    transition: padding-left 0.5s;
+}
+
+main a:hover span {
+    padding-left: 5px;
+}
+
+main a:hover {
+    color: #7ac64d;
+}
+
+
+.main-left-content {
+    padding: 30px 10px;
+}
+
+.main-left-content img {
+    width: 250px;
+    height: 150px;
+}
+
+.main-left-content>h2 {
+    color: #000120;
+    padding: 10px 0 0 40px;
+}
+
+.main-left-content h3 {
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+.main-left-content p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.main-left-content article {
+    padding: 10px;
+}
+
+.main-left-content .left-top {
+    padding: 15px 30px;
+}
+
+.main-left-content .left-top img {
+    width: 600px;
+    height: 350px;
+}
+
+.main-left-content .left-bottom {
+    display: flex;
+    background: #f3f3f3;
+    margin: 15px 30px;
+}
+
+
+.main-right-content {
+    padding: 30px 10px;
+}
+
+.main-right-content article {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding: 15px 0;
+    border-bottom: 1px solid #7ac64d;
+}
+
+.main-right-content article:last-child {
+    border-bottom: none;
+}
+
+.main-right-content img {
+    width: 220px;
+    height: 150px;
+    align-self: center;
+}
+
+.main-right-content h4 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 12px;
+    align-self: center;
+}
+
+.main-right-content article h2 {
+    font-size: 18px;
+}
+
+.main-right-content article p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.main-right-content article div {
+    margin-right: 10px;
+}
+
+.main-right-content article .time {
+    font-size: 13px;
+    color: rgb(52, 49, 49);
+}
+
+/* hospital-registration */
 
 
 
@@ -1126,6 +1359,8 @@ select {
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
+
+
 
 
 
