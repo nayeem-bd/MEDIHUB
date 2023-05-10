@@ -1,7 +1,19 @@
 /* eslint-disable no-undef */
-//login part 
 import '@babel/polyfill';
 
+// bug fixed part
+
+//search box bug
+const title = document.title;
+if(title.includes('Home Page')){
+    const search_box = document.querySelector('#search-box');
+    //console.log(search_box);
+    search_box.classList.add('search-box-bug');
+}
+
+
+
+//login part 
 import {login,logout} from './login';
 
 const logInBtn = document.querySelector('.logInBtn');
