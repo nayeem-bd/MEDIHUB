@@ -1347,6 +1347,14 @@ main a:hover {
     color: white;
 }
 
+.userDashboard  label {
+    margin-bottom: 0px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    color: #22385E;
+}
+
 .userDashboard .right-info {
     display: grid;
     grid-template-columns: 1.1fr .7fr .5fr;
@@ -1358,8 +1366,9 @@ main a:hover {
     border-radius: 8px;
 }
 
-.userDashboard .right-info input{
-    margin-top: 5px;
+.userDashboard input{
+    margin-top: 3px;
+    margin-bottom: 8px;
     width: 422px;
     height: 46px;
     background: #F3F6FD;
@@ -1376,7 +1385,7 @@ main a:hover {
 .userDashboard .right-info-right button{
     width: 100px;
     margin-left: 80px;
-    margin-top: 40px;
+    margin-top: 20px;
     color: white;
     padding: 10px 20px;
     background: #7F56D9;
@@ -1424,9 +1433,9 @@ main a:hover {
     margin-top: 27px;
 }
 
-.userDashboard .edu input{
+.userDashboard .edu textarea{
     width: 422px;
-    height: 46px;
+    height: 57px;
 }
 
 .userDashboard .edu label{
