@@ -15,6 +15,7 @@ const hospitalRouter = require('./routes/hospitalRouter');
 const globalErrorHandler = require('./controller/errorController');
 const AppError = require('./utils/appError');
 const viewRouter =  require('./routes/viewRouter');
+const reviewRouter =  require('./routes/reviewRouter');
 
 const app = express();
 app.enable('trust proxy');
@@ -78,6 +79,7 @@ app.use((req,res,next)=>{
 app.use('/',viewRouter);
 app.use('/api/v1/users',userRouter);
 app.use('/api/v1/hospitals',hospitalRouter);
+app.use('/api/v1/reviews',reviewRouter);
 
 app.use('*',(req,res,next)=>{
     next(new AppError(`Can't find ${req.originalUrl} on this server`,404));
