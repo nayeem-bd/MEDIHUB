@@ -128,8 +128,9 @@ button:hover {
     font-weight: 500;
     color: #000;
 }
-#header .sign-in a:hover{
-    color: #7F56D9 ;
+
+#header .sign-in a:hover {
+    color: #7F56D9;
 }
 
 #header .create-button {
@@ -450,7 +451,7 @@ button:hover {
     padding: 16px 30px;
 }
 
-.hospital .hospitalImg{
+.hospital .hospitalImg {
     width: 276px;
     height: 193px;
 }
@@ -1334,7 +1335,8 @@ main a:hover {
     font-size: 20px;
     font-weight: 500;
 }
-.userDashboard .dashHead{
+
+.userDashboard .dashHead {
     width: 220px;
     height: 75px;
 }
@@ -1342,7 +1344,8 @@ main a:hover {
 .userDashboard .left-main img {
     margin: 150px 0px 0px 20px;
 }
-.active{
+
+.active {
     background-color: #7F56D9;
     width: 220px;
     height: 40px;
@@ -1350,7 +1353,7 @@ main a:hover {
     color: white;
 }
 
-.userDashboard  label {
+.userDashboard label {
     margin-bottom: 0px;
     font-weight: 700;
     font-size: 16px;
@@ -1369,7 +1372,7 @@ main a:hover {
     border-radius: 8px;
 }
 
-.userDashboard input{
+.userDashboard input {
     margin-top: 3px;
     margin-bottom: 8px;
     width: 422px;
@@ -1379,13 +1382,21 @@ main a:hover {
     border-radius: 8px;
 }
 
-.userDashboard .right-info-mid input,.select{
+.userDashboard .right-info-mid input,
+.select {
     width: 200px;
 }
-.userDashboard .right-info-mid input{
+
+.userDashboard .right-info-mid input {
     margin-right: 12px;
 }
-.userDashboard .right-info-right button{
+.userDashboard .right-info-mid h3 {
+    color: #7F56D9;
+    gap: 1px;
+}
+
+
+.userDashboard .right-info-right button {
     width: 100px;
     margin-left: 80px;
     margin-top: 20px;
@@ -1395,65 +1406,119 @@ main a:hover {
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
-.userDashboard .right-info-right input{
+
+.userDashboard .right-info-right input {
     margin-top: 5px;
     font-size: 12px;
     width: 180px;
     height: 30px;
 }
 
-.userDashboard .right-info-right img{
+.userDashboard .right-info-right img {
     margin-top: 30px;
-     width: 180px;
-     height: 200px;
+    width: 180px;
+    height: 200px;
 }
-.userDashboard .radioButton{
+
+.userDashboard .radioButton {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
 }
-.userDashboard .radioButton input{
+
+.userDashboard .radioButton input {
     height: 15px;
 }
 
-.userDashboard  .schedule{
+.userDashboard .schedule {
     margin-top: 50px;
 }
 
-.userDashboard .right-info-bottom{
-    
+.userDashboard .right-info-bottom {
+
     text-align: center;
 }
 
-.flex1{
+.flex1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
 }
-.userDashboard .edu{
+.flex2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userDashboard .edu {
     margin-top: 27px;
 }
 
-.userDashboard .edu textarea{
+.userDashboard .edu textarea {
     width: 422px;
     height: 57px;
 }
 
-.userDashboard .edu label{
+.userDashboard .edu label {
     font-weight: 900px;
-    font-size: 20px ;
+    font-size: 20px;
 }
 
-.userDashboard #setting{
+.userDashboard #setting {
     margin-top: 15px;
     text-align: center;
     font-size: 10px;
     color: #3a4a69;
 }
-.userDashboard a{
+
+.userDashboard a {
     color: #000;
+}
+
+.userDashboard #patientDash {
+    margin-top: 75px;
+}
+
+/* appointments */
+
+.right-info-all {
+    background-color: #E1F0FF;
+    padding: 30px;
+    width: 1180px;
+    height: 600px;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table td,
+#table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#table tr:hover {
+    background-color: #ddd;
+}
+
+#table th {
+    text-align: left;
+    background-color: #57c25b;
+    color: white;
+}
+
+#table #ps {
+    width: 100px;
 }
 
 
