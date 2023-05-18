@@ -1,0 +1,30 @@
+extends base
+
+mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName,docId)
+    .checkup
+        img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctor/${docId}'`)
+        .line1
+            p.rate= name
+            p= rating
+            img(src="img/icons/Star 1.png" alt="")
+        .line2
+            p= speciality
+            p (32)
+        .line3(style={'justify-content':'normal'})
+            img(src=`img/icons/${hospitalImg}` alt="")
+            p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
+        .line4
+            button.view(onclick=`window.location.href='doctor/${docId}'`) View Profile
+            button.book Book Now
+
+block content
+    section.allDoctor
+        include searchBar
+
+        section#mid-upContent
+            p.mid-p Best doctor’s from the best hospitals
+            p.bottom-p Have a look at our best doctors from the registered Hospitals
+            .content-combo
+                each doc in doctors 
+                    +doctorCard(doc.photo,doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name)   
+

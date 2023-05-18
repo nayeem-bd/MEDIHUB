@@ -1,0 +1,22 @@
+section#header  
+    a(href="/") 
+        img(src="../../../img/icons/logo.png" alt="logo")
+    nav
+        ul#navbar
+            /// <li><a class="active" href="landing.html">Home</a></li>
+            li: a(href="../../../hospitalReg") Hospital Registration
+            li: a(href="../../../doctors") Doctors
+            li: a(href="../../../hospitals") Hospitals
+            li: a(href="../../../blogs") Blogs
+            li: a(href="../../../about") About Us
+            /// <a href="#" id="close"><i class="far fa-times"></i></a> 
+    .sign-in
+        if user 
+            button.logOutBtn.create-button Log Out
+            a(href="/dashboard")
+                img.signProfile(src=`/img/user/${user.photo}` alt=`${user.name}`)
+        else
+            a(href="/signin") Sign In
+            button.create-button
+                a(href='/signup' style="color:white;") Create Free Account
+    /// <i id="mobile" class="fas fa-outdent"></i>

@@ -1,0 +1,19 @@
+extends base 
+
+mixin hospitalCard(hospitalImg,hospitalName,district,hospitalId)
+    .hospital
+        img(src=`img/hospital/${hospitalImg}` alt="hospital" onclick=`window.location.href='hospitals/${hospitalId}'`)
+        p.head= hospitalName
+        p.desc= district
+        button #[img(src="img/icons/locate.png" alt="")] Get Direction
+
+block content
+    section.allHospital
+        include searchBar
+
+        section#mid-upContent
+            p.mid-p Explore your nearest hospitals
+            p.bottom-p Book your nearest available doctors
+            .content-combo
+                each hos in hospitals
+                    +hospitalCard(hos.photo,hos.name,hos.address.city,hos._id)

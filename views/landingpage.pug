@@ -1,6 +1,8 @@
-mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName)
+extends base
+
+mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName,docId)
     .checkup
-        img.img(src=`img/doctor/${img_src}` alt="")
+        img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctors/${docId}'`)
         .line1
             p.rate= name
             p= rating
@@ -12,12 +14,12 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
             img(src=`img/icons/${hospitalImg}` alt="")
             p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
         .line4
-            button.view View Profile
+            button.view(onclick=`window.location.href='doctors/${docId}'`) View Profile
             button.book Book Now
 
-mixin hospitalCard(hospitalImg,hospitalName,district)
+mixin hospitalCard(hospitalImg,hospitalName,district,hospitalId)
     .hospital
-        img(src=`img/hospital/${hospitalImg}` alt="hospital")
+        img(src=`img/hospital/${hospitalImg}` alt="hospital" onclick=`window.location.href='hospitals/${hospitalId}'`)
         p.head= hospitalName
         p.desc= district
         button #[img(src="img/icons/locate.png" alt="")] Get Direction
@@ -28,203 +30,110 @@ mixin specialityCard(img_src,speciality,description)
         p.head= speciality
         p.desc= description
 
-doctype html
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(http-equiv="X-UA-Compatible" content="IE=edge")
-        meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title MediHub | #{title}
-        link(rel="icon" type="image/x-icon" href="img/icons/favicon.png")
-        link(rel="stylesheet" href="css/style.css")
-        link(rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css")
-    body 
-        section#header  
-            a(href="/") 
-                img(src="img/icons/logo.png" alt="logo")
-            nav
-                ul#navbar
-                    /// <li><a class="active" href="landing.html">Home</a></li>
-                    li: a(href="hospitalReg.html") Hospital Registration
-                    li: a(href="doctors.html") Doctors
-                    li: a(href="hospitals.html") Hospitals
-                    li: a(href="blogs.html") Blogs
-                    li: a(href="about.html") About Us
-                    /// <a href="#" id="close"><i class="far fa-times"></i></a> 
-            .sign-in
-                if user 
-                    button.logOutBtn.create-button Log Out
-                    a(href="/me")
-                        img.signProfile(src='/img/doctor/image.jpg' alt=`${user.name}`)
-                else
-                    a(href="/signin") Sign In
-                    button.create-button
-                        a(href='/signup' style="color:white;") Create Free Account
-            /// <i id="mobile" class="fas fa-outdent"></i>
+block content
+    section#hero
+        img(src="img/left1.png" alt="")
+        div
+            p Book Your #[span(style="color: #7F56D9;") Next Doctors] Appointment                   
+        img(src="img/right1.png" alt="")
 
-        section#hero
-            img(src="img/left1.png" alt="")
-            div
-                p Book Your #[span(style="color: #7F56D9;") Next Doctors] Appointment                   
-            img(src="img/right1.png" alt="")
+    section#search-container(style={height:'100px'})
+        include searchBar 
 
-        section#search-container
-            .search-section
-                /// <i id="filtersubmit" class="fa fa-search"></i>
-                .first-box
-                    input(type="text" placeholder="Search by Specialty, Hospital name or Doctor’s name...")
-                .second-box
-                    input(type="text" placeholder="Search location...")
-                button
-                    img#searchIcon2(src="img/icons/search2.png" alt="")
-            p.para You may be looking for
-            .type-section
-                .combo
-                    p Family Medicine
-                    img(src="img/icons/Cross.png" alt="")
-                .combo
-                    p Pediatrics
-                    img(src="img/icons/Cross.png" alt="")
-                .combo
-                    p Dhaka Medical
-                    img(src="img/icons/Cross.png" alt="")
-                .combo
-                    p Dentist
-                    img(src="img/icons/Cross.png" alt="")
-                .combo
-                    p COVID-19
-                    img(src="img/icons/Cross.png" alt="")
-        section#mid-container
-            p.top-p How it works
-            p.mid-p Three steps to complete your health checkup
-            p.bottom-p Follow these steps and complete your health checkup with the best doctors
-            .checkup-combo
-                .checkup
-                    img(src="img/icons/search.png" alt="")
-                    p.head Search Doctors
-                    p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
-                .checkup
-                    img(src="img/icons/book.png" alt="")
-                    p.head Book Appointment
-                    p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
-                .checkup
-                    img(src="img/icons/consult.png" alt="")
-                    p.head Consult With Doctors
-                    p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
+    section#mid-container
+        p.top-p How it works
+        p.mid-p Three steps to complete your health checkup
+        p.bottom-p Follow these steps and complete your health checkup with the best doctors
+        .checkup-combo
+            .checkup
+                img(src="img/icons/search.png" alt="")
+                p.head Search Doctors
+                p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
+            .checkup
+                img(src="img/icons/book.png" alt="")
+                p.head Book Appointment
+                p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
+            .checkup
+                img(src="img/icons/consult.png" alt="")
+                p.head Consult With Doctors
+                p.desc MEDIHUB gives you the full picture of a doctor’s qualifications, including clinical experience, hospital quality measures, and patient feedback.
 
-        section#mid-container
-            p.top-p Specialty
-            p.mid-p Book your nearest available doctors by specialty
-            p.bottom-p Book your nearest available doctors
-            .checkup-combo
-                +specialityCard('dentist.jpg','Dentist','MEDIHUB provides the most accurate, comprehensive information.')
-                +specialityCard('internalmedicine.jpg','Internal Medicine','MEDIHUB provides the most accurate, comprehensive information.')
-                +specialityCard('cardiology.jpg','Cardiology','MEDIHUB provides the most accurate, comprehensive information.')
-                +specialityCard('orthopedic.jpg','Orthopedic','MEDIHUB provides the most accurate, comprehensive information.')
+    section#mid-container
+        p.top-p Specialty
+        p.mid-p Book your nearest available doctors by specialty
+        p.bottom-p Book your nearest available doctors
+        .checkup-combo
+            +specialityCard('dentist.jpg','Dentist','MEDIHUB provides the most accurate, comprehensive information.')
+            +specialityCard('internalmedicine.jpg','Internal Medicine','MEDIHUB provides the most accurate, comprehensive information.')
+            +specialityCard('cardiology.jpg','Cardiology','MEDIHUB provides the most accurate, comprehensive information.')
+            +specialityCard('orthopedic.jpg','Orthopedic','MEDIHUB provides the most accurate, comprehensive information.')
+        #morebtn
+            button.morebtn More
 
-        section#mid-container
-            p.top-p Doctors
-            p.mid-p Best doctor’s from the best hospitals
-            p.bottom-p Have a look at our best doctors from the registered Hospitals
-            .checkup-combo
-                each doc in doctors 
-                    +doctorCard('image1.jpg',doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name)
-        section#mid-container
-            p.top-p Hospitals
-            p.mid-p Explore your nearest hospitals
-            p.bottom-p Book your nearest available doctors
-            .checkup-combo
-                +hospitalCard('hospital1.jpg','Shishu Hospital','Agrabad')
-                +hospitalCard('hospital2.jpg','Bandar Hospital','Bandar')
-                +hospitalCard('hospital3.jpg','Halishahor hospital','Halishahor')
-                +hospitalCard('hospital4.jpg','Agrbad Medical','Agrabad')
+    section#mid-container
+        p.top-p Doctors
+        p.mid-p Best doctor’s from the best hospitals
+        p.bottom-p Have a look at our best doctors from the registered Hospitals
+        .checkup-combo
+            each doc in doctors 
+                +doctorCard(doc.photo,doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name,doc._id)
+        #morebtn
+            button.morebtn More
 
-        section#mid-container
-            p.top-p Hospital Registration
-            p.mid-p Register now to get a fully functional #[br] ecosystem for your hospital
-            p.bottom-p Register for free and manage your hospital functionality with a smooth and meaningful experience
-            .checkup-combo
-                .subscription
-                    img(src="img/icons/set.png" alt="")
-                    p.desc Set up your hospital details and pay monthly subscription fee.
-                .subscription
-                    img(src="img/icons/tell.png" alt="")
-                    p.desc Tell the doctors to register themselves under your hospital.
-                .subscription
-                    img(src="img/icons/manage.png" alt="")
-                    p.desc Manage your patients details individually by a patient profile.
+    section#mid-container
+        p.top-p Hospitals
+        p.mid-p Explore your nearest hospitals
+        p.bottom-p Book your nearest available doctors
+        .checkup-combo
+            each hospital in hospitals 
+                +hospitalCard(hospital.photo,hospital.name,hospital.address.city,hospital._id)
+        #morebtn
+            button.morebtn More
 
-        section#mid-container
-            p.top-p Blogs
-            p.mid-p Our Recent Blogs
-            p.bottom-p Get more knowledge about your health from our blogs.
-            .checkup-combo
-                .blog-left
-                    .left-top
-                        img(src="img/food.jpg" alt="")
-                        div
-                            time November 16, 2022
-                            h4 Choose Your Diet Correctly
-                            p Eating a wide variety of nutritious foods, including fruit, vegetables, nuts, seeds, and lean protein can help support your overall health.
-                            button.btn1 Diet
-                    .left-top
-                        img(src="img/teeth.jpg" alt="")
-                        div
-                            time September 24, 2022
-                            h4 See The Dentist
-                            p The best practices for healthy teeth and gums include regular brushing, flossing, and avoiding certain types of food and beverage.
-                            button.btn1 Teeth
-                            button.btn2 Health
-                .blog-right
-                    img(src="img/body.jpg" alt="")
-                    br
-                    time March 13, 2022
-                    h2 Three Ways To Keep Your Body Healthy
-                    p A healthy body is maintained by good nutrition, regular exercise, avoiding harmful habits, making informed and responsible decisions about health, and seeking medical assistance when necessary.
-                    button.btn2 Health
-                    button.btn1 Fitness
-        footer#footer
-            section.footer-top
+    section#mid-container
+        p.top-p Hospital Registration
+        p.mid-p Register now to get a fully functional #[br] ecosystem for your hospital
+        p.bottom-p Register for free and manage your hospital functionality with a smooth and meaningful experience
+        .checkup-combo
+            .subscription
+                img(src="img/icons/set.png" alt="")
+                p.desc Set up your hospital details and pay monthly subscription fee.
+            .subscription
+                img(src="img/icons/tell.png" alt="")
+                p.desc Tell the doctors to register themselves under your hospital.
+            .subscription
+                img(src="img/icons/manage.png" alt="")
+                p.desc Manage your patients details individually by a patient profile.
+
+    section#mid-container
+        p.top-p Blogs
+        p.mid-p Our Recent Blogs
+        p.bottom-p Get more knowledge about your health from our blogs.
+        .checkup-combo
+            .blog-left
                 .left-top
-                    img(src="img/icons/logo.png" alt="")
-                    p Top healthcare experience to gather from #[br]the top hospitals and doctors near you.
-                    br
-                    .storeIcon
-                        img(src="img/footer/App Store Button.png" alt="")
-                        img(src="img/footer/App Store Button_2.png" alt="")
-                div
-                    h5 Product
-                    p Overview
-                    p Features
-                    p Solutions
-                    p Tutorials
-                    p Pricing
-                div
-                    h5 Company
-                    p About us
-                    p Careers
-                div
-                    h5 Legal
-                    p Privacy
-                    p Cookies
-                    p Contact
-                div
-                    h5 Contact Us
-                    p Phone: 01725028366
-                    p Phone: 01912986866
-                    p medihub@gmail.com
-                    p mhsupport@gmail.com
-            hr
-            section.footer-bottom
-                h5 &copy; 2023 MediHUB. All rights reserved.
-                div
-                    img(src="img/footer/GooglePay.png" alt="")
-                    img(src="img/footer/Visa.png" alt="")
-                    img(src="img/footer/Mastercard.png" alt="")
-                    img(src="img/footer/PayPal.png" alt="")
-                div
-                    img(src="img/footer/Social icon_1.png" alt="")
-                    img(src="img/footer/Social icon_2.png" alt="")
-                    img(src="img/footer/Social icon_3.png" alt="")
-                </div>
-        script(src='/dist/index.js') 
+                    img(src="img/food.jpg" alt="")
+                    div
+                        time November 16, 2022
+                        h4 Choose Your Diet Correctly
+                        p Eating a wide variety of nutritious foods, including fruit, vegetables, nuts, seeds, and lean protein can help support your overall health.
+                        button.btn1 Diet
+                .left-top
+                    img(src="img/teeth.jpg" alt="")
+                    div
+                        time September 24, 2022
+                        h4 See The Dentist
+                        p The best practices for healthy teeth and gums include regular brushing, flossing, and avoiding certain types of food and beverage.
+                        button.btn1 Teeth
+                        button.btn2 Health
+            .blog-right
+                img(src="img/body.jpg" alt="")
+                br
+                time March 13, 2022
+                h2 Three Ways To Keep Your Body Healthy
+                p A healthy body is maintained by good nutrition, regular exercise, avoiding harmful habits, making informed and responsible decisions about health, and seeking medical assistance when necessary.
+                button.btn2 Health
+                button.btn1 Fitness
+        #morebtn
+            button.morebtn More
+        .footerSpace 
