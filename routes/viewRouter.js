@@ -10,7 +10,7 @@ router.get('/signin',viewController.signIn);
 router.get('/signup',viewController.signUp);
 router.get('/doctors',viewController.showDoctors);
 router.get('/hospitals',viewController.showHospitals);
-
+router.get('/dashboard',authController.protect,viewController.me);
 // router.get('/tour/:slug',authController.isLoggedIn,viewController.getTour);
 // router.get('/login',authController.isLoggedIn,viewController.getLoginForm);
 // router.get('/me',authController.protect,viewController.getAccount);

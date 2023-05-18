@@ -13,7 +13,7 @@ section#header
     .sign-in
         if user 
             button.logOutBtn.create-button Log Out
-            a(href="/me")
+            a(href="/dashboard")
                 img.signProfile(src='/img/doctor/image.jpg' alt=`${user.name}`)
         else
             a(href="/signin") Sign In
