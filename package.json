@@ -10,7 +10,7 @@
     "start": "nodemon server.js",
     "start:dev": "nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/dist --public-url .",
-    "build:js": "parcel build ./public/js/index.js --out-dir ./public/js --out-file bundle.js --public-url ."
+    "build:js": "parcel build ./public/js/index.js --out-dir ./public/dist --public-url ."
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",

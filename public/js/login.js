@@ -1,5 +1,5 @@
 /* eslint-disable */
-//import { showAlert } from './alerts';
+import { showAlert } from './alerts';
 
 import axios from "axios";
 
@@ -14,13 +14,13 @@ export const login = async(phone,password)=>{
             }
         });
         if(res.data.status==='success'){
-            //showAlert('success','Logged in successfully');
+            showAlert('success','Logged in successfully');
             window.setTimeout(()=>{
                 location.assign('/');
             },1500);
         }
     }catch(err){
-        //showAlert('error',err.response.data.message);
+        showAlert('error',err.response.data.message);
     }
 
 };
@@ -34,6 +34,6 @@ export const logout = async ()=>{
         });
         if(res.data.status ==='success') location.reload(true);
     }catch(err){
-        //showAlert('error','Error logging out! Try again.');
+        showAlert('error','Error logging out! Try again.');
     }
 };
