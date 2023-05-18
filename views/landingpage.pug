@@ -1,8 +1,8 @@
 extends base
 
-mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName)
+mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName,docId)
     .checkup
-        img.img(src=`img/doctor/${img_src}` alt="")
+        img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctors/${docId}'`)
         .line1
             p.rate= name
             p= rating
@@ -14,12 +14,12 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
             img(src=`img/icons/${hospitalImg}` alt="")
             p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
         .line4
-            button.view View Profile
+            button.view(onclick=`window.location.href='doctors/${docId}'`) View Profile
             button.book Book Now
 
-mixin hospitalCard(hospitalImg,hospitalName,district)
+mixin hospitalCard(hospitalImg,hospitalName,district,hospitalId)
     .hospital
-        img(src=`img/hospital/${hospitalImg}` alt="hospital")
+        img(src=`img/hospital/${hospitalImg}` alt="hospital" onclick=`window.location.href='hospitals/${hospitalId}'`)
         p.head= hospitalName
         p.desc= district
         button #[img(src="img/icons/locate.png" alt="")] Get Direction
@@ -76,7 +76,7 @@ block content
         p.bottom-p Have a look at our best doctors from the registered Hospitals
         .checkup-combo
             each doc in doctors 
-                +doctorCard('image1.jpg',doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name)
+                +doctorCard(doc.photo,doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name,doc._id)
         #morebtn
             button.morebtn More
 
@@ -85,10 +85,8 @@ block content
         p.mid-p Explore your nearest hospitals
         p.bottom-p Book your nearest available doctors
         .checkup-combo
-            +hospitalCard('hospital1.jpg','Shishu Hospital','Agrabad')
-            +hospitalCard('hospital2.jpg','Bandar Hospital','Bandar')
-            +hospitalCard('hospital3.jpg','Halishahor hospital','Halishahor')
-            +hospitalCard('hospital4.jpg','Agrbad Medical','Agrabad')
+            each hospital in hospitals 
+                +hospitalCard(hospital.photo,hospital.name,hospital.address.city,hospital._id)
         #morebtn
             button.morebtn More
 

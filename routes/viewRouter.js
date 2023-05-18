@@ -5,11 +5,14 @@ const authController = require('../controller/authController');
 
 const router = express.Router();
 
-router.get('/',authController.isLoggedIn,viewController.landingpage);
 router.get('/signin',viewController.signIn);
 router.get('/signup',viewController.signUp);
-router.get('/doctors',viewController.showDoctors);
-router.get('/hospitals',viewController.showHospitals);
+
+router.get('/',authController.isLoggedIn,viewController.landingpage);
+
+router.get('/doctors',authController.isLoggedIn,viewController.showDoctors);
+router.get('/hospitals',authController.isLoggedIn,viewController.showHospitals);
+router.get('/hospitals/:hosId',authController.isLoggedIn,viewController.showOneHospital);
 router.get('/dashboard',authController.protect,viewController.me);
 // router.get('/tour/:slug',authController.isLoggedIn,viewController.getTour);
 // router.get('/login',authController.isLoggedIn,viewController.getLoginForm);
