@@ -1,0 +1,100 @@
+extend base
+
+block content
+    section.userDashboard
+        .left-main
+            .dashHead
+                i.fa.fa-user.active(aria-hidden="true")
+                    span Profile
+            div
+                i.fa.fa-plus-square(aria-hidden="true")
+                    span Appointments
+            div
+                i.fa.fa-user-md(aria-hidden='true')
+                    span Patients
+            img(src="/HTML Pages/images/dashboard/image216.png" alt="text")
+            #setting
+                i.fa.fa-cog(aria-hidden='true') &nbsp; Setting
+        <div class="right-info">
+
+            <div class="right-info-left">
+                <h1>Update Profile Details</h1>
+                <div class="input">
+                    <label for="name">Full Name</label><br>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="input">
+                    <label for="name">Address</label><br>
+                    <input type="text" name="" id="">
+                </div>
+
+                <div class="input">
+                    <label for="Phone">Phone Number</label><br>
+                    <input type="number" name="" id="">
+                </div>
+                <div class="input">
+                    <label for="Email">Email</label><br>
+                    <input type="email" name="" id="">
+                </div>
+                <div class="input">
+                    <label for="password">Password</label><br>
+                    <input type="password" name="" id="">
+                </div>
+                <div class="input">
+                    <label for="password">Confirm Password</label><br>
+                    <input type="password" name="" id="">
+                </div>
+
+            </div>
+            <div class="right-info-mid">
+                <h1>Personal Information</h1>
+                <div class="input">
+                    <label for="Birth">Birth Day</label><br>
+                    <input type="date" name="" id="">
+                </div>
+                <div class="input">
+                    <label for="Age">Age</label><br>
+                    <input type="number" name="" id="">
+                </div>
+                <div>
+                    <label for="type">Gender</label><br>
+                    <select name="list" class="select">
+                        <option value="">Male</option>
+                        <option value="">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type">Blood Group</label><br>
+                    <select name="list" class="select">
+                        <option value="">A+</option>
+                        <option value="">B+</option>
+                        <option value="">O+</option>
+                        <option value="">AB+</option>
+                        <option value="">A-</option>
+                        <option value="">B-</option>
+                        <option value="">O-</option>
+                        <option value="">AB-</option>
+                    </select>
+                </div>
+                <div class="radioButton">
+                    <p>Diabetic</p>
+                    <input type="radio" id="" name="choice" value="yes">
+                    <label for="html">Yes</label><br>
+                    <input type="radio" id="" name="choice" value="no">
+                    <label for="css">No</label><br>
+                </div>
+            </div>
+            <div class="right-info-right">
+                <div>
+                    <img src="/HTML Pages/images/doctor/image2.jpg" alt="">
+                    <input type="file" name="" id="">
+                    <div class="button">
+                        <button class="signbtn">Save</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>

@@ -46,3 +46,17 @@ exports.showHospitals = catchAsync(async (req, res, next) => {
         hospitals
     });
 });
+
+exports.me = catchAsync(async (req,res,next)=>{
+    const {role} = req.user;
+    console.log(role);
+    if(role === 'user'){
+        res.status(200).render('userDashboard',{
+            title:'User'
+        });        
+    }
+    else if(role === 'doctor'){
+        console.log('doctor');
+    }
+
+});
