@@ -1452,6 +1452,9 @@ main a:hover {
     font-size: 10px;
     color: #3a4a69;
 }
+.userDashboard a{
+    color: #000;
+}
 
 
 
