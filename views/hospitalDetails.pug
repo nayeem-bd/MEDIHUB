@@ -1,0 +1,61 @@
+extend base 
+
+mixin serviceCard(serviceName)
+    .serviceName
+        img(src=`../../../img/hospital/services/${serviceName}.jpg` alt=serviceName)
+        p= serviceName
+
+block content 
+    .hospitalDetails
+        .hero
+            .hospitalDetailsLeft
+                img(src=`../../../img/hospital/${hospital.photo}` alt=hospital.name)
+            .hospitalDetailsRight 
+                h2= hospital.name
+                p= hospital.about
+
+        .contact
+            .contactAddress
+                h3 Contact Address
+                p= `${hospital.address.street}, ${hospital.address.city}-${hospital.address.zipCode}`
+                    p
+                        i.fa.fa-phone(aria-hidden='true')= `\u00A0\u00A0${hospital.phone}`
+                    p
+                        i.fa.fa-envelope(aria-hidden='true')= `\u00A0\u00A0${hospital.email}`
+                    p
+                        i.fa.fa-globe(aria-hidden='true')= `\u00A0\u00A0${hospital.website}`
+
+            .ambulance
+                img(src="../../../img/hospital/services/ambulance.jpg" alt="ambulance")
+                div
+                    p.emergency EMERGENCY?
+                    p CALL AMBULANCE
+                    p
+                        i.fa.fa-phone(aria-hidden="true") &nbsp; 10620, 09666787878
+
+        .history
+            i.fa.fa-medkit(aria-hidden='true') &nbsp; 15 Years of Establishment
+            i.fa.fa-hospital-o(aria-hidden='true')= `\u00A0\u00A0${hospital.services.length} Branches`
+            i.fa.fa-user-md(aria-hidden='true')= `\u00A0\u00A0${numOfDoctor}+ Consultants`
+            i.fa.fa-user(aria-hidden='true')= `\u00A0\u00A0${numOfReceptionist}+ Staff`
+
+        .services
+            h3.top-p Our Services
+            p
+                | We are committed to (i) Quality, (ii) Effectiveness, (iii) Integration, (iv) Caring for the Community, (v) Caring for our staff and (vi) Research &amp; Training. Our number one priority is to provide our patients with high quality healthcare in a friendly and compassionate environment. Some of the major equipments installed and services/facilities available in the hospital to provide patients with &ldquo;better than the best&rdquo; service are :
+
+            .content-combo
+                each service in hospital.services
+                    +serviceCard(service)
+
+            .serviceNameCombo
+
+        .history2
+            h2 WE LEAD WITH OUR VALUES
+            div
+                i.fa.fa-heartbeat(aria-hidden='true')  Caring
+                i.fa.fa-rocket(aria-hidden='true')  Innovation
+                i.fa.fa-shield(aria-hidden='true')  Quality
+                i.fa.fa-snowflake(aria-hidden='true')  Inclusion
+                i.fa.fa-puzzle-piece(aria-hidden='true')  Research
+                i.fa.fa-users(aria-hidden='true')  Teamwork

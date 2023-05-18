@@ -20,7 +20,18 @@ const hospitalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    facilities: [String],
+    photo:{
+        type:String,
+        default:'default.jpg'
+    },
+    email:{
+        type:String,
+        default:'info@medihub.com'
+    },
+    website:{
+        type:String,
+        default:'medihub.com'
+    },
     services: [String],
     about: String,
     createdAt: {

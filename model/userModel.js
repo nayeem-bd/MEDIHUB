@@ -74,7 +74,10 @@ const userSchema = mongoose.Schema({
     upazila: String,
     street: String
   },
-  specialty: String,
+  specialty: {
+    type:String,
+    default:'unknown'
+  },
   availability: [{
     day: {
       type: String,
@@ -94,7 +97,7 @@ const userSchema = mongoose.Schema({
     ref: 'Hospital'
   },
   education: [String],
-  Training: [String],
+  training: [String],
   experience: Number,
   fee: Number,
   rating: {
