@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import '@babel/polyfill';
-
+import { showAlert } from './alerts';
 // bug fixed part
 
 //search box bug
@@ -37,3 +37,6 @@ if(logOutBtn){
     logout();
   })
 }
+
+const alertMessage = document.querySelector('body').dataset.alert;
+if(alertMessage) showAlert('success',alertMessage,10);
