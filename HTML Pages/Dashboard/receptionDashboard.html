@@ -36,19 +36,21 @@
 
         <div class="left-main">
             <div class="dashHead">
-                <i class="fa fa-user active" aria-hidden="true"><span>Profile</span> </i>
+                <a href="receptionDashboard.html"><i class="fa fa-user active" aria-hidden="true"><span>Profile</span> </i></a>
             </div>
             <div>
-                <i class="fa fa-plus-square " aria-hidden="true"><span>Appointments</span></i>
+                <a href="appointments.html"><i class="fa fa-plus-square " aria-hidden="true"><span>Appointments</span></i></a>
             </div>
             <div>
-                <i class="fa fa-user-md" aria-hidden="true"><span>Doctors</span></i>
+                <a href="hospitalDoctor.html"><i class="fa fa-user-md" aria-hidden="true"><span>Doctors</span></i></a>
+                
             </div>
             <div>
-                <i class="fa fa-user-plus" aria-hidden="true"><span>Patients</span></i>
+                <a href="userHistory.html"><i class="fa fa-user-plus" aria-hidden="true"><span>Patients</span></i></a>
+                
             </div>
 
-            <img src="/HTML Pages/images/dashboard/image216.png" alt="">
+            <img id="patientDash" src="/HTML Pages/images/dashboard/image216.png" alt="">
             <div id="setting">
                 <i class="fa fa-cog" aria-hidden="true">&nbsp Setting</i>
             </div>
@@ -85,7 +87,30 @@
 
             </div>
             <div class="right-info-mid">
-                <h1>Personal Information</h1>
+                <div class="flex2">
+                    <h3>Hospital: </h3>
+                    <select name="list" class="">
+                        <option value="">Dhaka Medical</option>
+                        <option value="">Rajshahi Medical</option>
+                        <option value="">Faridpur Medical</option>
+                        <option value="">Bogura Medical</option>
+                        <option value="">Dinajpur Medical</option>
+                        <option value="">Sylhet Medical</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="type">Blood Group</label><br>
+                    <select name="list" class="select">
+                        <option value="">A+</option>
+                        <option value="">B+</option>
+                        <option value="">O+</option>
+                        <option value="">AB+</option>
+                        <option value="">A-</option>
+                        <option value="">B-</option>
+                        <option value="">O-</option>
+                        <option value="">AB-</option>
+                    </select>
+                </div>
                 <div class="input">
                     <label for="Birth">Birth Day</label><br>
                     <input type="date" name="" id="">
