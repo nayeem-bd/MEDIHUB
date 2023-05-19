@@ -1,0 +1,43 @@
+extend base 
+
+block content 
+    section.doctorDetails
+        .doctor
+            img.img(src=`../../../img/user/${doctor.photo}` alt=doctor.name)
+            .nameLine
+                p.name= doctor.name
+                p= doctor.rating
+                img(src="../../../img/icons/Star 1.png" alt="")
+
+            p= `${doctor.experience} years experience overall`
+            h4.space1= doctor.specialty
+            .nameLine2
+                img.space1(src="../../../img/icons/hospital.png" alt="")
+                p.space1= doctor.hospital.name
+
+            div
+                button.appointment(onclick="window.location.href='appointment.html'") Book Now
+
+        .doctorInfo
+            h2 Education
+            each edu in doctor.education 
+                i.fa.fa-graduation-cap(aria-hidden="true")
+                    span= edu
+
+            h2 Training
+            each train in doctor.training
+                i.fa.fa-graduation-cap(aria-hidden="true") 
+                    span= train
+            hr
+
+            .book-details
+                .timing
+                    each schedule in doctor.availability
+                        h4= schedule.day
+                        p= `${schedule.startTime} - ${schedule.endTime}`
+
+                div
+                    h3 Consultation Fee
+                    h4= `${doctor.fee}TK`
+                div
+                    p.stories User Stories(189)

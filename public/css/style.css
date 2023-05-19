@@ -1459,7 +1459,29 @@ main a:hover {
 
 
 
+/* alert code */
 
+.alert { 
+    position: fixed; 
+    top: 0; 
+    left: 50%; 
+    -webkit-transform: translateX(-50%); 
+    transform: translateX(-50%); 
+    z-index: 9999; 
+    color: #fff; 
+    font-size: 1.8rem; 
+    font-weight: 400; 
+    text-align: center; 
+    border-bottom-left-radius: 5px; 
+    border-bottom-right-radius: 5px; 
+    padding: 1.6rem 15rem; 
+  } 
+  .alert--success { 
+    background-color: #c5b6e5; 
+  } 
+  .alert--error { 
+    background-color: #f5c9c8; 
+  }
 
 
 
