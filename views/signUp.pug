@@ -11,7 +11,7 @@ html(lang="en")
     body
         section#sign-in-container
             .left-content
-                img.medihub(src="img/icons/groupicon.png" alt="")
+                img.medihub(src="img/icons/groupicon.png" alt="" onclick="window.location.href='/'")
                 img(src="img/icons/Group.png" alt="")
             .right-content
                 h1 Sign Up
@@ -20,29 +20,29 @@ html(lang="en")
                     label(for="email">Who are you?)
                     br
                     select(name="list" class="select")
-                        option(value="") Patient
-                        option(value="") Doctor
-                        option(value="") Receptionist
-                        option(value="") Administration
-                
+                        option(value="user") Patient
+                        option(value="doctor") Doctor
+                        option(value="receptionist") Receptionist
+                        option(value="admin") Administration
+
                 .input
                     label(for="name") Name
                     br
-                    input(type="text" name="name" id="")
+                    input(type="text" name="name" id="nameId")
                 .input
                     label(for="phone") Phone Number
                     br
-                    input(type="number" name="phone" id="")
+                    input(type="number" name="phone" id="phoneId")
                 .input
                     label(for="password") Password
                     br
-                    input(type="password" name="password" id="")
+                    input(type="password" name="password" id="passwordId")
                 .input
                     label(for="password") Confirm Password 
                     br
-                    input(type="password" name="confirmPassword" id="")
+                    input(type="password" name="confirmPassword" id="passwordConfirmId")
                 .button
-                    button.signbtn Sign Up
+                    button.signbtn.signUpBtn Sign Up
                     button.google-sign 
                         img(src="img/icons/google-icon 1.png" alt="")
                         p &nbsp; Sign Up with Google
@@ -50,3 +50,5 @@ html(lang="en")
                     a(href="#") Terms
                     a(href="#") Plans
                     a(href="#") Contact Us
+
+        script(src='/dist/index.js') 

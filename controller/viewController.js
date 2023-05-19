@@ -5,8 +5,9 @@ const catchAsync = require('../utils/catchAsync');
 exports.landingpage = catchAsync(async (req, res, next) => {
     let doctors = [];
     const response = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
-    const tempDoc = response.data.data.data;
+    let tempDoc = response.data.data.data;
     tempDoc.sort((a, b) => b.rating - a.rating);
+    tempDoc = tempDoc.filter(el => el.hospital);
     doctors = tempDoc.slice(0, 4);
     const respon = await axios.get('http://localhost:4000/api/v1/hospitals/')
     let hospitals = respon.data.data.data;
@@ -32,8 +33,8 @@ exports.signIn = async (req, res, next) => {
 
 exports.showDoctors = catchAsync(async (req, res, next) => {
     const response = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
-    const doctors = response.data.data.data;
-
+    let doctors = response.data.data.data;
+    doctors = doctors.filter(el => el.hospital);
     res.status(200).render('doctors', {
         title: 'Doctors',
         doctors
@@ -81,6 +82,7 @@ exports.showOneHospital = catchAsync(async (req, res, next) => {
     //console.log(hospital);
     const response2 = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
     let doctors = response2.data.data.data;
+    doctors = doctors.filter(el=>el.hospital);
     doctors = doctors.filter(el => el.hospital._id === req.params.hosId);
 
     const response3 = await axios.get('http://localhost:4000/api/v1/users/doctors?role=receptionist');

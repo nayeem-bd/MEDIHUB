@@ -78,7 +78,7 @@ block content
             each doc in doctors 
                 +doctorCard(doc.photo,doc.name,doc.rating,doc.specialty,32,'hospital.png',doc.hospital.name,doc._id)
         #morebtn
-            button.morebtn More
+            button.morebtn(onclick="window.location.href='doctors'") More
 
     section#mid-container
         p.top-p Hospitals
@@ -88,7 +88,7 @@ block content
             each hospital in hospitals 
                 +hospitalCard(hospital.photo,hospital.name,hospital.address.city,hospital._id)
         #morebtn
-            button.morebtn More
+            button.morebtn(onclick="window.location.href='hospitals'") More
 
     section#mid-container
         p.top-p Hospital Registration
