@@ -1500,9 +1500,11 @@ table {
 #table td,
 #table th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 10px;
 }
-
+#table td{
+    text-align: left;
+}
 #table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -1519,15 +1521,90 @@ table {
 
 #table #ps {
     width: 100px;
+    height: 35px;
+    margin-left: 15px;
+}
+#table .prsView {
+    width: 100px;
+    height: 35px;
+    margin-left: 15px;
+    border-radius: 8px;
+    border: 1px solid rgb(180, 173, 173);
 }
 
+/* prescription */
 
+.border1{
+    background-color: #e0e698;
+    padding: 0px 20px 0px 20px ;
+}
 
+.presMain{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    background-color: #E1F0FF;
+}
+.presMain .leftHead{
+    padding: 0px 20px 0px 20px ;
+    }
+.presMain .midHead{
+margin-top: 20px;
+}
+.presMain .rightHead{
+    padding: 0px 10px 0px 10px ;
+    margin-left: 70px;
+}
 
+.presTop{
+    text-align: left;
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    
+}
+.presMid{
+    text-align: left;
+    display: grid;
+    grid-template-columns: 3fr .02fr 5fr;
+    gap: 30px;
+    padding: 20px;
+    
+}
+.presMid .rightMid{
+   margin-top: 20px;
+}
 
+#table #time{
+    padding: 0px;
+    width: 110px;
+}
 
+.presMid #textarea1{
+    resize: none;
+    width: 250px;
+    height: 100px;
+    margin-bottom: 20px;
+}
 
+.presMain .button{
+    width: 106px;
+    height: 30px;
+    background: #e7e7c5;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+}
+.presMain h3{
+    margin-bottom: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #57c25b;
+}
 
+.checkupResize{
+
+    zoom: 70%;
+}
 
 
 
