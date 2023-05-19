@@ -15,7 +15,7 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
             p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
         .line4
             button.view(onclick=`window.location.href='doctors/${docId}'`) View Profile
-            button.book Book Now
+            button.book(onclick=`window.location.href='doctors/${docId}/appointment'`) Book Now
 
 mixin hospitalCard(hospitalImg,hospitalName,district,hospitalId)
     .hospital

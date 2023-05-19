@@ -50,6 +50,21 @@ exports.showOneDoctor = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.bookAppointment = catchAsync(async (req, res, next) => {
+    const response = await axios.get(`http://localhost:4000/api/v1/users/doctors/${req.params.docId}`);
+    const doctor = response.data.data.doc;
+    const schedule = doctor.availability;
+
+    const timeRange = schedule.map(el => `${el.startTime} - ${el.endTime}`);
+    const uniqueTimeRange = [...new Set(timeRange)];
+    //console.log(uniqueTimeRange);
+    res.status(200).render('appointmentBook', {
+        title: doctor.name,
+        doctor,
+        timeRange: uniqueTimeRange
+    });
+});
+
 exports.showHospitals = catchAsync(async (req, res, next) => {
     const response = await axios.get('http://localhost:4000/api/v1/hospitals/');
     const hospitals = response.data.data.data;
