@@ -40,6 +40,16 @@ exports.showDoctors = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.showOneDoctor = catchAsync(async (req, res, next) => {
+    const response = await axios.get(`http://localhost:4000/api/v1/users/doctors/${req.params.docId}`);
+    const doctor = response.data.data.doc;
+
+    res.status(200).render('doctorDetails', {
+        title: doctor.name,
+        doctor
+    });
+});
+
 exports.showHospitals = catchAsync(async (req, res, next) => {
     const response = await axios.get('http://localhost:4000/api/v1/hospitals/');
     const hospitals = response.data.data.data;

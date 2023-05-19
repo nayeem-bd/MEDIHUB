@@ -2,7 +2,7 @@ extends base
 
 mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName,docId)
     .checkup
-        img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctor/${docId}'`)
+        img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctors/${docId}'`)
         .line1
             p.rate= name
             p= rating
@@ -14,7 +14,7 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
             img(src=`img/icons/${hospitalImg}` alt="")
             p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
         .line4
-            button.view(onclick=`window.location.href='doctor/${docId}'`) View Profile
+            button.view(onclick=`window.location.href='doctors/${docId}'`) View Profile
             button.book Book Now
 
 block content
@@ -26,5 +26,5 @@ block content
             p.bottom-p Have a look at our best doctors from the registered Hospitals
             .content-combo
                 each doc in doctors 
-                    +doctorCard(doc.photo,doc.name,doc.rating,doc.speciality,32,'hospital.png',doc.hospital.name)   
+                    +doctorCard(doc.photo,doc.name,doc.rating,doc.specialty,32,'hospital.png',doc.hospital.name,doc._id)   
 

@@ -12,6 +12,7 @@ router.get('/logout',authController.logout);
 // router.patch('/resetPassword/:token',authController.resetPassword);
 // router.post('/forgotPassword',authController.forgotPassword);
 router.get('/doctors',userController.getAllUser);
+router.get('/doctors/:id',userController.getUser);
 
 
 //logged in area
@@ -21,8 +22,6 @@ router.use(authController.protect);
 // router.patch('/updateMe',userController.updateUserPhoto,userController.resizeUserPhoto,userController.updateMe);
 // router.delete('/deleteMe',userController.deleteMe);
 // router.get('/me',userController.getMe,userController.getUser);
-
-
 
 
 //restict to admin
