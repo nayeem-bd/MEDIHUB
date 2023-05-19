@@ -12,6 +12,8 @@ router.get('/',authController.isLoggedIn,viewController.landingpage);
 
 router.get('/doctors',authController.isLoggedIn,viewController.showDoctors);
 router.get('/doctors/:docId',authController.isLoggedIn,viewController.showOneDoctor);
+router.get('/doctors/:docId/appointment',authController.isLoggedIn,viewController.bookAppointment);
+
 router.get('/hospitals',authController.isLoggedIn,viewController.showHospitals);
 router.get('/hospitals/:hosId',authController.isLoggedIn,viewController.showOneHospital);
 router.get('/dashboard',authController.protect,viewController.me);

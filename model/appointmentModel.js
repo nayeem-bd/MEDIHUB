@@ -29,6 +29,7 @@ const appointmentSchema = mongoose.Schema({
             required: [true, 'End time is required']
         }
     },
+    symptoms: String
     isPaid: {
         type: Boolean,
         default: false

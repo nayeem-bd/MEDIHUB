@@ -2,20 +2,20 @@ extends base
 
 mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospitalName,docId)
     .checkup
-        img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctors/${docId}'`)
+        img.img(src=`../../../img/user/${img_src}` alt="" onclick=`window.location.href='doctors/${docId}'`)
         .line1
             p.rate= name
             p= rating
-            img(src="img/icons/Star 1.png" alt="")
+            img(src="../../../img/icons/Star 1.png" alt="")
         .line2
             p= speciality
             p (32)
         .line3(style={'justify-content':'normal'})
-            img(src=`img/icons/${hospitalImg}` alt="")
+            img(src=`../../../img/icons/${hospitalImg}` alt="")
             p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
         .line4
             button.view(onclick=`window.location.href='doctors/${docId}'`) View Profile
-            button.book Book Now
+            button.book(onclick=`window.location.href='doctors/${docId}/appointment'`) Book Now
 
 block content
     section.allDoctor
