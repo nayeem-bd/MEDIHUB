@@ -1,0 +1,63 @@
+extends base
+
+block content 
+    section.doctorDetails
+        .doctor
+            img.img(src=`../../../img/user/${doctor.photo}` alt=doctor.name)
+            .nameLine
+                p.name= doctor.name
+                p= doctor.rating
+                img(src="../../../img/icons/Star 1.png" alt="")
+
+            p= `${doctor.experience} years experience overall`
+            h4.space1= doctor.specialty
+            .nameLine2
+                img.space1(src="../../../img/icons/hospital.png" alt="")
+                p.space1= doctor.hospital.name
+
+
+        .doctorInfo
+            .appointment-details
+                .appoint-form
+                    h1 Book Appointment
+                    .input
+                        label(for="Date") Date 
+                        br
+                        input(type="date" name="" id="")
+
+                    .input
+                        label(for="Time") Time
+                        br
+                        select(name="" id="")
+                            each tt in timeRange
+                                option(value="")= tt
+                            
+                    .input
+                        label(for="Symptoms") Symptoms
+                        br
+                        textarea(name="" id="" class="symptom")
+
+                    button.bookbtn Continue to Booking
+
+            hr
+
+            .book-details
+                .timing
+                    each schedule in doctor.availability
+                        h4= schedule.day
+                        p= `${schedule.startTime} - ${schedule.endTime}`
+                div
+                    h3 Consultation Fee
+                    h4= `${doctor.fee}TK`
+
+                div
+                    p.stories User Stories(189)
+
+    .history3
+        div
+            h2 Can't Find The Right Doctor?
+            h3 Get Free Expert Consultation to Find The Right Doctor For You
+            h2
+                i.fa.fa-phone(aria-hidden="true")= `\u00A0 Call Now : ${doctor.hospital.phone}`
+        div
+            img(src="../../../img/dashboard/receptionist.png" alt="")

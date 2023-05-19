@@ -2,10 +2,10 @@ extends base
 
 mixin hospitalCard(hospitalImg,hospitalName,district,hospitalId)
     .hospital
-        img(src=`img/hospital/${hospitalImg}` alt="hospital" onclick=`window.location.href='hospitals/${hospitalId}'`)
+        img(src=`../../../img/hospital/${hospitalImg}` alt="hospital" onclick=`window.location.href='hospitals/${hospitalId}'`)
         p.head= hospitalName
         p.desc= district
-        button #[img(src="img/icons/locate.png" alt="")] Get Direction
+        button #[img(src="../../../img/icons/locate.png" alt="")] Get Direction
 
 block content
     section.allHospital
