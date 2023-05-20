@@ -16,7 +16,7 @@ block content
                 p.space1= doctor.hospital.name
 
             div
-                button.appointment(onclick="window.location.href='appointment.html'") Book Now
+                button.appointment(onclick=`window.location.href='${doctor._id}/appointment'`) Book Now
 
         .doctorInfo
             h2 Education

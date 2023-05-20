@@ -57,6 +57,36 @@ if (signUpBtn) {
   });
 }
 
+import { bookAppointment } from './appointment';
+
+const bookBnt = document.querySelector('.bookbtn');
+if (bookBnt) {
+  bookBnt.addEventListener('click', e => {
+    e.preventDefault();
+    const dateInput = document.querySelector('#dateInput');
+    const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const dateR = new Date(dateInput.value);
+    let Day = weekday[dateR.getDay()];
+    const doctorAppointmentSection = document.querySelector('.doctorDetails');
+    const datas = JSON.parse(JSON.stringify(doctorAppointmentSection.dataset));
+
+    const fee = document.querySelector('.feeClass').textContent.slice(0, -2);
+    //console.log(fee);
+    const symptomsText = document.querySelector('.symptom').textContent;
+    let symptom = symptomsText ? symptomsText : '';
+
+    const timeRangeSelect = document.querySelector('#timeRangeSelect');
+    let timeRange = timeRangeSelect.value.split('-');
+    timeRange = timeRange.map(el => el.trim());
+    const schedule = { day: Day, startTime: timeRange[0], endTime: timeRange[1] };
+    if (datas.doctor && datas.user && dateInput.value)
+      bookAppointment(datas.doctor, datas.user, dateInput.value, schedule, fee, symptom);
+    else
+      showAlert('error', 'Must Be filled');
+    //console.log(janina.user);
+  });
+}
+
 
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) showAlert('success', alertMessage, 10);

@@ -75,8 +75,8 @@ const userSchema = mongoose.Schema({
     street: String
   },
   specialty: {
-    type:String,
-    default:'unknown'
+    type: String,
+    default: 'unknown'
   },
   availability: [{
     day: {
@@ -98,13 +98,23 @@ const userSchema = mongoose.Schema({
   },
   education: [String],
   training: [String],
-  experience: Number,
-  fee: Number,
+  experience: {
+    type: Number,
+    default: 0
+  },
+  fee: {
+    type: Number,
+    default: 0
+  },
   rating: {
     type: Number,
     min: [0, 'Must be greater than zero'],
     max: [5, 'Must be less than five'],
     default: 4.5
+  },
+  ratingsQuantity: {
+    type: Number,
+    default: 0
   }
 }, {
   toJSON: { virtuals: true },

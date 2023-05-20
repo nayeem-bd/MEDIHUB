@@ -29,21 +29,42 @@ const appointmentSchema = mongoose.Schema({
             required: [true, 'End time is required']
         }
     },
-    symptoms: String
+    symptoms: String,
     isPaid: {
         type: Boolean,
         default: false
     },
+    serial:{
+        type:Number,
+        default:1
+    },
     createdAt: {
         type: Date,
         default: Date.now
+    },
+    fee: {
+        type:Number,
+        default:0
     }
 }, {
     toJSON: { virtuals: true },
     toObject: { virtuals: true }
 });
 
+appointmentSchema.pre(/^find/,function(next){
+    this.populate({
+        path:'doctor',
+        populate:{
+            path:'hospital',
+            model:'Hospital'
+        }
+    }).populate({
+        path:'user'
+    });
 
+    //this.populate('doctor').populate('user');
+    next();
+});
 
 const Appointment = mongoose.model('Appointment',appointmentSchema);
 

@@ -6,9 +6,10 @@ const router = express.Router();
 
 router.use(authController.protect);
 
-// router.get('/', appointmentController);
-// router.post('/', appointmentController);
-// router.get('/:id', appointmentController);
+
+router.get('/', appointmentController.getAllAppointment);
+router.post('/', appointmentController.createAppointment);
+router.get('/:id', appointmentController.getAppointment);
 
 
 module.exports = router;
