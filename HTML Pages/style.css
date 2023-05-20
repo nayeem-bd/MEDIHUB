@@ -1793,6 +1793,7 @@ table {
 
     body {
         width: 1380px;
+        zoom: 90%;
     }
 }
 
@@ -1806,15 +1807,7 @@ table {
 @media (min-width:1700px) {
 
     body {
-        width: 1380px;
-        zoom: 105%;
-    }
-}
-
-@media (min-width:1930px) {
-
-    body {
-        width: 1380px;
-        zoom: 120%;
+        width: 1690px;
+        zoom: 93%;
     }
 }
