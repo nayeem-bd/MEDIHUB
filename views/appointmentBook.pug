@@ -1,7 +1,7 @@
 extends base
 
 block content 
-    section.doctorDetails
+    section.doctorDetails(data-doctor=`${doctor._id}` data-user=user?`${user._id}`:'')
         .doctor
             img.img(src=`../../../img/user/${doctor.photo}` alt=doctor.name)
             .nameLine
@@ -23,14 +23,14 @@ block content
                     .input
                         label(for="Date") Date 
                         br
-                        input(type="date" name="" id="")
+                        input(type="date" name="" id="dateInput")
 
                     .input
                         label(for="Time") Time
                         br
-                        select(name="" id="")
+                        select(name="" id="timeRangeSelect")
                             each tt in timeRange
-                                option(value="")= tt
+                                option(value=`${tt}`)= tt
                             
                     .input
                         label(for="Symptoms") Symptoms
@@ -48,7 +48,7 @@ block content
                         p= `${schedule.startTime} - ${schedule.endTime}`
                 div
                     h3 Consultation Fee
-                    h4= `${doctor.fee}TK`
+                    h4.feeClass= `${doctor.fee}TK`
 
                 div
                     p.stories User Stories(189)
@@ -61,3 +61,4 @@ block content
                 i.fa.fa-phone(aria-hidden="true")= `\u00A0 Call Now : ${doctor.hospital.phone}`
         div
             img(src="../../../img/dashboard/receptionist.png" alt="")
+    

@@ -15,11 +15,11 @@ exports.deleteMe = catchAsync(async(req,res,next)=>{
     });
 });
 
-exports.getTopDoctors = (limit) => catchAsync(async(req,res,next)=>{
-    let query = User.find().populate('hospital');
-    const doctors = await User.aggregate().match({role:'doctor'}).sort('-rating').limit(limit).exec();
-    res.status(200).json({
-        status:'success',
-        data:doctors
-    });
-});
+// exports.getTopDoctors = (limit) => catchAsync(async(req,res,next)=>{
+//     let query = User.find().populate('hospital');
+//     const doctors = await User.aggregate().match({role:'doctor'}).sort('-rating').limit(limit).exec();
+//     res.status(200).json({
+//         status:'success',
+//         data:doctors
+//     });
+// });
