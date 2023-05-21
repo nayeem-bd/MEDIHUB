@@ -766,13 +766,13 @@ a {
 }
 
 .select {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 422px;
     height: 46px;
     padding-left: 13px;
     margin-right: 13px;
     top: 29px;
-
+    margin-bottom: 10px;
     background: #F3F6FD;
     border: 1px solid #cad1d8;
     border-radius: 8px;
@@ -915,7 +915,10 @@ a {
 }
 
 .doctor {
-    width: 35%;
+    width: 350px;
+    margin-right: 100px;
+    /* width: 35%; */
+    height: 650px;
 }
 
 .doctor .img {
@@ -969,13 +972,24 @@ a {
 .doctorInfo .book-details {
     display: flex;
     justify-content: space-between;
-    margin-right: 200px;
+}
+
+.fee {
+    color: #10727b;
 }
 
 .doctorInfo .stories {
+    margin-top: 20px;
     cursor: pointer;
     color: chocolate;
     text-decoration: underline;
+}
+
+.stories a,
+.stories span {
+    color: chocolate;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .space1 {
@@ -1020,6 +1034,7 @@ a {
 .appoint-form .input {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .appoint-form label {
@@ -1033,12 +1048,12 @@ a {
 .appoint-form input,
 textarea,
 select {
-    margin-top: 5px;
+    resize: none;
     width: 250px;
     height: 40px;
     color: #22385E;
     background: #F3F6FD;
-    border: 1px solid #e0e0e2;
+    border: 1px solid #d6d6db;
     border-radius: 8px;
 }
 
@@ -1364,6 +1379,7 @@ main a:hover {
 .userDashboard .right-info {
     display: grid;
     grid-template-columns: 1.1fr .7fr .5fr;
+    grid-template-rows: 700px 200px;
     column-gap: 25px;
     background-color: #E1F0FF;
     padding: 30px;
@@ -1390,13 +1406,14 @@ main a:hover {
 .userDashboard .right-info-mid input {
     margin-right: 12px;
 }
+
 .userDashboard .right-info-mid h3 {
     color: #7F56D9;
     gap: 1px;
 }
 
 
-.userDashboard .right-info-right button {
+.userDashboard .right-info-right .signbtn {
     width: 100px;
     margin-left: 80px;
     margin-top: 20px;
@@ -1432,7 +1449,9 @@ main a:hover {
 }
 
 .userDashboard .schedule {
+    text-align: center;
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .userDashboard .right-info-bottom {
@@ -1446,6 +1465,7 @@ main a:hover {
     justify-content: space-between;
     gap: 10px;
 }
+
 .flex2 {
     display: flex;
     align-items: center;
@@ -1458,7 +1478,8 @@ main a:hover {
 
 .userDashboard .edu textarea {
     width: 422px;
-    height: 57px;
+    height: 60px;
+    margin-top: 5px;
 }
 
 .userDashboard .edu label {
@@ -1479,6 +1500,27 @@ main a:hover {
 
 .userDashboard #patientDash {
     margin-top: 75px;
+}
+
+#sat input,
+#sun input,
+#mon input,
+#tue input,
+#wed input,
+#thu input,
+#fri input {
+    width: 100px;
+}
+
+.dayHead {
+    color: #126209;
+    width: 120px;
+}
+
+#imgResize {
+    margin-top: 20px;
+    width: 300px;
+    height: 330px;
 }
 
 /* appointments */
@@ -1502,9 +1544,11 @@ table {
     border: 1px solid #ddd;
     padding: 10px;
 }
-#table td{
+
+#table td {
     text-align: left;
 }
+
 #table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -1521,9 +1565,10 @@ table {
 
 #table #ps {
     width: 100px;
-    height: 35px;
+    height: 30px;
     margin-left: 15px;
 }
+
 #table .prsView {
     width: 100px;
     height: 35px;
@@ -1534,77 +1579,201 @@ table {
 
 /* prescription */
 
-.border1{
+.border1 {
     background-color: #e0e698;
-    padding: 0px 20px 0px 20px ;
+    padding: 0px 20px 0px 20px;
 }
 
-.presMain{
+.presMain {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 1000px;
     background-color: #E1F0FF;
 }
-.presMain .leftHead{
-    padding: 0px 20px 0px 20px ;
-    }
-.presMain .midHead{
-margin-top: 20px;
+
+.presMain .leftHead {
+    padding: 0px 20px 0px 20px;
 }
-.presMain .rightHead{
-    padding: 0px 10px 0px 10px ;
+
+.presMain .midHead {
+    margin-top: 20px;
+}
+
+.presMain .rightHead {
+    padding: 0px 10px 0px 10px;
     margin-left: 70px;
 }
 
-.presTop{
+.presTop {
     text-align: left;
     display: grid;
     grid-template-columns: 3fr 1fr 3fr;
-    
+
 }
-.presMid{
+
+.presMid {
     text-align: left;
     display: grid;
     grid-template-columns: 3fr .02fr 5fr;
     gap: 30px;
     padding: 20px;
-    
-}
-.presMid .rightMid{
-   margin-top: 20px;
+
 }
 
-#table #time{
+.presMid .rightMid {
+    margin-top: 20px;
+}
+
+#table #time {
     padding: 0px;
     width: 110px;
+    height: 35px;
 }
 
-.presMid #textarea1{
+.presMid #textarea1 {
     resize: none;
     width: 250px;
     height: 100px;
     margin-bottom: 20px;
 }
 
-.presMain .button{
+.presMain .button {
+    font-size: 16px;
+    font-weight: 400;
+    color: #22385E;
     width: 106px;
     height: 30px;
     background: #e7e7c5;
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
-.presMain h3{
+
+.presMain .addButton {
+    font-size: 14px;
+    font-weight: 400;
+    color: #22385E;
+    margin-top: 50px;
+    width: 106px;
+    height: 30px;
+    background: #e7e7c5;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+}
+
+.presMain h3 {
     margin-bottom: 5px;
     text-align: center;
     color: #ffffff;
     background-color: #57c25b;
 }
 
-.checkupResize{
-
+.checkupResize {
     zoom: 70%;
 }
+
+.presMain input {
+    border-radius: 4px;
+    border: 1px solid #b4b3c1;
+    height: 35px;
+}
+
+/* rate */
+
+.rate {
+    float: left;
+    height: 46px;
+    margin-top: -10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+.wReview textarea {
+    margin-top: 20px;
+    width: 250px;
+    height: 100px;
+    margin-bottom: -10px;
+}
+
+
+
+/* review */
+
+.review1 {
+    padding: 0px 20px 0px 20px;
+    border: 1px solid rgb(199, 193, 193);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.review1 i {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.review1 h3 {
+    color: #22385E;
+}
+
+.reviewText {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.button1 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #22385E;
+    width: 106px;
+    height: 25px;
+    background: #e7e7c5;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+    margin-top: -5px;
+}
+
+.vLine {
+    margin: 0px;
+}
+
+
+
+
+
 
 
 
@@ -1624,6 +1793,7 @@ margin-top: 20px;
 
     body {
         width: 1380px;
+        zoom: 90%;
     }
 }
 
@@ -1637,15 +1807,7 @@ margin-top: 20px;
 @media (min-width:1700px) {
 
     body {
-        width: 1380px;
-        zoom: 105%;
-    }
-}
-
-@media (min-width:1930px) {
-
-    body {
-        width: 1380px;
-        zoom: 120%;
+        width: 1690px;
+        zoom: 93%;
     }
 }
