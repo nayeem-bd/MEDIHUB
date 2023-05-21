@@ -1,0 +1,45 @@
+extend dashboard 
+
+mixin historyCard(serial,userName,doctorName,date,symptoms,prescriptionId)
+    tr
+        td
+            label= `${serial}.`
+        td= userName
+        td= doctorName
+        td= date
+        td= symptoms
+        td
+            button.prsView(onclick=`window.location.href="/prescription/${prescriptionId}"`) View
+
+block right
+    .right-info-all
+        table#table
+            tbody
+                tr
+                    th(style='width:6%') Serial
+                    th(style='width:22%') Patient Name
+                    th(style='width:22%') Doctor Name
+                    th(style='width:16%') Date
+                    th(style='width:16%') Symptoms
+                    th(style='width:13%') Prescription
+
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+                +historyCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','Skin rashes','564564646')
+

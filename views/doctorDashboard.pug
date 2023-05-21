@@ -1,0 +1,96 @@
+.right-info
+    .right-info-left
+        h1 Update Profile Details
+        .input
+            label(for='name') Full Name
+            br
+            input(type='text' name='' id='')
+        .input
+            label(for='name') Hospital/Clinic Name
+            br
+            input(type='text' name='' id='')
+        .input
+            label(for='Phone') Phone Number
+            br
+            input(type='number' name='' id='')
+        .input
+            label(for='Email') Email
+            br
+            input(type='email' name='' id='')
+        .input
+            label(for='password') Password
+            br
+            input(type='password' name='' id='')
+        .input
+            label(for='password') Confirm Password
+            br
+            input(type='password' name='' id='')
+    .right-info-mid
+        .flex2
+            h3 Hospital :
+            select(name='list')
+                option(value='') Dhaka Medical
+                option(value='') Rajshahi Medical
+                option(value='') Faridpur Medical
+                option(value='') Bogura Medical
+                option(value='') Dinajpur Medical
+                option(value='') Sylhet Medical
+        .flex1
+            div
+                label(for='type') Speciality
+                br
+                select.select(name='list')
+                    option(value='') Cardiology
+                    option(value='') Pediatrics
+                    option(value='') Neurology
+                    option(value='') Orthopedics
+                    option(value='') Dentist
+                    option(value='') Medicine
+                    option(value='') Dermatology
+                    option(value='') Psychiatry
+            .input
+                label(for='Age') Experience
+                br
+                input(type='number' name='' id='')
+        .flex1
+            .input
+                label(for='Birth') Birth Day
+                br
+                input(type='date' name='' id='')
+            .input
+                label(for='Age') Age
+                br
+                input(type='number' name='' id='')
+        .flex1
+            div
+                label(for='type') Gender
+                br
+                select.select(name='list')
+                    option(value='') Male
+                    option(value='') Female
+            div
+                label(for='type') Blood Group
+                br
+                select.select(name='list')
+                    option(value='') A+
+                    option(value='') B+
+                    option(value='') O+
+                    option(value='') AB+
+                    option(value='') A-
+                    option(value='') B-
+                    option(value='') O-
+                    option(value='') AB-
+        .edu
+            label(for='edu') Education
+            br
+            textarea(name='' id='')
+        .edu
+            label(for='edu') Training
+            br
+            textarea(name='' id='')
+    .right-info-right
+        div
+            img(src='/HTML Pages/images/doctor/image2.jpg' alt='')
+            input(type='file' name='' id='')
+        .button(style='margin-top: 200px;')
+            button.signbtn Save

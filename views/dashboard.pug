@@ -1,0 +1,11 @@
+extend dashboardBase 
+
+block right 
+    if user.role=='user'
+        include userDashboard
+
+    else if user.role == 'doctor'
+        include doctorDashboard 
+
+    else if user.role == 'receptionist'
+        include receptionDashboard

@@ -135,6 +135,11 @@ userSchema.pre('save', function (next) {
   next();
 });
 
+userSchema.pre(/^find/, function (next) {
+  this.populate('hospital');
+  next();
+});
+
 // userSchema.pre(/^find/,function(next){
 //   this.find({active:{$ne:false}});
 //   next();

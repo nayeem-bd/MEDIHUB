@@ -17,6 +17,11 @@ router.get('/doctors/:docId/appointment',authController.isLoggedIn,viewControlle
 router.get('/hospitals',authController.isLoggedIn,viewController.showHospitals);
 router.get('/hospitals/:hosId',authController.isLoggedIn,viewController.showOneHospital);
 router.get('/dashboard',authController.protect,viewController.me);
+router.get('/dashboard/appointments',authController.protect,viewController.showAppointments);
+router.get('/dashboard/history',authController.protect,viewController.showHistory);
+router.get('/dashboard/schedule',authController.protect,authController.restrictTo('doctor'),viewController.showSchedule);
+router.get('/prescription/:presId',authController.protect,viewController.showPrescription);
+
 // router.get('/tour/:slug',authController.isLoggedIn,viewController.getTour);
 // router.get('/login',authController.isLoggedIn,viewController.getLoginForm);
 // router.get('/me',authController.protect,viewController.getAccount);
