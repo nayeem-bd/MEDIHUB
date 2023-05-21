@@ -1,0 +1,60 @@
+extend dashboard 
+
+block right 
+    .right-info
+        .right-info-left
+            .doctor
+                img#imgResize.img(src=`../../../img/user/${user.photo}` alt=user.name)
+                .nameLine
+                    p.name= user.name
+                    p= `${user.rating} \u00A0`
+                    img(src='../../../img/icons/Star 1.png' alt='')
+                p= `${user.experience} years experience overall`
+                h4.space1= user.specialty
+                .nameLine2
+                    img.space1(src='../../../img/icons/hospital.png' alt='')
+                    p.space1= user.hospital.name
+        .right-info-right
+            h2(style='color:#514f54') Add Schedule
+            #sat.flex2
+                h3.dayHead Saturday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')
+            #sun.flex2
+                h3.dayHead Sunday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')
+            #mon.flex2
+                h3.dayHead Monday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')
+            #tue.flex2
+                h3.dayHead Tuesday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')
+            #wed.flex2
+                h3.dayHead Wednesday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')
+            #thu.flex2
+                h3.dayHead Thursday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')
+            #fri.flex2
+                h3.dayHead Friday:
+                label(for='') Start:
+                input(type='time' name='' id='')
+                label(for='') End:
+                input(type='time' name='' id='')

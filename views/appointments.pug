@@ -1,0 +1,36 @@
+extend dashboard 
+
+mixin appointmentCard(serial,userName,doctorName,date,schedule,fee,status)
+    tr
+        td
+            label= `${serial}.`
+        td= userName
+        td= doctorName
+        td= date
+        td= schedule
+        td= `${fee} TK`
+        td
+            select#ps(name='status')
+                if(status==true)
+                    option(value='1' selected) Paid
+                    option(value='0') Unpaid
+                else 
+                    option(value='1') Paid
+                    option(value='0' selected) Unpaid
+block right 
+    .right-info-all
+        table#table
+            tbody
+                tr
+                    th(style='width:6%') Serial
+                    th(style='width:20%') Patient Name
+                    th(style='width:20%') Doctor Name
+                    th(style='width:14%') Date
+                    th(style='width:14%') Schedule
+                    th(style='width:8%') Fees
+                    th(style='width:13%') Payment Status
+
+                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,false)
+                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,false)
+                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,true)
+                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,false)

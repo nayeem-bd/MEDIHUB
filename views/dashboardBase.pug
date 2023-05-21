@@ -1,0 +1,53 @@
+extend base
+
+block content
+    section.userDashboard
+        .left-main
+            .dashHead
+                a(href='/dashboard')
+                    i.fa.fa-user.active(aria-hidden='true')
+                        span Profile
+            if user.role == 'user'
+                div
+                    a(href='/dashboard/appointments')
+                        i.fa.fa-plus-square(aria-hidden='true')
+                            span Appointments
+                div
+                    a(href='/dashboard/history')
+                        i.fa.fa-user-md(aria-hidden='true')
+                            span History
+
+            else if user.role == 'doctor'
+                div
+                    a(href='/dashboard/schedule')
+                        i.fa.fa-clock(aria-hidden='true')
+                            span Schedule
+                div
+                    a(href='/dashboard/appointments')
+                        i.fa.fa-plus-square(aria-hidden='true')
+                            span Appointments
+                div
+                    a(href='/dashboard/history')
+                        i.fa.fa-history(aria-hidden='true')
+                            span History
+
+            else if user.role == 'receptionist'
+                div
+                    a(href='/dashboard/appointments')
+                        i.fa.fa-plus-square(aria-hidden='true')
+                            span Appointments
+                div
+                    a(href='/dashboard/doctors')
+                        i.fa.fa-user-md(aria-hidden='true')
+                            span Doctors
+                div
+                    a(href='/dashboard/history')
+                        i.fa.fa-user-plus(aria-hidden='true')
+                            span Patients
+
+            img(src="../../../img/dashboard/image216.png" alt="text")
+            #setting
+                i.fa.fa-cog(aria-hidden='true') &nbsp; Setting
+
+        block right
+

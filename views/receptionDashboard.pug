@@ -26,7 +26,27 @@
             br
             input(type='password' name='' id='')
     .right-info-mid
-        h1 Personal Information
+        .flex2
+            h3 Hospital:
+            select(name='list')
+                option(value='') Dhaka Medical
+                option(value='') Rajshahi Medical
+                option(value='') Faridpur Medical
+                option(value='') Bogura Medical
+                option(value='') Dinajpur Medical
+                option(value='') Sylhet Medical
+        div
+            label(for='type') Blood Group
+            br
+            select.select(name='list')
+                option(value='') A+
+                option(value='') B+
+                option(value='') O+
+                option(value='') AB+
+                option(value='') A-
+                option(value='') B-
+                option(value='') O-
+                option(value='') AB-
         .input
             label(for='Birth') Birth Day
             br

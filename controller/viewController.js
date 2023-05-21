@@ -82,7 +82,7 @@ exports.showOneHospital = catchAsync(async (req, res, next) => {
     //console.log(hospital);
     const response2 = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
     let doctors = response2.data.data.data;
-    doctors = doctors.filter(el=>el.hospital);
+    doctors = doctors.filter(el => el.hospital);
     doctors = doctors.filter(el => el.hospital._id === req.params.hosId);
 
     const response3 = await axios.get('http://localhost:4000/api/v1/users/doctors?role=receptionist');
@@ -98,15 +98,31 @@ exports.showOneHospital = catchAsync(async (req, res, next) => {
 });
 
 exports.me = catchAsync(async (req, res, next) => {
-    const { role } = req.user;
-    //console.log(role);
-    if (role === 'user') {
-        res.status(200).render('userDashboard', {
-            title: 'User'
-        });
-    }
-    else if (role === 'doctor') {
-        //console.log('doctor');
-    }
+    res.status(200).render('dashboard', {
+        title: req.user.role
+    });
+});
 
+exports.showAppointments = catchAsync(async (req, res, next) => {
+    res.status(200).render('appointments', {
+        title: 'Appointments'
+    });
+});
+
+exports.showHistory = catchAsync(async (req, res, next) => {
+    res.status(200).render('history', {
+        title: 'History'
+    });
+});
+
+exports.showSchedule = catchAsync(async (req, res, next) => {
+    res.status(200).render('schedule', {
+        title: 'Schedule'
+    });
+});
+
+exports.showPrescription = catchAsync(async (req, res, next) => {
+    res.status(200).render('prescription', {
+        title: 'Prescription'
+    });
 });

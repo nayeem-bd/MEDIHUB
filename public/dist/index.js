@@ -13392,7 +13392,7 @@ const logout = exports.logout = async () => {
       method: 'GET',
       url: '/api/v1/users/logout'
     });
-    if (res.data.status === 'success') location.reload(true);
+    if (res.data.status === 'success') location.assign('/');;
   } catch (err) {
     (0, _alerts.showAlert)('error', 'Error logging out! Try again.');
   }

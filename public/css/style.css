@@ -128,8 +128,9 @@ button:hover {
     font-weight: 500;
     color: #000;
 }
-#header .sign-in a:hover{
-    color: #7F56D9 ;
+
+#header .sign-in a:hover {
+    color: #7F56D9;
 }
 
 #header .create-button {
@@ -177,7 +178,7 @@ button:hover {
     position: absolute;
     width: 1500px;
     height: 328px;
-    background: url("../img/hero.png");
+    background: url("../../../img/hero.png");
     background-color: #EDFAFF;
 }
 
@@ -226,7 +227,7 @@ button:hover {
     font-weight: 400;
     line-height: 24px;
     background-color: #F3F6FD;
-    background-image: url('../img/icons/search1.png');
+    background-image: url('../../../img/icons/search1.png');
     background-position: 13px 13px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -245,7 +246,7 @@ button:hover {
     font-weight: 400;
     line-height: 24px;
     background-color: #F3F6FD;
-    background-image: url('../img/icons/location.png');
+    background-image: url('../../../img/icons/location.png');
     background-position: 13px 12px;
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -450,7 +451,7 @@ button:hover {
     padding: 16px 30px;
 }
 
-.hospital .hospitalImg{
+.hospital .hospitalImg {
     width: 276px;
     height: 193px;
 }
@@ -765,13 +766,13 @@ a {
 }
 
 .select {
-    margin-top: 10px;
+    margin-top: 5px;
     width: 422px;
     height: 46px;
     padding-left: 13px;
     margin-right: 13px;
     top: 29px;
-
+    margin-bottom: 10px;
     background: #F3F6FD;
     border: 1px solid #cad1d8;
     border-radius: 8px;
@@ -914,7 +915,10 @@ a {
 }
 
 .doctor {
-    width: 35%;
+    width: 350px;
+    margin-right: 100px;
+    /* width: 35%; */
+    height: 650px;
 }
 
 .doctor .img {
@@ -968,13 +972,24 @@ a {
 .doctorInfo .book-details {
     display: flex;
     justify-content: space-between;
-    margin-right: 200px;
+}
+
+.fee {
+    color: #10727b;
 }
 
 .doctorInfo .stories {
+    margin-top: 20px;
     cursor: pointer;
     color: chocolate;
     text-decoration: underline;
+}
+
+.stories a,
+.stories span {
+    color: chocolate;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 .space1 {
@@ -1019,6 +1034,7 @@ a {
 .appoint-form .input {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .appoint-form label {
@@ -1032,12 +1048,12 @@ a {
 .appoint-form input,
 textarea,
 select {
-    margin-top: 5px;
+    resize: none;
     width: 250px;
     height: 40px;
     color: #22385E;
     background: #F3F6FD;
-    border: 1px solid #e0e0e2;
+    border: 1px solid #d6d6db;
     border-radius: 8px;
 }
 
@@ -1334,7 +1350,8 @@ main a:hover {
     font-size: 20px;
     font-weight: 500;
 }
-.userDashboard .dashHead{
+
+.userDashboard .dashHead {
     width: 220px;
     height: 75px;
 }
@@ -1342,7 +1359,8 @@ main a:hover {
 .userDashboard .left-main img {
     margin: 150px 0px 0px 20px;
 }
-.active{
+
+.active {
     background-color: #7F56D9;
     width: 220px;
     height: 40px;
@@ -1350,7 +1368,7 @@ main a:hover {
     color: white;
 }
 
-.userDashboard  label {
+.userDashboard label {
     margin-bottom: 0px;
     font-weight: 700;
     font-size: 16px;
@@ -1361,6 +1379,7 @@ main a:hover {
 .userDashboard .right-info {
     display: grid;
     grid-template-columns: 1.1fr .7fr .5fr;
+    grid-template-rows: 700px 200px;
     column-gap: 25px;
     background-color: #E1F0FF;
     padding: 30px;
@@ -1369,7 +1388,7 @@ main a:hover {
     border-radius: 8px;
 }
 
-.userDashboard input{
+.userDashboard input {
     margin-top: 3px;
     margin-bottom: 8px;
     width: 422px;
@@ -1379,13 +1398,22 @@ main a:hover {
     border-radius: 8px;
 }
 
-.userDashboard .right-info-mid input,.select{
+.userDashboard .right-info-mid input,
+.select {
     width: 200px;
 }
-.userDashboard .right-info-mid input{
+
+.userDashboard .right-info-mid input {
     margin-right: 12px;
 }
-.userDashboard .right-info-right button{
+
+.userDashboard .right-info-mid h3 {
+    color: #7F56D9;
+    gap: 1px;
+}
+
+
+.userDashboard .right-info-right .signbtn {
     width: 100px;
     margin-left: 80px;
     margin-top: 20px;
@@ -1395,68 +1423,352 @@ main a:hover {
     border: 1px solid #7F56D9;
     border-radius: 8px;
 }
-.userDashboard .right-info-right input{
+
+.userDashboard .right-info-right input {
     margin-top: 5px;
     font-size: 12px;
     width: 180px;
     height: 30px;
 }
 
-.userDashboard .right-info-right img{
+.userDashboard .right-info-right img {
     margin-top: 30px;
-     width: 180px;
-     height: 200px;
+    width: 180px;
+    height: 200px;
 }
-.userDashboard .radioButton{
+
+.userDashboard .radioButton {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 200px;
 }
-.userDashboard .radioButton input{
+
+.userDashboard .radioButton input {
     height: 15px;
 }
 
-.userDashboard  .schedule{
+.userDashboard .schedule {
+    text-align: center;
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 
-.userDashboard .right-info-bottom{
-    
+.userDashboard .right-info-bottom {
+
     text-align: center;
 }
 
-.flex1{
+.flex1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 10px;
 }
-.userDashboard .edu{
+
+.flex2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.userDashboard .edu {
     margin-top: 27px;
 }
 
-.userDashboard .edu textarea{
+.userDashboard .edu textarea {
     width: 422px;
-    height: 57px;
+    height: 60px;
+    margin-top: 5px;
 }
 
-.userDashboard .edu label{
+.userDashboard .edu label {
     font-weight: 900px;
-    font-size: 20px ;
+    font-size: 20px;
 }
 
-.userDashboard #setting{
+.userDashboard #setting {
     margin-top: 15px;
     text-align: center;
     font-size: 10px;
     color: #3a4a69;
 }
-.userDashboard a{
+
+.userDashboard a {
     color: #000;
 }
 
+.userDashboard #patientDash {
+    margin-top: 75px;
+}
 
+#sat input,
+#sun input,
+#mon input,
+#tue input,
+#wed input,
+#thu input,
+#fri input {
+    width: 100px;
+}
+
+.dayHead {
+    color: #126209;
+    width: 120px;
+}
+
+#imgResize {
+    margin-top: 20px;
+    width: 300px;
+    height: 330px;
+}
+
+/* appointments */
+
+.right-info-all {
+    background-color: #E1F0FF;
+    padding: 30px;
+    width: 1180px;
+    height: 600px;
+    border-radius: 8px;
+    overflow-y: scroll;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#table td,
+#table th {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+#table td {
+    text-align: left;
+}
+
+#table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#table tr:hover {
+    background-color: #ddd;
+}
+
+#table th {
+    text-align: left;
+    background-color: #57c25b;
+    color: white;
+}
+
+#table #ps {
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+}
+
+#table .prsView {
+    width: 100px;
+    height: 35px;
+    margin-left: 15px;
+    border-radius: 8px;
+    border: 1px solid rgb(180, 173, 173);
+}
+
+/* prescription */
+
+.border1 {
+    background-color: #e0e698;
+    padding: 0px 20px 0px 20px;
+}
+
+.presMain {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    background-color: #E1F0FF;
+}
+
+.presMain .leftHead {
+    padding: 0px 20px 0px 20px;
+}
+
+.presMain .midHead {
+    margin-top: 20px;
+}
+
+.presMain .rightHead {
+    padding: 0px 10px 0px 10px;
+    margin-left: 70px;
+}
+
+.presTop {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+
+}
+
+.presMid {
+    text-align: left;
+    display: grid;
+    grid-template-columns: 3fr .02fr 5fr;
+    gap: 30px;
+    padding: 20px;
+
+}
+
+.presMid .rightMid {
+    margin-top: 20px;
+}
+
+#table #time {
+    padding: 0px;
+    width: 110px;
+    height: 35px;
+}
+
+.presMid #textarea1 {
+    resize: none;
+    width: 250px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.presMain .button {
+    font-size: 16px;
+    font-weight: 400;
+    color: #22385E;
+    width: 106px;
+    height: 30px;
+    background: #e7e7c5;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+}
+
+.presMain .addButton {
+    font-size: 14px;
+    font-weight: 400;
+    color: #22385E;
+    margin-top: 50px;
+    width: 106px;
+    height: 30px;
+    background: #e7e7c5;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+}
+
+.presMain h3 {
+    margin-bottom: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #57c25b;
+}
+
+.checkupResize {
+    zoom: 70%;
+}
+
+.presMain input {
+    border-radius: 4px;
+    border: 1px solid #b4b3c1;
+    height: 35px;
+}
+
+/* rate */
+
+.rate {
+    float: left;
+    height: 46px;
+    margin-top: -10px;
+}
+
+.rate:not(:checked)>input {
+    position: absolute;
+    top: -9999px;
+}
+
+.rate:not(:checked)>label {
+    float: right;
+    width: 1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 30px;
+    color: #ccc;
+}
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+.wReview textarea {
+    margin-top: 20px;
+    width: 250px;
+    height: 100px;
+    margin-bottom: -10px;
+}
+
+
+
+/* review */
+
+.review1 {
+    padding: 0px 20px 0px 20px;
+    border: 1px solid rgb(199, 193, 193);
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.review1 i {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.review1 h3 {
+    color: #22385E;
+}
+
+.reviewText {
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+
+.button1 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #22385E;
+    width: 106px;
+    height: 25px;
+    background: #e7e7c5;
+    border: 1px solid #7F56D9;
+    border-radius: 8px;
+    margin-top: -5px;
+}
+
+.vLine {
+    margin: 0px;
+}
 
 
 /* alert code */
@@ -1494,6 +1806,12 @@ main a:hover {
 
 
 
+
+
+
+
+
+
 /* responsive */
 
 @media (max-width:477px) {
@@ -1508,6 +1826,7 @@ main a:hover {
 
     body {
         width: 1380px;
+        zoom: 90%;
     }
 }
 
@@ -1521,15 +1840,7 @@ main a:hover {
 @media (min-width:1700px) {
 
     body {
-        width: 1380px;
-        zoom: 105%;
-    }
-}
-
-@media (min-width:1930px) {
-
-    body {
-        width: 1380px;
-        zoom: 120%;
+        width: 1690px;
+        zoom: 93%;
     }
 }
