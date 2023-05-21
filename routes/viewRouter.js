@@ -20,6 +20,7 @@ router.get('/dashboard',authController.protect,viewController.me);
 router.get('/dashboard/appointments',authController.protect,viewController.showAppointments);
 router.get('/dashboard/history',authController.protect,viewController.showHistory);
 router.get('/dashboard/schedule',authController.protect,authController.restrictTo('doctor'),viewController.showSchedule);
+router.get('/dashboard/doctors',authController.protect,authController.restrictTo('receptionist'),viewController.showHospitalDoctors);
 router.get('/prescription/:presId',authController.protect,viewController.showPrescription);
 
 // router.get('/tour/:slug',authController.isLoggedIn,viewController.getTour);
