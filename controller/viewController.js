@@ -126,3 +126,9 @@ exports.showPrescription = catchAsync(async (req, res, next) => {
         title: 'Prescription'
     });
 });
+
+exports.showHospitalDoctors = catchAsync(async (req, res, next) => {
+    res.status(200).render('hospitalDoctors', {
+        title: 'Doctors'
+    });
+});
