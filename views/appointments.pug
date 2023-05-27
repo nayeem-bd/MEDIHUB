@@ -1,6 +1,6 @@
 extend dashboard 
 
-mixin appointmentCard(serial,userName,doctorName,date,schedule,fee,status)
+mixin appointmentCard(serial,userName,doctorName,date,schedule,fee,status,userRole,appointmentId)
     tr
         td
             label= `${serial}.`
@@ -10,7 +10,7 @@ mixin appointmentCard(serial,userName,doctorName,date,schedule,fee,status)
         td= schedule
         td= `${fee} TK`
         td
-            select#ps(name='status')
+            select#ps.paymentStatus(name='status' data-role=userRole,data-appointmentId=appointmentId)
                 if(status==true)
                     option(value='1' selected) Paid
                     option(value='0') Unpaid
@@ -29,8 +29,5 @@ block right
                     th(style='width:14%') Schedule
                     th(style='width:8%') Fees
                     th(style='width:13%') Payment Status
-
-                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,false)
-                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,false)
-                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,true)
-                +appointmentCard(1,'Suzat','Dr. Rony Ahmed','Mon,18/05/2023','4:30PM-5:30PM',600,false)
+                each el in appointments
+                    +appointmentCard(el.serial,el.user.name,el.doctor.name,`${el.schedule.day.slice(0,-3)},${el.date.toJSON().slice(0,10).split('-').reverse().join('/')}`,`${el.schedule.startTime} - ${el.schedule.endTime}`,el.doctor.fee,el.isPaid,user.role,el.id)
