@@ -57,7 +57,7 @@ if (signUpBtn) {
   });
 }
 
-import { bookAppointment } from './appointment';
+import { bookAppointment,updateAppointment } from './appointment';
 
 const bookBnt = document.querySelector('.bookbtn');
 if (bookBnt) {
@@ -84,6 +84,27 @@ if (bookBnt) {
     else
       showAlert('error', 'Must Be filled');
     //console.log(janina.user);
+  });
+}
+
+
+const paymentStatusSelectBox = document.querySelectorAll('.paymentStatus');
+if (paymentStatusSelectBox) {
+  paymentStatusSelectBox.forEach(el => {
+    const datas = JSON.parse(JSON.stringify(el.dataset));
+    //console.log(datas);
+    if(datas.role==='receptionist'){
+      if(el.value === '0'){
+        el.addEventListener('change',els=>{
+          els.preventDefault();
+          updateAppointment(datas.appointmentid);
+        });
+      }else{
+        el.disabled = true;
+      }
+    }else{
+      el.disabled=true;
+    }
   });
 }
 
