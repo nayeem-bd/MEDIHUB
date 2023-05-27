@@ -4,55 +4,55 @@
         .input
             label(for='name') Full Name
             br
-            input(type='text' name='' id='')
+            input(type='text' name='' id='nameInput' value=user.name)
         .input
             label(for='name') Address
             br
-            input(type='text' name='' id='')
+            input(type='text' name='' id='addressInput' value=user.address)
         .input
             label(for='Phone') Phone Number
             br
-            input(type='number' name='' id='')
+            input(type='number' name='' id='phoneInput' value=user.phone)
         .input
             label(for='Email') Email
             br
-            input(type='email' name='' id='')
+            input(type='email' name='' id='emailInput' value=user.email)
         .input
             label(for='password') Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordInput')
         .input
             label(for='password') Confirm Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordConfirmInput')
     .right-info-mid
         h1 Personal Information
         .input
             label(for='Birth') Birth Day
             br
-            input(type='date' name='' id='')
+            input(type='date' name='' id='birthInput')
         .input
             label(for='Age') Age
             br
-            input(type='number' name='' id='')
+            input(type='number' name='' id='ageInput' value=user.age)
         div
             label(for='type') Gender
             br
-            select.select(name='list')
-                option(value='') Male
-                option(value='') Female
+            select.select#genderInput(name='list')
+                option(value='Male' selected=user.gender=='Male') Male
+                option(value='Female' selected=user.gender=='Female') Female
         div
             label(for='type') Blood Group
             br
-            select.select(name='list')
-                option(value='') A+
-                option(value='') B+
-                option(value='') O+
-                option(value='') AB+
-                option(value='') A-
-                option(value='') B-
-                option(value='') O-
-                option(value='') AB-
+            select.select#bloodInput(name='list')
+                option(value='A+' selected=user.bloodGroup=='A+') A+
+                option(value='B+' selected=user.bloodGroup=='B+') B+
+                option(value='O+' selected=user.bloodGroup=='O+') O+
+                option(value='AB+' selected=user.bloodGroup=='AB+') AB+
+                option(value='A-' selected=user.bloodGroup=='A-') A-
+                option(value='B-' selected=user.bloodGroup=='B-') B-
+                option(value='O-' selected=user.bloodGroup=='O-') O-
+                option(value='AB-' selected=user.bloodGroup=='AB-') AB-
         .radioButton
             p Diabetic
             input(type='radio' id='' name='choice' value='yes')
@@ -63,7 +63,7 @@
             br
     .right-info-right
         div
-            img(src='/HTML Pages/images/doctor/image2.jpg' alt='')
-            input(type='file' name='' id='')
+            img(src=`../../../img/user/${user.photo}` alt='')
+            input(type='file' accept='image/*' name='' id='imgInput')
             .button
-                button.signbtn Save
+                button.signbtn#saveBtn(data-user=user) Save

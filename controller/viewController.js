@@ -2,6 +2,7 @@
 const axios = require('axios');
 const catchAsync = require('../utils/catchAsync');
 const Appointment = require('../model/appointmentModel');
+const User = require('../model/userModel');
 
 exports.landingpage = catchAsync(async (req, res, next) => {
     let doctors = [];
@@ -143,7 +144,9 @@ exports.showPrescription = catchAsync(async (req, res, next) => {
 });
 
 exports.showHospitalDoctors = catchAsync(async (req, res, next) => {
+    const doctors = await User.find({role:'doctor',hospital:req.user.hospital.id});
     res.status(200).render('hospitalDoctors', {
-        title: 'Doctors'
+        title: 'Doctors',
+        doctors
     });
 });

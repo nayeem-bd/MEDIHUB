@@ -29,5 +29,6 @@ router.use(authController.protect);
 
 router.route('/').get(userController.getAllUser).post(authController.signup);
 router.route('/:id').get(userController.getUser);
+router.patch('/updateMe',userController.updateUserPhoto,userController.resizeUserPhoto,userController.updateMe);
 
 module.exports = router;
