@@ -57,7 +57,7 @@ if (signUpBtn) {
   });
 }
 
-import { bookAppointment,updateAppointment } from './appointment';
+import { bookAppointment, updateAppointment } from './appointment';
 
 const bookBnt = document.querySelector('.bookbtn');
 if (bookBnt) {
@@ -93,19 +93,55 @@ if (paymentStatusSelectBox) {
   paymentStatusSelectBox.forEach(el => {
     const datas = JSON.parse(JSON.stringify(el.dataset));
     //console.log(datas);
-    if(datas.role==='receptionist'){
-      if(el.value === '0'){
-        el.addEventListener('change',els=>{
+    if (datas.role === 'receptionist') {
+      if (el.value === '0') {
+        el.addEventListener('change', els => {
           els.preventDefault();
           updateAppointment(datas.appointmentid);
         });
-      }else{
+      } else {
         el.disabled = true;
       }
-    }else{
-      el.disabled=true;
+    } else {
+      el.disabled = true;
     }
   });
+}
+
+import { updateProfile } from './updateProfile';
+
+const saveBtn = document.querySelector('#saveBtn');
+if (saveBtn) {
+  const datas = JSON.parse(JSON.stringify(saveBtn.dataset));
+  //console.log(datas);
+  saveBtn.addEventListener('click', el => {
+    el.preventDefault();
+    const name = document.querySelector('#nameInput').value;
+    const phone = document.querySelector('#phoneInput').value;
+    const address = document.querySelector('#addressInput').value;
+    const email = document.querySelector('#emailInput').value;
+    const password = document.querySelector('#passwordInput').value;
+    const passwordConfirm = document.querySelector('#passwordConfirmInput').value;
+    const birthDate = document.querySelector('#birthInput').value;
+    const age = document.querySelector('#ageInput').value;
+    const gender = document.querySelector('#genderInput').value;
+    const bloodGroup = document.querySelector('#bloodInput').value;
+    const photo = document.querySelector('#imgInput').files[0];
+    //console.log(photo);
+    const form = new FormData();
+    form.append('name',name);
+    form.append('phone',phone);
+    form.append('address',address);
+    form.append('email',email);
+    form.append('age',age);
+    form.append('gender',gender);
+    form.append('bloogGroup',bloodGroup);
+    form.append('photo',photo);
+    // const formDataObj = Object.fromEntries(form.entries());
+    // console.log(formDataObj);
+    updateProfile(form,'data');
+  })
+
 }
 
 

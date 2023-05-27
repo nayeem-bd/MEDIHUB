@@ -69,11 +69,7 @@ const userSchema = mongoose.Schema({
     default: false
   },
   gender: String,
-  address: {
-    zila: String,
-    upazila: String,
-    street: String
-  },
+  address: String,
   specialty: {
     type: String,
     default: 'unknown'

@@ -13477,7 +13477,43 @@ const updateAppointment = exports.updateAppointment = async appointmentId => {
     (0, _alerts.showAlert)('error', err.response.data.message);
   }
 };
-},{"./alerts":2,"axios":5}],1:[function(require,module,exports) {
+},{"./alerts":2,"axios":5}],359:[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.updateProfile = undefined;
+
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _alerts = require("./alerts");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//type is either 'password' or 'data'
+//update Setting
+const updateProfile = exports.updateProfile = async (data, type) => {
+  try {
+    //const url = type ==='data'?'/api/v1/users/updateMe':'/api/v1/users/updatePassword';
+    const url = '/api/v1/users/updateMe';
+    const res = await (0, _axios2.default)({
+      method: 'PATCH',
+      url,
+      data
+    });
+    if (res.data.status === 'success') {
+      (0, _alerts.showAlert)('success', `${type.toUpperCase()} updated successfully`);
+      window.location.reload();
+    }
+  } catch (err) {
+    console.log(err);
+    (0, _alerts.showAlert)('error', err.response.data.message);
+  }
+};
+},{"axios":5,"./alerts":2}],1:[function(require,module,exports) {
 "use strict";
 
 require("@babel/polyfill");
@@ -13487,6 +13523,8 @@ var _alerts = require("./alerts");
 var _login = require("./login");
 
 var _appointment = require("./appointment");
+
+var _updateProfile = require("./updateProfile");
 
 // bug fixed part
 
@@ -13587,9 +13625,42 @@ if (paymentStatusSelectBox) {
   });
 }
 
+const saveBtn = document.querySelector('#saveBtn');
+if (saveBtn) {
+  const datas = JSON.parse(JSON.stringify(saveBtn.dataset));
+  //console.log(datas);
+  saveBtn.addEventListener('click', el => {
+    el.preventDefault();
+    const name = document.querySelector('#nameInput').value;
+    const phone = document.querySelector('#phoneInput').value;
+    const address = document.querySelector('#addressInput').value;
+    const email = document.querySelector('#emailInput').value;
+    const password = document.querySelector('#passwordInput').value;
+    const passwordConfirm = document.querySelector('#passwordConfirmInput').value;
+    const birthDate = document.querySelector('#birthInput').value;
+    const age = document.querySelector('#ageInput').value;
+    const gender = document.querySelector('#genderInput').value;
+    const bloodGroup = document.querySelector('#bloodInput').value;
+    const photo = document.querySelector('#imgInput').files[0];
+    //console.log(photo);
+    const form = new FormData();
+    form.append('name', name);
+    form.append('phone', phone);
+    form.append('address', address);
+    form.append('email', email);
+    form.append('age', age);
+    form.append('gender', gender);
+    form.append('bloogGroup', bloodGroup);
+    form.append('photo', photo);
+    // const formDataObj = Object.fromEntries(form.entries());
+    // console.log(formDataObj);
+    (0, _updateProfile.updateProfile)(form, 'data');
+  });
+}
+
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) (0, _alerts.showAlert)('success', alertMessage, 10);
-},{"@babel/polyfill":34,"./alerts":2,"./login":4,"./appointment":3}],0:[function(require,module,exports) {
+},{"@babel/polyfill":34,"./alerts":2,"./login":4,"./appointment":3,"./updateProfile":359}],0:[function(require,module,exports) {
 var global = (1, eval)('this');
 var OldModule = module.bundle.Module;
 function Module() {
