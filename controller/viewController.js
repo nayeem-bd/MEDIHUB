@@ -1,6 +1,7 @@
 
 const axios = require('axios');
 const catchAsync = require('../utils/catchAsync');
+const Appointment = require('../model/appointmentModel');
 
 exports.landingpage = catchAsync(async (req, res, next) => {
     let doctors = [];
@@ -104,8 +105,22 @@ exports.me = catchAsync(async (req, res, next) => {
 });
 
 exports.showAppointments = catchAsync(async (req, res, next) => {
+
+    let appointments;
+    if(req.user.role==='receptionist'){
+        appointments = await Appointment.find({});
+        appointments = appointments.filter(el=> el.doctor.hospital.id === req.user.hospital.id);
+    }
+    else if(req.user.role==='doctor'){
+        appointments = await Appointment.find({doctor:req.user._id});
+        appointments = appointments.filter(el => el.isPaid === true);
+    }else if(req.user.role==='user'){
+        appointments = await Appointment.find({user:req.user._id});
+    }
+
     res.status(200).render('appointments', {
-        title: 'Appointments'
+        title: 'Appointments',
+        appointments
     });
 });
 
