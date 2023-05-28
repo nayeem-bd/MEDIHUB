@@ -5,7 +5,7 @@ block content
         .left-main
             .dashHead
                 a(href='/dashboard')
-                    i.fa.fa-user.active(aria-hidden='true')
+                    i.fa.fa-user(aria-hidden='true')
                         span Profile
             if user.role == 'user'
                 div
@@ -14,7 +14,7 @@ block content
                             span Appointments
                 div
                     a(href='/dashboard/history')
-                        i.fa.fa-user-md(aria-hidden='true')
+                        i.fa.fa-history(aria-hidden='true')
                             span History
 
             else if user.role == 'doctor'
