@@ -4,14 +4,16 @@ const catchAsync = require('../utils/catchAsync');
 const Appointment = require('../model/appointmentModel');
 const User = require('../model/userModel');
 
+const URL = process.env.API_URL;
+
 exports.landingpage = catchAsync(async (req, res, next) => {
     let doctors = [];
-    const response = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
+    const response = await axios.get(`${URL}/api/v1/users/doctors?role=doctor`);
     let tempDoc = response.data.data.data;
     tempDoc.sort((a, b) => b.rating - a.rating);
     tempDoc = tempDoc.filter(el => el.hospital);
     doctors = tempDoc.slice(0, 4);
-    const respon = await axios.get('http://localhost:4000/api/v1/hospitals/')
+    const respon = await axios.get(`${URL}/api/v1/hospitals/`)
     let hospitals = respon.data.data.data;
     hospitals = hospitals.slice(0, 4);
     res.status(200).render('landingpage', {
@@ -34,7 +36,7 @@ exports.signIn = async (req, res, next) => {
 }
 
 exports.showDoctors = catchAsync(async (req, res, next) => {
-    const response = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
+    const response = await axios.get(`${URL}/api/v1/users/doctors?role=doctor`);
     let doctors = response.data.data.data;
     doctors = doctors.filter(el => el.hospital);
     res.status(200).render('doctors', {
@@ -44,7 +46,7 @@ exports.showDoctors = catchAsync(async (req, res, next) => {
 });
 
 exports.showOneDoctor = catchAsync(async (req, res, next) => {
-    const response = await axios.get(`http://localhost:4000/api/v1/users/doctors/${req.params.docId}`);
+    const response = await axios.get(`${URL}/api/v1/users/doctors/${req.params.docId}`);
     const doctor = response.data.data.doc;
 
     res.status(200).render('doctorDetails', {
@@ -54,7 +56,7 @@ exports.showOneDoctor = catchAsync(async (req, res, next) => {
 });
 
 exports.bookAppointment = catchAsync(async (req, res, next) => {
-    const response = await axios.get(`http://localhost:4000/api/v1/users/doctors/${req.params.docId}`);
+    const response = await axios.get(`${URL}/api/v1/users/doctors/${req.params.docId}`);
     const doctor = response.data.data.doc;
     const schedule = doctor.availability;
 
@@ -69,7 +71,7 @@ exports.bookAppointment = catchAsync(async (req, res, next) => {
 });
 
 exports.showHospitals = catchAsync(async (req, res, next) => {
-    const response = await axios.get('http://localhost:4000/api/v1/hospitals/');
+    const response = await axios.get(`${URL}/api/v1/hospitals/`);
     const hospitals = response.data.data.data;
     res.status(200).render('hospitals', {
         title: 'Hospitals',
@@ -79,15 +81,15 @@ exports.showHospitals = catchAsync(async (req, res, next) => {
 
 exports.showOneHospital = catchAsync(async (req, res, next) => {
     //console.log(req.params);
-    const response = await axios.get(`http://localhost:4000/api/v1/hospitals/${req.params.hosId}`);
+    const response = await axios.get(`${URL}/api/v1/hospitals/${req.params.hosId}`);
     const hospital = response.data.data.doc;
     //console.log(hospital);
-    const response2 = await axios.get('http://localhost:4000/api/v1/users/doctors?role=doctor');
+    const response2 = await axios.get(`${URL}/api/v1/users/doctors?role=doctor`);
     let doctors = response2.data.data.data;
     doctors = doctors.filter(el => el.hospital);
     doctors = doctors.filter(el => el.hospital._id === req.params.hosId);
 
-    const response3 = await axios.get('http://localhost:4000/api/v1/users/doctors?role=receptionist');
+    const response3 = await axios.get(`${URL}/api/v1/users/doctors?role=receptionist`);
     let receptionist = response3.data.data.data;
     receptionist = receptionist.filter(el => el.hospital._id === req.params.hosId);
 
