@@ -11,6 +11,31 @@ if (title.includes('Home Page')) {
   search_box.classList.add('search-box-bug');
 }
 
+const url = document.location.pathname;
+//console.log(url);
+if(url==='/dashboard'){
+  const hiper = document.querySelector('.fa-user');
+  hiper.classList.add('active');
+}
+
+if(url==='/dashboard/appointments'){
+  const hiper = document.querySelector('.fa-plus-square');
+  hiper.classList.add('active');
+}
+if(url==='/dashboard/doctors'){
+  const hiper = document.querySelector('.fa-user-md');
+  hiper.classList.add('active');
+}
+if(url==='/dashboard/history'){
+  let hiper = document.querySelector('.fa-user-plus');
+  if(!hiper)hiper =  document.querySelector('.fa-history');
+  hiper.classList.add('active');
+}
+if(url==='/dashboard/schedule'){
+  const hiper = document.querySelector('.fa-clock');
+  hiper.classList.add('active');
+}
+
 
 
 //login part 
