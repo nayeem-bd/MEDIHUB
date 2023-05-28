@@ -4,7 +4,7 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
     .checkup
         img.img(src=`img/user/${img_src}` alt="" onclick=`window.location.href='doctors/${docId}'`)
         .line1
-            p.rate= name
+            p.name= name
             p= rating
             img(src="img/icons/Star 1.png" alt="")
         .line2
