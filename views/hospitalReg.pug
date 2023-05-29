@@ -1,0 +1,56 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name='viewport' content='width=device-width,initial-scale=1')
+        title MEDIHUB | #{title} 
+        link(rel='icon' type='image/x-icon' href='../../../img/icons/favicon.png')
+        link(rel='stylesheet' href='../../../css/style.css')
+    body
+        section#sign-in-container
+            .left-content
+                img.medihub(src='../../../img/icons/groupicon.png' alt='' onclick='window.location.href="/"')
+                img(src='../../../img/icons/Group.png' alt='')
+            .right-content
+                h1 Hospital Registration
+                #select-content
+                    label(for='type') Choose Category*
+                    br
+                    select.select(name='list')
+                        option(value='') I Own a Hospital
+                        option(value='') I Own a Clinic
+                        option(value='') Other
+                .name
+                    .input
+                        label(for='name') Hospital Name
+                        br
+                        input(type='text' name='' id='')
+                .input
+                    label(for='Phone') Registration Number
+                    br
+                    input(type='number' name='' id='')
+                .name
+                    .input
+                        label(for='name') Address
+                        br
+                        input(type='text' name='' id='')
+                .input
+                    label(for='Phone') Phone Number
+                    br
+                    input(type='number' name='' id='')
+                #select-content
+                    label(for='type') Subscription Fee*
+                    br
+                    select.select(name='list')
+                        option(value='') Free $0
+                        option(value='') Monthly $65
+                        option(value='') Yearly $650
+                .button
+                    button.signbtn Register Now
+                .sign-in-bottom
+                    a Terms
+                    a Plans
+                    a Contact Us
+
+        script(src='../../../dist/index.js') 
