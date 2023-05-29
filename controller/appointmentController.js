@@ -9,7 +9,7 @@ exports.getAppointment = factory.getOne(Appointment, 'hospital');
 exports.updateAppoint = factory.updateOne(Appointment);
 //exports.deleteUser = factory.deleteOne(Appointment);
 exports.createAppointment = catchAsync(async (req, res, next) => {
-    const appointments = await Appointment.find({ doctor: req.body.doctor, schedule: req.body.schedule });
+    const appointments = await Appointment.find({ doctor: req.body.doctor, schedule: req.body.schedule,date:req.body.date });
     req.body.serial = appointments.length + 1;
 
     const docProfile = await User.findById(req.body.doctor);
