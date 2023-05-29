@@ -152,3 +152,21 @@ exports.showHospitalDoctors = catchAsync(async (req, res, next) => {
         doctors
     });
 });
+
+exports.aboutus = catchAsync(async(req,res,next)=>{
+    res.status(200).render('aboutus',{
+        title:'About Us'
+    });
+});
+
+exports.blogs = catchAsync(async(req,res,next)=>{
+    res.status(200).render('blogs',{
+        title:'About Us'
+    });
+});
+
+exports.hospitalRegistration = catchAsync(async(req,res,next)=>{
+    res.status(200).render('hospitalReg',{
+        title:'About Us'
+    });
+});

@@ -9,6 +9,9 @@ router.get('/login',viewController.signIn);
 router.get('/signup',viewController.signUp);
 
 router.get('/',authController.isLoggedIn,viewController.landingpage);
+router.get('/aboutus',authController.isLoggedIn,viewController.aboutus);
+router.get('/blogs',authController.isLoggedIn,viewController.blogs);
+router.get('/hospitalReg',authController.isLoggedIn,viewController.hospitalRegistration);
 
 router.get('/doctors',authController.isLoggedIn,viewController.showDoctors);
 router.get('/doctors/:docId',authController.isLoggedIn,viewController.showOneDoctor);
