@@ -13,25 +13,25 @@ if (title.includes('Home Page')) {
 
 const url = document.location.pathname;
 //console.log(url);
-if(url==='/dashboard'){
+if (url === '/dashboard') {
   const hiper = document.querySelector('.fa-user');
   hiper.classList.add('active');
 }
 
-if(url==='/dashboard/appointments'){
+if (url === '/dashboard/appointments') {
   const hiper = document.querySelector('.fa-plus-square');
   hiper.classList.add('active');
 }
-if(url==='/dashboard/doctors'){
+if (url === '/dashboard/doctors') {
   const hiper = document.querySelector('.fa-user-md');
   hiper.classList.add('active');
 }
-if(url==='/dashboard/history'){
+if (url === '/dashboard/history') {
   let hiper = document.querySelector('.fa-user-plus');
-  if(!hiper)hiper =  document.querySelector('.fa-history');
+  if (!hiper) hiper = document.querySelector('.fa-history');
   hiper.classList.add('active');
 }
-if(url==='/dashboard/schedule'){
+if (url === '/dashboard/schedule') {
   const hiper = document.querySelector('.fa-clock');
   hiper.classList.add('active');
 }
@@ -152,19 +152,20 @@ if (saveBtn) {
     const gender = document.querySelector('#genderInput').value;
     const bloodGroup = document.querySelector('#bloodInput').value;
     const photo = document.querySelector('#imgInput').files[0];
-    //console.log(photo);
+
     const form = new FormData();
-    form.append('name',name);
-    form.append('phone',phone);
-    form.append('address',address);
-    form.append('email',email);
-    form.append('age',age);
-    form.append('gender',gender);
-    form.append('bloogGroup',bloodGroup);
-    form.append('photo',photo);
-    // const formDataObj = Object.fromEntries(form.entries());
-    // console.log(formDataObj);
-    updateProfile(form,'data');
+    form.append('name', name);
+    form.append('phone', phone);
+    form.append('address', address);
+    form.append('email', email);
+    form.append('age', age);
+    form.append('gender', gender);
+    form.append('bloogGroup', bloodGroup);
+    if (photo) {
+      form.append('photo', photo);
+    }
+
+    updateProfile(form, 'data');
   })
 
 }
