@@ -111,6 +111,10 @@ const userSchema = mongoose.Schema({
   ratingsQuantity: {
     type: Number,
     default: 0
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
 }, {
   toJSON: { virtuals: true },

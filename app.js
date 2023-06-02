@@ -17,6 +17,7 @@ const AppError = require('./utils/appError');
 const viewRouter = require('./routes/viewRouter');
 const reviewRouter = require('./routes/reviewRouter');
 const appointmentRouter = require('./routes/appointmentRouter');
+const prescriptionRouter = require('./routes/prescriptionRouter');
 
 const app = express();
 app.enable('trust proxy');
@@ -82,6 +83,7 @@ app.use('/api/v1/users', userRouter);
 app.use('/api/v1/hospitals', hospitalRouter);
 app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/appointments', appointmentRouter);
+app.use('/api/v1/prescriptions', prescriptionRouter);
 
 
 app.use('*', (req, res, next) => {

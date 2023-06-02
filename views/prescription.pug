@@ -50,119 +50,74 @@ html(lang='en')
                                     th Morning
                                     th Noon
                                     th Night
+                                    th Taken Timing
                                 tr
                                     td 1.
                                     td
                                         input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
+                                        input.mTime(type='number' name='' id='' value='0')
+                                    td 
                                         select#time(name='time' required='')
                                             option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                            option(value='before meal') Before Meal
+                                            option(value='after meal') After Meal
                                 tr
                                     td 2.
                                     td
                                         input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
+                                        input.mTime(type='number' name='' id='' value='0')
+                                    td 
                                         select#time(name='time' required='')
                                             option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                            option(value='before meal') Before Meal
+                                            option(value='after meal') After Meal
+
                                 tr
                                     td 3.
                                     td
                                         input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
+                                        input.mTime(type='number' name='' id='' value='0')
+                                    td 
                                         select#time(name='time' required='')
                                             option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                            option(value='before meal') Before Meal
+                                            option(value='after meal') After Meal
+
                                 tr
                                     td 4.
                                     td
                                         input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
+                                        input.mTime(type='number' name='' id='' value='0')
                                     td
+                                        input.mTime(type='number' name='' id='' value='0')
+                                    td 
                                         select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
-                                tr
-                                    td 5.
-                                    td
-                                        input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
-                                    td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
-                                    td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
-                                    td
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before meal
-                                            option(value='after meal') After meal
-                                            option(value='none') None
-                        button.addButton Add Medicine
+                                            option(value='selectOne' selected='selected') Select One
+                                            option(value='beforeMeal') Before Meal
+                                            option(value='afterMeal') After Meal
+                        if user.role=='doctor'
+                            button.addButton Add Medicine
                 .border1.flex1(style='height:40px')
                     h5 &copy; 2022 MediHUB. All rights reserved.
-                    button.button Save
+                    if user.role=='doctor'
+                        button.button Save
                     button.button Download
         script(src='../../../dist/index.js')
