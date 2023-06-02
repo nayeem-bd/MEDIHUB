@@ -1677,7 +1677,9 @@ table {
     border: 1px solid #b4b3c1;
     height: 35px;
 }
-
+.mTime{
+    width: 45px;
+}
 /* rate */
 
 .rate {
