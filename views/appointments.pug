@@ -10,13 +10,16 @@ mixin appointmentCard(serial,userName,doctorName,date,schedule,fee,status,userRo
         td= schedule
         td= `${fee} TK`
         td
-            select#ps.paymentStatus(name='status' data-role=userRole,data-appointmentId=appointmentId)
-                if(status==true)
-                    option(value='1' selected) Paid
-                    option(value='0') Unpaid
-                else 
-                    option(value='1') Paid
-                    option(value='0' selected) Unpaid
+            if userRole=='doctor'
+                button.prsView(onclick='window.location.href="/prescription/6565"') Add
+            else
+                select#ps.paymentStatus(name='status' data-role=userRole,data-appointmentId=appointmentId)
+                    if(status==true)
+                        option(value='1' selected) Paid
+                        option(value='0') Unpaid
+                    else 
+                        option(value='1') Paid
+                        option(value='0' selected) Unpaid
 block right 
     .right-info-all
         table#table
@@ -28,6 +31,9 @@ block right
                     th(style='width:14%') Date
                     th(style='width:14%') Schedule
                     th(style='width:8%') Fees
-                    th(style='width:13%') Payment Status
+                    if user.role=='doctor'
+                        th(style='width:13%') Add Prescription
+                    else 
+                        th(style='width:13%') Payment Status
                 each el in appointments
                     +appointmentCard(el.serial,el.user.name,el.doctor.name,`${el.schedule.day.slice(0,-3)},${el.date.toJSON().slice(0,10).split('-').reverse().join('/')}`,`${el.schedule.startTime} - ${el.schedule.endTime}`,el.doctor.fee,el.isPaid,user.role,el.id)

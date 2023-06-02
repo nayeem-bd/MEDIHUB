@@ -26,7 +26,7 @@ export const bookAppointment = async (doctor, user, date, schedule, fee, symptom
 export const updateAppointment = async(appointmentId)=>{
     try {
         const res = await axios({
-            method: 'POST',
+            method: 'PATCH',
             url: `/api/v1/appointments/${appointmentId}`,
             data: {
                 isPaid:true

@@ -1678,6 +1678,10 @@ table {
     height: 35px;
 }
 
+.mTime{
+    width: 45px;
+}
+
 /* rate */
 
 .rate {
