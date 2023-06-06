@@ -61,7 +61,7 @@ mixin selectBoxOption(name,field,ID)
             .input
                 label(for='Birth') Birth Day
                 br
-                input(type='date' name='' id='birthInput')
+                input(type='date' name='' id='birthInput' value=user.birthDate?user.birthDate.toISOString().split('T')[0]:'')
             .input
                 label(for='Age') Age
                 br

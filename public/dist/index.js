@@ -13673,16 +13673,19 @@ if (saveBtn) {
     const experience = document.querySelector('#experienceInput');
     const training = document.querySelector('#trainingInput');
     const education = document.querySelector('#educationInput');
+    const diabeticYes = document.querySelector('#diabeticYesInput');
+    const diabeticNo = document.querySelector('#diabeticNoInput');
 
     const form = new FormData();
     form.append('name', name);
     form.append('phone', phone);
-    if (user.role === 'user') form.append('address', address.value);
+    if (user.role === 'user' || user.role === 'receptionist') form.append('address', address.value);
     if (email) form.append('email', email);
     form.append('age', age);
     form.append('gender', gender);
+    form.append('birthDate', birthDate);
+    form.append('isDiabetic', diabeticYes.checked);
     form.append('bloodGroup', bloodGroup);
-    //console.log(bloodGroup);
     if (photo) {
       form.append('photo', photo);
     }
@@ -13700,7 +13703,9 @@ if (saveBtn) {
         if (el) form.append('training', el);
       });
     }
-
+    if (user.role === 'receptionist') {
+      form.append('hospital', hospital.value);
+    }
     (0, _updateProfile.updateProfile)(form, 'data');
   });
 }
