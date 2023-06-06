@@ -13378,7 +13378,7 @@ const login = exports.login = async (phone, password) => {
     if (res.data.status === 'success') {
       (0, _alerts.showAlert)('success', 'Logged in successfully');
       window.setTimeout(() => {
-        location.assign('/');
+        location.assign('/dashboard');
       }, 1500);
     }
   } catch (err) {
@@ -13573,7 +13573,7 @@ if (logInBtn) {
     const phone = document.querySelector('#phoneId').value;
     const password = document.querySelector('#passwordId').value;
     if (phone && password) {
-      console.log(phone, password);
+      //console.log(phone, password);
       (0, _login.login)(phone, password);
     }
   });

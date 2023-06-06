@@ -49,7 +49,7 @@ if (logInBtn) {
     const phone = document.querySelector('#phoneId').value;
     const password = document.querySelector('#passwordId').value;
     if (phone && password) {
-      console.log(phone, password);
+      //console.log(phone, password);
       login(phone, password);
     }
   });
