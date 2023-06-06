@@ -138,12 +138,13 @@ import { updateProfile } from './updateProfile';
 const saveBtn = document.querySelector('#saveBtn');
 if (saveBtn) {
   const datas = JSON.parse(JSON.stringify(saveBtn.dataset));
-  //console.log(datas);
+  const user = JSON.parse(datas.user);
+  //console.log(user.role);
   saveBtn.addEventListener('click', el => {
     el.preventDefault();
     const name = document.querySelector('#nameInput').value;
     const phone = document.querySelector('#phoneInput').value;
-    const address = document.querySelector('#addressInput').value;
+    const address = document.querySelector('#addressInput');
     const email = document.querySelector('#emailInput').value;
     const password = document.querySelector('#passwordInput').value;
     const passwordConfirm = document.querySelector('#passwordConfirmInput').value;
@@ -152,17 +153,35 @@ if (saveBtn) {
     const gender = document.querySelector('#genderInput').value;
     const bloodGroup = document.querySelector('#bloodInput').value;
     const photo = document.querySelector('#imgInput').files[0];
+    const hospital = document.querySelector('#hospitalInput');
+    const specialty = document.querySelector('#specialtyInput');
+    const experience = document.querySelector('#experienceInput');
+    const training = document.querySelector('#trainingInput');
+    const education = document.querySelector('#educationInput');
 
     const form = new FormData();
     form.append('name', name);
     form.append('phone', phone);
-    form.append('address', address);
-    form.append('email', email);
+    if (user.role === 'user')
+      form.append('address', address.value);
+    if (email)
+      form.append('email', email);
     form.append('age', age);
     form.append('gender', gender);
-    form.append('bloogGroup', bloodGroup);
+    form.append('bloodGroup', bloodGroup);
+    //console.log(bloodGroup);
     if (photo) {
       form.append('photo', photo);
+    }
+
+    if (user.role === 'doctor') {
+      form.append('hospital', hospital.value);
+      form.append('specialty', specialty.value);
+      form.append('experience', experience.value);
+      const edu = education.value.split('\n');
+      const trainings = training.value.split('\n');
+      edu.forEach(el => { if (el) form.append('education', el); });
+      trainings.forEach(el => { if (el) form.append('training', el); });
     }
 
     updateProfile(form, 'data');

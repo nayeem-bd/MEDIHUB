@@ -10,7 +10,7 @@ mixin selectBoxOption(name,field,ID)
         .input
             label(for='name') Full Name
             br
-            input(type='text' name='' id='' value=user.name)
+            input(type='text' name='' id='nameInput' value=user.name)
         .input
             label(for='name' ) Hospital/Clinic Name
             br
@@ -18,30 +18,30 @@ mixin selectBoxOption(name,field,ID)
         .input
             label(for='Phone') Phone Number
             br
-            input(type='number' name='' id='' value=user.phone)
+            input(type='number' name='' id='phoneInput' value=user.phone)
         .input
             label(for='Email') Email
             br
-            input(type='email' name='' id='' value=user.email)
+            input(type='email' name='' id='emailInput' value=user.email)
         .input
             label(for='password') Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordInput')
         .input
             label(for='password') Confirm Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordConfirmInput')
     .right-info-mid
         .flex2
             h3 Hospital :
-            select(name='list')
+            select#hospitalInput(name='list')
                 each hospital in hospitals
                     +selectBoxOption(hospital.name,hospital,hospital.id)
         .flex1
             div
                 label(for='type') Speciality
                 br
-                select.select(name='list')
+                select.select#specialtyInput(name='list')
                     +selectBoxOption('unknown','specialty')
                     +selectBoxOption('Cardiology','specialty')
                     +selectBoxOption('Pediatrics','specialty')
@@ -56,16 +56,16 @@ mixin selectBoxOption(name,field,ID)
             .input
                 label(for='Experience') Experience
                 br
-                input(type='number' name='' id='' value = user.experience)
+                input(type='number' name='' id='experienceInput' value = user.experience)
         .flex1
             .input
                 label(for='Birth') Birth Day
                 br
-                input(type='date' name='' id='')
+                input(type='date' name='' id='birthInput')
             .input
                 label(for='Age') Age
                 br
-                input(type='number' name='' id='' value = user.age)
+                input(type='number' name='' id='ageInput' value = user.age)
         .flex1
             div
                 label(for='type') Gender
@@ -89,14 +89,14 @@ mixin selectBoxOption(name,field,ID)
         .edu
             label(for='edu') Education
             br
-            textarea(name='' id='')= `${user.education.join('\n')}`
+            textarea(name='' id='educationInput')= `${user.education.join('\n')}`
         .edu
             label(for='edu') Training
             br
-            textarea(name='' id='')= `${user.training.join('\n')}`
+            textarea(name='' id='trainingInput')= `${user.training.join('\n')}`
     .right-info-right
         div
             img(src=`../../../img/user/${user.photo}` alt=user.name)
-            input(type='file' name='' id='')
+            input(type='file' accept='image/*' name='' id='imgInput')
         .button(style='margin-top: 200px;')
-            button.signbtn Save
+            button.signbtn#saveBtn(data-user=user) Save
