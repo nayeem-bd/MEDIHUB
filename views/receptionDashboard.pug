@@ -1,89 +1,80 @@
+mixin selectBoxOption(name,field,ID)
+    if(ID)
+        option(value=ID selected=user.hospital.name==name)= name
+    else
+        option(value=name selected=user[field]==name)= name
+
 .right-info
     .right-info-left
         h1 Update Profile Details
         .input
             label(for='name') Full Name
             br
-            input(type='text' name='' id='')
+            input(type='text' name='' id='nameInput' value=user.name)
         .input
             label(for='name') Address
             br
-            input(type='text' name='' id='')
+            input(type='text' name='' id='addressInput' value=user.address)
         .input
             label(for='Phone') Phone Number
             br
-            input(type='number' name='' id='')
+            input(type='number' name='' id='phoneInput' value=user.phone)
         .input
             label(for='Email') Email
             br
-            input(type='email' name='' id='')
+            input(type='email' name='' id='emailInput' value=user.email)
         .input
             label(for='password') Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordInput')
         .input
             label(for='password') Confirm Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordConfirmInput')
     .right-info-mid
         .flex2
             h3 Hospital:
-            select(name='list')
-                option(value='') Dhaka Medical
-                option(value='') Rajshahi Medical
-                option(value='') Faridpur Medical
-                option(value='') Bogura Medical
-                option(value='') Dinajpur Medical
-                option(value='') Sylhet Medical
-        div
-            label(for='type') Blood Group
-            br
-            select.select(name='list')
-                option(value='') A+
-                option(value='') B+
-                option(value='') O+
-                option(value='') AB+
-                option(value='') A-
-                option(value='') B-
-                option(value='') O-
-                option(value='') AB-
+            select#hospitalInput(name='list')
+                each hospital in hospitals
+                    +selectBoxOption(hospital.name,hospital,hospital.id)
+
         .input
             label(for='Birth') Birth Day
             br
-            input(type='date' name='' id='')
+            input(type='date' name='' id='birthInput' value=user.birthDate?user.birthDate.toISOString().split('T')[0]:'')
         .input
             label(for='Age') Age
             br
-            input(type='number' name='' id='')
+            input(type='number' name='' id='ageInput' value=user.age)
         div
             label(for='type') Gender
             br
-            select.select(name='list')
-                option(value='') Male
-                option(value='') Female
+            select.select#genderInput(name='list')
+                +selectBoxOption('Male','gender')
+                +selectBoxOption('Female','gender')
         div
             label(for='type') Blood Group
             br
-            select.select(name='list')
-                option(value='') A+
-                option(value='') B+
-                option(value='') O+
-                option(value='') AB+
-                option(value='') A-
-                option(value='') B-
-                option(value='') O-
-                option(value='') AB-
+            select.select#bloodInput(name='list')
+                +selectBoxOption('A+','bloodGroup')
+                +selectBoxOption('B+','bloodGroup')
+                +selectBoxOption('O+','bloodGroup')
+                +selectBoxOption('AB+','bloodGroup')
+                +selectBoxOption('A-','bloodGroup')
+                +selectBoxOption('B-','bloodGroup')
+                +selectBoxOption('O-','bloodGroup')
+                +selectBoxOption('AB-','bloodGroup')
         .radioButton
             p Diabetic
-            input(type='radio' id='' name='choice' value='yes')
+            input(type='radio' id='diabeticYesInput' name='choice' value='yes' checked = user.isDiabetic)
             label(for='html') Yes
             br
-            input(type='radio' id='' name='choice' value='no')
+            input(type='radio' id='diabeticNoInput' name='choice' value='no' checked = !user.isDiabetic)
             label(for='css') No
             br
     .right-info-right
         div
-            img(src='/HTML Pages/images/doctor/image2.jpg' alt='')
-            input(type='file' name='' id='')
+            img(src=`../../../img/user/${user.photo}` alt=user.name)
+            input(type='file' accept='image/*' name='' id='imgInput')
             .button
-                button.signbtn Save
+                button.signbtn#saveBtn(data-user=user) Save

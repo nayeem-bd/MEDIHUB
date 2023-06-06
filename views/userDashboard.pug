@@ -30,7 +30,7 @@
         .input
             label(for='Birth') Birth Day
             br
-            input(type='date' name='' id='birthInput')
+            input(type='date' name='' id='birthInput' value=user.birthDate?user.birthDate.toISOString().split('T')[0]:'')
         .input
             label(for='Age') Age
             br
@@ -55,10 +55,10 @@
                 option(value='AB-' selected=user.bloodGroup=='AB-') AB-
         .radioButton
             p Diabetic
-            input(type='radio' id='' name='choice' value='yes')
+            input(type='radio' id='diabeticYesInput' name='choice' value='yes' checked = user.isDiabetic)
             label(for='html') Yes
             br
-            input(type='radio' id='' name='choice' value='no')
+            input(type='radio' id='diabeticNoInput' name='choice' value='no' checked = !user.isDiabetic)
             label(for='css') No
             br
     .right-info-right

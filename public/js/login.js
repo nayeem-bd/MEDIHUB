@@ -16,7 +16,7 @@ export const login = async (phone, password) => {
         if (res.data.status === 'success') {
             showAlert('success', 'Logged in successfully');
             window.setTimeout(() => {
-                location.assign('/');
+                location.assign('/dashboard');
             }, 1500);
         }
     } catch (err) {
