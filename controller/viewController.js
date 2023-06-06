@@ -3,6 +3,7 @@ const axios = require('axios');
 const catchAsync = require('../utils/catchAsync');
 const Appointment = require('../model/appointmentModel');
 const User = require('../model/userModel');
+const Hospital = require('../model/hospitalModel');
 
 const URL = process.env.API_URL;
 
@@ -102,8 +103,10 @@ exports.showOneHospital = catchAsync(async (req, res, next) => {
 });
 
 exports.me = catchAsync(async (req, res, next) => {
+    const hospitals = await Hospital.find({});
     res.status(200).render('dashboard', {
-        title: req.user.role
+        title: req.user.role,
+        hospitals
     });
 });
 

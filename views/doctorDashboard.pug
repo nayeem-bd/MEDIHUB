@@ -1,96 +1,102 @@
+mixin selectBoxOption(name,field,ID)
+    if(ID)
+        option(value=ID selected=user.hospital.name==name)= name
+    else
+        option(value=name selected=user[field]==name)= name
+
 .right-info
     .right-info-left
         h1 Update Profile Details
         .input
             label(for='name') Full Name
             br
-            input(type='text' name='' id='')
+            input(type='text' name='' id='nameInput' value=user.name)
         .input
-            label(for='name') Hospital/Clinic Name
+            label(for='name' ) Hospital/Clinic Name
             br
-            input(type='text' name='' id='')
+            input(type='text' disabled name='' id='' value=user.hospital.name)
         .input
             label(for='Phone') Phone Number
             br
-            input(type='number' name='' id='')
+            input(type='number' name='' id='phoneInput' value=user.phone)
         .input
             label(for='Email') Email
             br
-            input(type='email' name='' id='')
+            input(type='email' name='' id='emailInput' value=user.email)
         .input
             label(for='password') Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordInput')
         .input
             label(for='password') Confirm Password
             br
-            input(type='password' name='' id='')
+            input(type='password' name='' id='passwordConfirmInput')
     .right-info-mid
         .flex2
             h3 Hospital :
-            select(name='list')
-                option(value='') Dhaka Medical
-                option(value='') Rajshahi Medical
-                option(value='') Faridpur Medical
-                option(value='') Bogura Medical
-                option(value='') Dinajpur Medical
-                option(value='') Sylhet Medical
+            select#hospitalInput(name='list')
+                each hospital in hospitals
+                    +selectBoxOption(hospital.name,hospital,hospital.id)
         .flex1
             div
                 label(for='type') Speciality
                 br
-                select.select(name='list')
-                    option(value='') Cardiology
-                    option(value='') Pediatrics
-                    option(value='') Neurology
-                    option(value='') Orthopedics
-                    option(value='') Dentist
-                    option(value='') Medicine
-                    option(value='') Dermatology
-                    option(value='') Psychiatry
+                select.select#specialtyInput(name='list')
+                    +selectBoxOption('unknown','specialty')
+                    +selectBoxOption('Cardiology','specialty')
+                    +selectBoxOption('Pediatrics','specialty')
+                    +selectBoxOption('Neurology','specialty')
+                    +selectBoxOption('Orthopedics','specialty')
+                    +selectBoxOption('Dentist','specialty')
+                    +selectBoxOption('Medicine','specialty')
+                    +selectBoxOption('Dermatology','specialty')
+                    +selectBoxOption('Psychiatry','specialty')
+                    +selectBoxOption('Phaco Surgeon','specialty')
+
             .input
-                label(for='Age') Experience
+                label(for='Experience') Experience
                 br
-                input(type='number' name='' id='')
+                input(type='number' name='' id='experienceInput' value = user.experience)
         .flex1
             .input
                 label(for='Birth') Birth Day
                 br
-                input(type='date' name='' id='')
+                input(type='date' name='' id='birthInput')
             .input
                 label(for='Age') Age
                 br
-                input(type='number' name='' id='')
+                input(type='number' name='' id='ageInput' value = user.age)
         .flex1
             div
                 label(for='type') Gender
                 br
-                select.select(name='list')
-                    option(value='') Male
-                    option(value='') Female
+                select.select#genderInput(name='list')
+                    +selectBoxOption('Male','gender')
+                    +selectBoxOption('Female','gender')
             div
                 label(for='type') Blood Group
                 br
-                select.select(name='list')
-                    option(value='') A+
-                    option(value='') B+
-                    option(value='') O+
-                    option(value='') AB+
-                    option(value='') A-
-                    option(value='') B-
-                    option(value='') O-
-                    option(value='') AB-
+                select.select#bloodInput(name='list')
+                    +selectBoxOption('A+','bloodGroup')
+                    +selectBoxOption('B+','bloodGroup')
+                    +selectBoxOption('O+','bloodGroup')
+                    +selectBoxOption('AB+','bloodGroup')
+                    +selectBoxOption('A-','bloodGroup')
+                    +selectBoxOption('B-','bloodGroup')
+                    +selectBoxOption('O-','bloodGroup')
+                    +selectBoxOption('AB-','bloodGroup')
+
         .edu
             label(for='edu') Education
             br
-            textarea(name='' id='')
+            textarea(name='' id='educationInput')= `${user.education.join('\n')}`
         .edu
             label(for='edu') Training
             br
-            textarea(name='' id='')
+            textarea(name='' id='trainingInput')= `${user.training.join('\n')}`
     .right-info-right
         div
-            img(src='/HTML Pages/images/doctor/image2.jpg' alt='')
-            input(type='file' name='' id='')
+            img(src=`../../../img/user/${user.photo}` alt=user.name)
+            input(type='file' accept='image/*' name='' id='imgInput')
         .button(style='margin-top: 200px;')
-            button.signbtn Save
+            button.signbtn#saveBtn(data-user=user) Save

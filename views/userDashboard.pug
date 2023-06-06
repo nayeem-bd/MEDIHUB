@@ -63,7 +63,7 @@
             br
     .right-info-right
         div
-            img(src=`../../../img/user/${user.photo}` alt='')
+            img(src=`../../../img/user/${user.photo}` alt=user.name)
             input(type='file' accept='image/*' name='' id='imgInput')
             .button
                 button.signbtn#saveBtn(data-user=user) Save
