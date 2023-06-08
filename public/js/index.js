@@ -134,6 +134,7 @@ if (paymentStatusSelectBox) {
 }
 
 import { updateProfile } from './updateProfile';
+import axios from 'axios';
 
 const saveBtn = document.querySelector('#saveBtn');
 if (saveBtn) {
@@ -164,14 +165,15 @@ if (saveBtn) {
     const form = new FormData();
     form.append('name', name);
     form.append('phone', phone);
-    if (user.role === 'user' || user.role === 'receptionist')
+    if (user.role === 'user' || user.role === 'receptionist') {
       form.append('address', address.value);
+      form.append('isDiabetic', diabeticYes.checked);
+    }
     if (email)
       form.append('email', email);
     form.append('age', age);
     form.append('gender', gender);
     form.append('birthDate', birthDate);
-    form.append('isDiabetic', diabeticYes.checked);
     form.append('bloodGroup', bloodGroup);
     if (photo) {
       form.append('photo', photo);
@@ -193,6 +195,88 @@ if (saveBtn) {
   })
 
 }
+
+import { createPrescription, updatePrescription } from './prescription';
+
+const addPrescriptionBtn = document.querySelectorAll('#addPrescriptionBtn');
+if (addPrescriptionBtn) {
+  addPrescriptionBtn.forEach(el => {
+    const datas = JSON.parse(JSON.stringify(el.dataset));
+    el.addEventListener('click', e => {
+      e.preventDefault();
+      createPrescription(datas.appointmentid,datas.symptoms);
+    });
+  });
+}
+
+const prescription = document.querySelectorAll('.prescription');
+let prescriptionSerial = 0;
+if (prescription) {
+  prescriptionSerial = prescription.length + 1;
+}
+const medicineAddBtn = document.querySelector('#medicineAddBtn');
+if (medicineAddBtn) {
+  medicineAddBtn.addEventListener('click', el => {
+    el.preventDefault();
+    const table = document.querySelector('#tableBody');
+    const child = document.createElement('tr');
+    child.classList.add('prescription');
+    child.innerHTML = `<td>${prescriptionSerial++}.</td>
+    <td><input type="test" name="med_name" placeholder="Insert Medicine Name" id="nameInput" required></td>
+    <td><input type="number" name="" id="morningInput" value="0" class="mTime"></td>
+    <td><input type="number" name="" id="noonInput" value="0" class="mTime"></td>
+    <td><input type="number" name="" id="nightInput" value="0" class="mTime"></td>
+
+    <td><select id="time" name="time" class="takingTimeInput" required>
+            <option value="selectOne">Select One</option>
+            <option value="beforeMeal">Before Meal</option>
+            <option value="afterMeal">After Meal</option>
+        </select>
+    </td>`.trim();
+    table.appendChild(child);
+  });
+}
+
+const prescriptionSaveBtn = document.querySelector('#prescriptionSaveBtn');
+if (prescriptionSaveBtn) {
+  prescriptionSaveBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const prescriptions = document.querySelectorAll('.prescription');
+    const form = new FormData();
+    const medicines = [];
+    prescriptions.forEach(el => {
+      const name = el.querySelector('#nameInput').value;
+      const morning = el.querySelector('#morningInput').value;
+      const noon = el.querySelector('#noonInput').value;
+      const night = el.querySelector('#nightInput').value;
+      const takingTime = el.querySelector('.takingTimeInput').value;
+      if (name) {
+        const medicine = {
+          name,
+          morning,
+          noon,
+          night,
+          takingTime
+        };
+        medicines.push(medicine);
+      }
+    });
+    let presId = location.pathname;
+    presId = presId.split('/')[2];
+    form.append('medicine', JSON.stringify(medicines));
+    let data = Object.fromEntries([...form.entries()]);
+    data = JSON.parse(data.medicine);
+    const body = {
+      medicine: data,
+      tests: document.querySelector('.testInput').value,
+      advices: document.querySelector('.adviceInput').value,
+      symptoms: document.querySelector('.symptomInput').value
+    }
+    //console.log(body);
+    updatePrescription(presId,body);
+  });
+}
+
 
 
 const alertMessage = document.querySelector('body').dataset.alert;

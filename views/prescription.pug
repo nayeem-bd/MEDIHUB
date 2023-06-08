@@ -1,3 +1,20 @@
+mixin prescriptionCard(serial,name,morning,noon,night,takingTime)
+    tr.prescription
+        td= `${serial}.`
+        td
+            input(type='test' name='med_name' placeholder='Insert Medicine name' id='nameInput' required='' value=name)
+        td
+            input.mTime(type='number' name='' id='morningInput' value=morning)
+        td
+            input.mTime(type='number' name='' id='noonInput' value=noon)
+        td
+            input.mTime(type='number' name='' id='nightInput' value=night)
+        td 
+            select#time.takingTimeInput(name='time' required='')
+                option(value='selectOne' selected=takingTime=='selectOne') Select One
+                option(value='beforeMeal' selected=takingTime=='beforeMeal') Before Meal
+                option(value='afterMeal' selected=takingTime=='afterMeal') After Meal
+
 doctype html
 html(lang='en')
     head
@@ -15,35 +32,35 @@ html(lang='en')
             .presContent
                 section.presTop
                     .leftHead
-                        h2 North Bengal Medical Hospital
-                        p 78, Satmasjid Road (West of Road 27),Dhanmondi, Dhaka-1209
+                        h2= prescription.appointment.doctor.hospital.name
+                        p= `${prescription.appointment.doctor.hospital.address.street}, ${prescription.appointment.doctor.hospital.address.city}-${prescription.appointment.doctor.hospital.address.zipCode}`
                         p
-                            i.fa.fa-phone(aria-hidden='true') &nbsp; 10620, 09666787878
+                            i.fa.fa-phone(aria-hidden='true')= `\u00A0\u00A0${prescription.appointment.doctor.hospital.phone}`
                         p
-                            i.fa.fa-envelope(aria-hidden='true') &nbsp; info@bdeyehospital.com
+                            i.fa.fa-envelope(aria-hidden='true')= `\u00A0\u00A0${prescription.appointment.doctor.hospital.email}`
                     .midHead
                         img.medihub(src='../../../img/icons/groupicon.png' alt='')
                     .rightHead
-                        h2 Dr. Mahbub Rahman
-                        p Medicine Specialist
-                        p MBBS, FCPS (Medicine), MRCP (UK)
+                        h2= prescription.appointment.doctor.name
+                        p= prescription.appointment.doctor.specialty
+                        p MBBS, FCPS , MRCP (UK)
                 .flex1.border1
-                    p Patient Name : Omar Faruk
-                    p Age : 25
-                    p Gender : Male
-                    p 02 March 2023
+                    p= `Patient Name : ${prescription.appointment.user.name}`
+                    p= `Age : ${prescription.appointment.user.age}`
+                    p= `Gender : ${prescription.appointment.user.gender}`
+                    p= `${prescription.createdAt.toLocaleDateString('en-US', { day: '2-digit', month: 'long', year: 'numeric' })}`
                 section.presMid
                     .leftMid
                         h3 Symptoms
-                        textarea#textarea1(name='sy')
+                        textarea#textarea1.symptomInput(name='sy')= prescription.symptoms
                         h3 Tests
-                        textarea#textarea1(name='sy')
+                        textarea#textarea1.testInput(name='sy')= prescription.tests
                         h3 Advices
-                        textarea#textarea1(name='sy')
+                        textarea#textarea1.adviceInput(name='sy')=  prescription.advices
                     hr
                     .rightMid
                         table#table
-                            tbody
+                            tbody#tableBody
                                 tr
                                     th No.
                                     th Name of Medicine
@@ -51,73 +68,14 @@ html(lang='en')
                                     th Noon
                                     th Night
                                     th Taken Timing
-                                tr
-                                    td 1.
-                                    td
-                                        input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td 
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before Meal
-                                            option(value='after meal') After Meal
-                                tr
-                                    td 2.
-                                    td
-                                        input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td 
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before Meal
-                                            option(value='after meal') After Meal
+                                each medic,index in prescription.medicine
+                                    +prescriptionCard(index+1,medic.name,medic.morning,medic.noon,medic.night,medic.takingTime)
 
-                                tr
-                                    td 3.
-                                    td
-                                        input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td 
-                                        select#time(name='time' required='')
-                                            option(value='' selected='selected') Select One
-                                            option(value='before meal') Before Meal
-                                            option(value='after meal') After Meal
-
-                                tr
-                                    td 4.
-                                    td
-                                        input(type='test' name='med_name' placeholder='Insert Medicine name' required='')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td
-                                        input.mTime(type='number' name='' id='' value='0')
-                                    td 
-                                        select#time(name='time' required='')
-                                            option(value='selectOne' selected='selected') Select One
-                                            option(value='beforeMeal') Before Meal
-                                            option(value='afterMeal') After Meal
                         if user.role=='doctor'
-                            button.addButton Add Medicine
+                            button.addButton#medicineAddBtn Add Medicine
                 .border1.flex1(style='height:40px')
                     h5 &copy; 2022 MediHUB. All rights reserved.
                     if user.role=='doctor'
-                        button.button Save
+                        button.button#prescriptionSaveBtn Save
                     button.button Download
         script(src='../../../dist/index.js')
