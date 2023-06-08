@@ -4,6 +4,7 @@ const catchAsync = require('../utils/catchAsync');
 const Appointment = require('../model/appointmentModel');
 const User = require('../model/userModel');
 const Hospital = require('../model/hospitalModel');
+const Prescription = require('../model/prescriptionModel');
 
 const URL = process.env.API_URL;
 
@@ -113,15 +114,20 @@ exports.me = catchAsync(async (req, res, next) => {
 exports.showAppointments = catchAsync(async (req, res, next) => {
 
     let appointments;
-    if(req.user.role==='receptionist'){
+    if (req.user.role === 'receptionist') {
         appointments = await Appointment.find({});
-        appointments = appointments.filter(el=> el.doctor.hospital.id === req.user.hospital.id);
+        appointments = appointments.filter(el => el.doctor.hospital.id === req.user.hospital.id);
     }
-    else if(req.user.role==='doctor'){
-        appointments = await Appointment.find({doctor:req.user._id});
+    else if (req.user.role === 'doctor') {
+        appointments = await Appointment.find({ doctor: req.user._id });
         appointments = appointments.filter(el => el.isPaid === true);
-    }else if(req.user.role==='user'){
-        appointments = await Appointment.find({user:req.user._id});
+        appointments = await Promise.all(appointments.map(async el => {
+            const data = await Prescription.findOne({ appointment: el.id });
+            if (data) el.prescription = data.id;
+            return el;
+        }));
+    } else if (req.user.role === 'user') {
+        appointments = await Appointment.find({ user: req.user._id });
     }
 
     res.status(200).render('appointments', {
@@ -143,33 +149,35 @@ exports.showSchedule = catchAsync(async (req, res, next) => {
 });
 
 exports.showPrescription = catchAsync(async (req, res, next) => {
+    const prescription = await Prescription.findById(req.params.presId);
     res.status(200).render('prescription', {
-        title: 'Prescription'
+        title: 'Prescription',
+        prescription
     });
 });
 
 exports.showHospitalDoctors = catchAsync(async (req, res, next) => {
-    const doctors = await User.find({role:'doctor',hospital:req.user.hospital.id});
+    const doctors = await User.find({ role: 'doctor', hospital: req.user.hospital.id });
     res.status(200).render('hospitalDoctors', {
         title: 'Doctors',
         doctors
     });
 });
 
-exports.aboutus = catchAsync(async(req,res,next)=>{
-    res.status(200).render('aboutus',{
-        title:'About Us'
+exports.aboutus = catchAsync(async (req, res, next) => {
+    res.status(200).render('aboutus', {
+        title: 'About Us'
     });
 });
 
-exports.blogs = catchAsync(async(req,res,next)=>{
-    res.status(200).render('blogs',{
-        title:'About Us'
+exports.blogs = catchAsync(async (req, res, next) => {
+    res.status(200).render('blogs', {
+        title: 'About Us'
     });
 });
 
-exports.hospitalRegistration = catchAsync(async(req,res,next)=>{
-    res.status(200).render('hospitalReg',{
-        title:'About Us'
+exports.hospitalRegistration = catchAsync(async (req, res, next) => {
+    res.status(200).render('hospitalReg', {
+        title: 'About Us'
     });
 });
