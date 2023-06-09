@@ -7,7 +7,7 @@
   "description": "MEDIHUB is a online doctors appointment portal",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
     "start:dev": "nodemon server.js",
     "watch:js": "parcel watch ./public/js/index.js --out-dir ./public/dist --public-url .",
     "build:js": "parcel build ./public/js/index.js --out-dir ./public/dist --public-url ."
