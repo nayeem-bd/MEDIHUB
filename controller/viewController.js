@@ -137,8 +137,22 @@ exports.showAppointments = catchAsync(async (req, res, next) => {
 });
 
 exports.showHistory = catchAsync(async (req, res, next) => {
+    let prescriptions;
+    if (req.user.role === 'receptionist') {
+        prescriptions = await Prescription.find({});
+        prescriptions = prescriptions.filter(el => el.appointment.doctor.hospital.id === req.user.hospital.id);
+    }
+    else if (req.user.role === 'doctor') {
+        prescriptions = await Prescription.find({});
+        prescriptions = prescriptions.filter(el => el.appointment.doctor.id === req.user.id)
+    }
+    else if (req.user.role === 'user') {
+        prescriptions = await Appointment.find({});
+        prescriptions = prescriptions.filter(el => el.appointment.user.id === req.user.id);
+    }
     res.status(200).render('history', {
-        title: 'History'
+        title: 'History',
+        prescriptions
     });
 });
 
@@ -172,12 +186,12 @@ exports.aboutus = catchAsync(async (req, res, next) => {
 
 exports.blogs = catchAsync(async (req, res, next) => {
     res.status(200).render('blogs', {
-        title: 'About Us'
+        title: 'Blogs'
     });
 });
 
 exports.hospitalRegistration = catchAsync(async (req, res, next) => {
     res.status(200).render('hospitalReg', {
-        title: 'About Us'
+        title: 'Hospital Registration'
     });
 });
