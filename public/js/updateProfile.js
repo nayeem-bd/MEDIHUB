@@ -13,7 +13,7 @@ export const updateProfile = async (data, type) => {
             data
         });
         if (res.data.status === 'success') {
-            showAlert('success', `${type.toUpperCase()} updated successfully`);
+            showAlert('success', `${type.toUpperCase()} updated successfully`, type === 'schedule' ? 2 : 5);
             window.location.reload();
         }
     } catch (err) {

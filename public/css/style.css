@@ -1502,7 +1502,7 @@ main a:hover {
     margin-top: 75px;
 }
 
-#sat input,
+/* #sat input,
 #sun input,
 #mon input,
 #tue input,
@@ -1510,6 +1510,10 @@ main a:hover {
 #thu input,
 #fri input {
     width: 100px;
+} */
+
+.scheduleCard input{
+    width: 100px !important;
 }
 
 .dayHead {
