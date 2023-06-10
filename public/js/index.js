@@ -204,7 +204,7 @@ if (addPrescriptionBtn) {
     const datas = JSON.parse(JSON.stringify(el.dataset));
     el.addEventListener('click', e => {
       e.preventDefault();
-      createPrescription(datas.appointmentid,datas.symptoms);
+      createPrescription(datas.appointmentid, datas.symptoms);
     });
   });
 }
@@ -273,10 +273,47 @@ if (prescriptionSaveBtn) {
       symptoms: document.querySelector('.symptomInput').value
     }
     //console.log(body);
-    updatePrescription(presId,body);
+    updatePrescription(presId, body);
   });
 }
 
+
+const convertTime24to12 = (time) => {
+  const [hours, minutes] = time.split(':');
+  return (((hours % 12) || 12) + ':' + minutes + ' ' + (hours >= 12 ? 'PM' : 'AM'));
+}
+
+const updateValidSchedules = () => {
+  let schedule = [];
+  const scheduleCard = document.querySelectorAll('.scheduleCard');
+  scheduleCard.forEach(el => {
+    const startTime = el.querySelector('#startTimeInput').value;
+    const endTime = el.querySelector('#endTimeInput').value;
+    const day = el.querySelector('.dayHead').textContent.split(':')[0];
+    if (startTime && endTime) {
+      schedule.push({ day, startTime: convertTime24to12(startTime), endTime: convertTime24to12(endTime) });
+    }
+  });
+  updateProfile({ availability: schedule }, 'schedule')
+};
+
+const shouldUpdate = (parent) => {
+  const startTime = parent.querySelector('#startTimeInput').value;
+  const endTime = parent.querySelector('#endTimeInput').value;
+  return startTime && endTime;
+}
+
+const timeInput = document.querySelectorAll('.timeInput');
+if (timeInput) {
+  timeInput.forEach(el => {
+    const parent = el.parentElement;
+    el.addEventListener('change', e => {
+      e.preventDefault();
+      if (shouldUpdate(parent))
+        updateValidSchedules();
+    })
+  })
+}
 
 
 const alertMessage = document.querySelector('body').dataset.alert;

@@ -156,9 +156,35 @@ exports.showHistory = catchAsync(async (req, res, next) => {
     });
 });
 
+const convertTime12to24 = (time12h) => {
+    const [fullMatch, time, modifier] = time12h.match(/(\d?\d:\d\d)\s*(\w{2})/i);
+    let [hours, minutes] = time.split(':');
+    if (hours === '12') {
+        hours = '00';
+    }
+    if (modifier === 'PM') {
+        hours = parseInt(hours, 10) + 12;
+    }
+    return `${hours}:${minutes}`;
+}
+
 exports.showSchedule = catchAsync(async (req, res, next) => {
+
+    const user = await User.findById(req.user.id);
+    const schedule = user.availability.map(el => {
+        el.startTime = convertTime12to24(el.startTime);
+        el.endTime = convertTime12to24(el.endTime);
+        return el;
+    });
+    const daysName = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const allDays = daysName.map(day => {
+        const matchingSchedule = schedule.find(item => item.day === day);
+        return matchingSchedule || { day: day, startTime: '', endTime: '' };
+    });
+    //console.log(allDays);
     res.status(200).render('schedule', {
-        title: 'Schedule'
+        title: 'Schedule',
+        schedule: allDays
     });
 });
 
