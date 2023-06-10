@@ -137,14 +137,54 @@ exports.showAppointments = catchAsync(async (req, res, next) => {
 });
 
 exports.showHistory = catchAsync(async (req, res, next) => {
+    let prescriptions;
+    if (req.user.role === 'receptionist') {
+        prescriptions = await Prescription.find({});
+        prescriptions = prescriptions.filter(el => el.appointment.doctor.hospital.id === req.user.hospital.id);
+    }
+    else if (req.user.role === 'doctor') {
+        prescriptions = await Prescription.find({});
+        prescriptions = prescriptions.filter(el => el.appointment.doctor.id === req.user.id)
+    }
+    else if (req.user.role === 'user') {
+        prescriptions = await Appointment.find({});
+        prescriptions = prescriptions.filter(el => el.appointment.user.id === req.user.id);
+    }
     res.status(200).render('history', {
-        title: 'History'
+        title: 'History',
+        prescriptions
     });
 });
 
+const convertTime12to24 = (time12h) => {
+    const [fullMatch, time, modifier] = time12h.match(/(\d?\d:\d\d)\s*(\w{2})/i);
+    let [hours, minutes] = time.split(':');
+    if (hours === '12') {
+        hours = '00';
+    }
+    if (modifier === 'PM') {
+        hours = parseInt(hours, 10) + 12;
+    }
+    return `${hours}:${minutes}`;
+}
+
 exports.showSchedule = catchAsync(async (req, res, next) => {
+
+    const user = await User.findById(req.user.id);
+    const schedule = user.availability.map(el => {
+        el.startTime = convertTime12to24(el.startTime);
+        el.endTime = convertTime12to24(el.endTime);
+        return el;
+    });
+    const daysName = ['Saturday', 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+    const allDays = daysName.map(day => {
+        const matchingSchedule = schedule.find(item => item.day === day);
+        return matchingSchedule || { day: day, startTime: '', endTime: '' };
+    });
+    //console.log(allDays);
     res.status(200).render('schedule', {
-        title: 'Schedule'
+        title: 'Schedule',
+        schedule: allDays
     });
 });
 
@@ -172,12 +212,12 @@ exports.aboutus = catchAsync(async (req, res, next) => {
 
 exports.blogs = catchAsync(async (req, res, next) => {
     res.status(200).render('blogs', {
-        title: 'About Us'
+        title: 'Blogs'
     });
 });
 
 exports.hospitalRegistration = catchAsync(async (req, res, next) => {
     res.status(200).render('hospitalReg', {
-        title: 'About Us'
+        title: 'Hospital Registration'
     });
 });
