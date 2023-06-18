@@ -38,12 +38,34 @@ exports.signIn = async (req, res, next) => {
 }
 
 exports.showDoctors = catchAsync(async (req, res, next) => {
+    //console.log(req.query);
+    let { q, loc } = req.query;
     const response = await axios.get(`${URL}/api/v1/users/doctors?role=doctor`);
     let doctors = response.data.data.data;
     doctors = doctors.filter(el => el.hospital);
+    if (q) {
+        q = q.toLowerCase();
+        doctors = doctors.filter(el => {
+            if (el.name.toLowerCase().includes(q) || el.specialty.toLowerCase().includes(q) || el.hospital.name.toLowerCase().includes(q) || el.hospital.address.city.toLowerCase().includes(q) || el.hospital.address.street.toLowerCase().includes(q) || el.hospital.address.zipCode.toLowerCase().includes(q)) return true;
+            let flag = false;
+            el.education.forEach(e => {
+                if (e.toLowerCase().includes(q)) flag = true;
+            });
+            el.training.forEach(e => {
+                if (e.toLowerCase().includes(q)) flag = true;
+            });
+            return flag;
+        })
+    }
+    if (loc) {
+        loc = loc.toLowerCase();
+        doctors = doctors.filter(el => el.hospital.address.city.toLowerCase().includes(loc) || el.hospital.address.street.toLowerCase().includes(loc) || el.hospital.address.zipCode.toLowerCase().includes(loc))
+    }
     res.status(200).render('doctors', {
         title: 'Doctors',
-        doctors
+        doctors,
+        q,
+        loc
     });
 });
 
@@ -73,11 +95,32 @@ exports.bookAppointment = catchAsync(async (req, res, next) => {
 });
 
 exports.showHospitals = catchAsync(async (req, res, next) => {
+    let { q, loc } = req.query;
     const response = await axios.get(`${URL}/api/v1/hospitals/`);
-    const hospitals = response.data.data.data;
+    let hospitals = response.data.data.data;
+
+    if (q) {
+        q = q.toLowerCase();
+        hospitals = hospitals.filter(el => {
+            if (el.name.toLowerCase().includes(q) || el.address.city.toLowerCase().includes(q) || el.address.street.toLowerCase().includes(q) || el.address.zipCode.toLowerCase().includes(q)) return true;
+            let flag = false;
+            el.services.forEach(e => {
+                if (e.toLowerCase().includes(q)) flag = true;
+            })
+            return flag;
+        })
+    }
+    if (loc) {
+        loc = loc.toLowerCase();
+        hospitals = hospitals.filter(el => {
+            if (el.address.city.toLowerCase().includes(q) || el.address.street.toLowerCase().includes(q) || el.address.zipCode.toLowerCase().includes(q)) return true;
+            return false;
+        })
+    }
+
     res.status(200).render('hospitals', {
         title: 'Hospitals',
-        hospitals
+        hospitals, q, loc
     });
 });
 
