@@ -2,8 +2,14 @@
     .search-section
         // <i id="filtersubmit" class="fa fa-search"></i>
         .first-box
-            input(type="text" placeholder="Search by Specialty, Hospital name or Doctor’s name...")
+            if title == 'Hospitals'
+                input.searchBox(type="text" placeholder="Search by Hospital name or Services..." value =q)
+            else
+                input.searchBox(type="text" placeholder="Search by Specialty, Hospital name or Doctor’s name..." value =q)
         .second-box
-            input(type="text" placeholder="Search location...")
+            input.locationBox(type="text" placeholder="Search location..." value = loc)
         button
-            img#searchIcon2(src="img/icons/search2.png" alt="")
+            if title == 'Hospitals'
+                img#searchIcon2.searchBtnHos(src="../../../img/icons/search2.png" alt="")
+            else 
+                img#searchIcon2.searchBtnAll(src="../../../img/icons/search2.png" alt="")

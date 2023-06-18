@@ -315,6 +315,25 @@ if (timeInput) {
   })
 }
 
+const searchBtnAll = document.querySelector('.searchBtnAll');
+if (searchBtnAll) {
+  searchBtnAll.addEventListener('click', el => {
+    el.preventDefault();
+    const searchBox = document.querySelector('.searchBox').value;
+    const locationBox = document.querySelector('.locationBox').value;
+    location.assign(`/doctors?q=${searchBox}&loc=${locationBox}`);
+  });
+}
+
+const searchBtnHos = document.querySelector('.searchBtnHos');
+if (searchBtnHos) {
+  searchBtnHos.addEventListener('click', el => {
+    el.preventDefault();
+    const searchBox = document.querySelector('.searchBox').value;
+    const locationBox = document.querySelector('.locationBox').value;
+    location.assign(`/hospitals?q=${searchBox}&loc=${locationBox}`);
+  });
+}
 
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) showAlert('success', alertMessage, 10);
