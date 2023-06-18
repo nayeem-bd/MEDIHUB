@@ -1,0 +1,46 @@
+extends base
+
+mixin reviewCard()
+    .review1
+        .flex1
+            h3 Emon Hasan
+            .rate
+                input#star5(type='radio' name='rate' value='5')
+                label(for='star5' title='text')
+                input#star4(type='radio' name='rate' value='4')
+                label(for='star4' title='text')
+                input#star3(type='radio' name='rate' value='3')
+                label(for='star3' title='text')
+                input#star2(type='radio' name='rate' value='2')
+                label(for='star2' title='text')
+                input#star1(type='radio' name='rate' value='1')
+                label(for='star1' title='text')
+        p.reviewText
+            | Dr. Imtiaz Mahbub is very thorough and pretty good at answering my questions. He has tremendous experience. Helpful staff and a nice clean office and examining room.
+        .flex2
+            i.fa.fa-thumbs-up(aria-hidden='true')
+            p Helpful
+            p 02-03-2023
+
+block content 
+    section.doctorDetails
+        .doctor
+            img.img(src=`../../../img/user/${doctor.photo}` alt=doctor.name)
+            .nameLine
+                p.name= doctor.name
+                p= doctor.rating
+                img(src='../../../img/icons/Star 1.png' alt='')
+            p= `${doctor.experience} years experience overall`
+            h4.space1= doctor.specialty
+            .nameLine2
+                img.space1(src='../../../img/icons/hospital.png' alt='')
+                p.space1= doctor.hospital.name
+            div
+                button.appointment(onclick=`window.location.href='appointment'`) Book Now
+        .doctorInfo
+            h2.fee Top reviews from the users
+            +reviewCard()
+            +reviewCard()
+            +reviewCard()
+            +reviewCard()
+            +reviewCard()

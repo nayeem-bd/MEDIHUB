@@ -79,6 +79,16 @@ exports.showOneDoctor = catchAsync(async (req, res, next) => {
     });
 });
 
+exports.showReviews = catchAsync(async (req,res,next)=>{
+    const response = await axios.get(`${URL}/api/v1/users/doctors/${req.params.docId}`);
+    const doctor = response.data.data.doc;
+
+    res.status(200).render('reviews', {
+        title: 'Reviews',
+        doctor
+    });
+});
+
 exports.bookAppointment = catchAsync(async (req, res, next) => {
     const response = await axios.get(`${URL}/api/v1/users/doctors/${req.params.docId}`);
     const doctor = response.data.data.doc;
