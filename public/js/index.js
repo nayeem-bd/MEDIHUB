@@ -335,5 +335,32 @@ if (searchBtnHos) {
   });
 }
 
+
+
+import { createReview } from './reviews';
+
+const addReviewBtn = document.querySelector('#addReviewBtn');
+if (addReviewBtn) {
+  addReviewBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const datas = JSON.parse(JSON.stringify(addReviewBtn.dataset));
+    //console.log(datas);
+    const data = datas;
+    const selectedRadio = document.querySelector('input[name="rate"]:checked');
+    if (selectedRadio) {
+      const selectedValue = selectedRadio.value;
+      data.rating = selectedValue;
+    } else {
+      return showAlert('error', 'Enter Rating', 2);
+    }
+    const reviewText = document.querySelector('#reviewText').value;
+    if (reviewText) {
+      data.review = reviewText;
+    }
+    else return showAlert('error', 'Enter Review', 2);
+    createReview(data);
+  });
+}
+
 const alertMessage = document.querySelector('body').dataset.alert;
 if (alertMessage) showAlert('success', alertMessage, 10);
