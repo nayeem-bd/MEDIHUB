@@ -9,7 +9,7 @@ mixin doctorCard(img_src,name,rating,speciality,numOfReviews,hospitalImg,hospita
             img(src="../../../img/icons/Star 1.png" alt="")
         .line2
             p= speciality
-            p (32)
+            p= `(${numOfReviews})`
         .line3(style={'justify-content':'normal'})
             img(src=`../../../img/icons/${hospitalImg}` alt="")
             p(style={'margin-right':'0px','margin-left':'10px'})= hospitalName
@@ -26,4 +26,4 @@ block right
                 p.bottom-p Have a look at our best doctors from the registered Hospitals
                 .content-combo
                     each doc in doctors
-                        +doctorCard(doc.photo,doc.name,doc.rating,doc.specialty,32,'hospital.png',doc.hospital.name,doc.id)
+                        +doctorCard(doc.photo,doc.name,doc.rating,doc.specialty,doc.ratingsQuantity,'hospital.png',doc.hospital.name,doc.id)
