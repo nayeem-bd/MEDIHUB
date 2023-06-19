@@ -1,0 +1,42 @@
+extends base
+
+mixin reviewCard(patient,review,rating,date)
+    .review1
+        .flex1
+            h3= patient
+            .rate
+                input#star5(type='radio' name='rate5' value='5' checked = rating==5 disabled)
+                label(for='star5' title='text')
+                input#star4(type='radio' name='rate4' value='4' checked = rating==4 disabled)
+                label(for='star4' title='text')
+                input#star3(type='radio' name='rate3' value='3' checked = rating==3 disabled) 
+                label(for='star3' title='text')
+                input#star2(type='radio' name='rate2' value='2' checked = rating==2 disabled)
+                label(for='star2' title='text')
+                input#star1(type='radio' name='rate1' value='1' checked = rating==1 disabled)
+                label(for='star1' title='text')
+        p.reviewText= review
+        .flex2
+            i.fa.fa-thumbs-up(aria-hidden='true')
+            p Helpful
+            p= date
+
+block content 
+    section.doctorDetails
+        .doctor
+            img.img(src=`../../../img/user/${doctor.photo}` alt=doctor.name)
+            .nameLine
+                p.name= doctor.name
+                p= doctor.rating
+                img(src='../../../img/icons/Star 1.png' alt='')
+            p= `${doctor.experience} years experience overall`
+            h4.space1= doctor.specialty
+            .nameLine2
+                img.space1(src='../../../img/icons/hospital.png' alt='')
+                p.space1= doctor.hospital.name
+            div
+                button.appointment(onclick=`window.location.href='appointment'`) Book Now
+        .doctorInfo
+            h2.fee Top reviews from the users
+            each review in reviews
+                +reviewCard(review.patient.name,review.review,review.rating,review.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).split('/').reverse().join('-'))

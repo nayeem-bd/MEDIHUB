@@ -5,6 +5,7 @@ const Appointment = require('../model/appointmentModel');
 const User = require('../model/userModel');
 const Hospital = require('../model/hospitalModel');
 const Prescription = require('../model/prescriptionModel');
+const Review = require('../model/reviewModel');
 
 const URL = process.env.API_URL;
 
@@ -76,6 +77,19 @@ exports.showOneDoctor = catchAsync(async (req, res, next) => {
     res.status(200).render('doctorDetails', {
         title: doctor.name,
         doctor
+    });
+});
+
+exports.showReviews = catchAsync(async (req, res, next) => {
+    const response = await axios.get(`${URL}/api/v1/users/doctors/${req.params.docId}`);
+    const doctor = response.data.data.doc;
+
+    const reviews = await Review.find({ doctor: req.params.docId });
+    //console.log(reviews);
+    res.status(200).render('reviews', {
+        title: 'Reviews',
+        doctor,
+        reviews
     });
 });
 

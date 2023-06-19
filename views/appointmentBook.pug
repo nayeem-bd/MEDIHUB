@@ -65,11 +65,11 @@ block content
                         input(type="radio" id="star1" name="rate" value="1")
                         label(for="star1" title="text")
                     div
-                        textarea(type="text" placeholder="Write a Review")
+                        textarea#reviewText(type="text" placeholder="Write a Review")
                         p
-                            button.button1 Add Review
+                            button.button1#addReviewBtn(data-patient=user.id data-doctor=doctor.id) Add Review
                 div
-                    p.stories User Stories(189)
+                    p.stories(onclick=`window.location.href='reviews'`)= `User Stories(${doctor.ratingsQuantity})`
 
     .history3
         div
