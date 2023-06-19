@@ -335,6 +335,8 @@ if (searchBtnHos) {
   });
 }
 
+
+
 import { createReview } from './reviews';
 
 const addReviewBtn = document.querySelector('#addReviewBtn');

@@ -7,7 +7,7 @@ export const createReview = async (data) => {
     try {
         const res = await axios.post('/api/v1/reviews', data);
         if (res.data.status === 'success') {
-            showAlert('success','Review Added',2);
+            showAlert('success', 'Review Added', 2);
             location.reload();
         }
     } catch (err) {

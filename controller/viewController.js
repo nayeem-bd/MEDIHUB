@@ -80,11 +80,11 @@ exports.showOneDoctor = catchAsync(async (req, res, next) => {
     });
 });
 
-exports.showReviews = catchAsync(async (req,res,next)=>{
+exports.showReviews = catchAsync(async (req, res, next) => {
     const response = await axios.get(`${URL}/api/v1/users/doctors/${req.params.docId}`);
     const doctor = response.data.data.doc;
 
-    const reviews = await Review.find({doctor:req.params.docId});
+    const reviews = await Review.find({ doctor: req.params.docId });
     //console.log(reviews);
     res.status(200).render('reviews', {
         title: 'Reviews',
