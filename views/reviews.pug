@@ -1,9 +1,9 @@
 extends base
 
-mixin reviewCard()
+mixin reviewCard(patient,review,rating,date)
     .review1
         .flex1
-            h3 Emon Hasan
+            h3= patient
             .rate
                 input#star5(type='radio' name='rate' value='5')
                 label(for='star5' title='text')
@@ -15,12 +15,11 @@ mixin reviewCard()
                 label(for='star2' title='text')
                 input#star1(type='radio' name='rate' value='1')
                 label(for='star1' title='text')
-        p.reviewText
-            | Dr. Imtiaz Mahbub is very thorough and pretty good at answering my questions. He has tremendous experience. Helpful staff and a nice clean office and examining room.
+        p.reviewText= review
         .flex2
             i.fa.fa-thumbs-up(aria-hidden='true')
             p Helpful
-            p 02-03-2023
+            p= date
 
 block content 
     section.doctorDetails
@@ -39,8 +38,6 @@ block content
                 button.appointment(onclick=`window.location.href='appointment'`) Book Now
         .doctorInfo
             h2.fee Top reviews from the users
-            +reviewCard()
-            +reviewCard()
-            +reviewCard()
-            +reviewCard()
-            +reviewCard()
+            each review in reviews
+                +reviewCard(review.patient.name,review.review,review.rating,review.createdAt.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).split('/').reverse().join('-'))
+            
