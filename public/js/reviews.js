@@ -11,6 +11,9 @@ export const createReview = async (data) => {
             location.reload();
         }
     } catch (err) {
-        showAlert('error', err.message, 2);
+        if (err.response.data.message)
+            showAlert('error', err.response.data.message, 2);
+        else
+            showAlert('error', err.message, 2);
     }
 };
