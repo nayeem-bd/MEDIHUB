@@ -1,6 +1,6 @@
 mixin selectBoxOption(name,field,ID)
     if(ID)
-        option(value=ID selected=user.hospital.name==name)= name
+        option(value=ID selected=(user.hospital?user.hospital.name:'')==name)= name
     else
         option(value=name selected=user[field]==name)= name
 
@@ -14,7 +14,7 @@ mixin selectBoxOption(name,field,ID)
         .input
             label(for='name' ) Hospital/Clinic Name
             br
-            input(type='text' disabled name='' id='' value=user.hospital.name)
+            input(type='text' disabled name='' id='' value=user.hospital?user.hospital.name:'')
         .input
             label(for='Phone') Phone Number
             br
