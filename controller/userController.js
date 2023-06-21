@@ -46,7 +46,7 @@ exports.resizeUserPhoto = catchAsync(async (req, res, next) => {
 
 exports.updateMe = catchAsync(async (req, res, next) => {
     // eslint-disable-next-line no-console
-    console.log(req.file);
+    //console.log(req.file);
     //1) if body contains password
     if (req.body.password || req.body.passwordConfirm) {
         return next(new AppError('This is not route for password change', 400));
