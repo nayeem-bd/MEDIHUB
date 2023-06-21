@@ -1,6 +1,6 @@
 mixin selectBoxOption(name,field,ID)
     if(ID)
-        option(value=ID selected=user.hospital.name==name)= name
+        option(value=ID selected=(user.hospital?user.hospital.name:'')==name)= name
     else
         option(value=name selected=user[field]==name)= name
 
